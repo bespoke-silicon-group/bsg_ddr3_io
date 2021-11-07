@@ -1,0 +1,12 @@
+* Low-High corner (lh)
+.lib lh
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+* MOSFET
+.include "sky130_libs/corners/tt.spice"
+* Resistor/Capacitor
+.include "sky130_libs/r+c/res_low__cap_high.spice"
+.include "sky130_libs/r+c/res_low__cap_high__lin.spice"
+* Special cells
+.include "sky130_libs/corners/tt/specialized_cells.spice"
+.endl lh

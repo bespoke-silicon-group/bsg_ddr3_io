@@ -1,0 +1,12 @@
+* Slow-Slow corner (ss)
+.lib ss
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+* MOSFET
+.include "sky130_libs/corners/ss.spice"
+* Resistor/Capacitor
+.include "sky130_libs/r+c/res_typical__cap_typical.spice"
+.include "sky130_libs/r+c/res_typical__cap_typical__lin.spice"
+* Special cells
+.include "sky130_libs/corners/ss/specialized_cells.spice"
+.endl ss
