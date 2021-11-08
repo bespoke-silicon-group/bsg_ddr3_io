@@ -72,9 +72,8 @@ set temp=SED_temp_SED
 * RUN SIMULATION
 dc vvddq 0.1 1.65 0.05
 * OUTPUT
-*plot vddq/I(vtest) vs vddq
-*MEAS DC r_max MAX par('vddq/I(vtest)')
 print v(vddq)/i(vtest)
+wrdata out/data/SED_plotName_SED.txt v(vddq)/i(vtest)
 set hcopydevtype = svg
 hardcopy ./out/plots/SED_plotName_SED.svg vddq/I(vtest) vs vddq title 'Resistance vs pin voltage'
 

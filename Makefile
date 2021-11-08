@@ -99,8 +99,12 @@ endif
 install-tools: $(NGSPICE) $(XSCHEM) $(MAGIC) $(NETGEN)
 	ln -s ${PDKSPATH}/${PDKNAME} pdk
 
+.PHONY: clean-output
+clean-output:
+	rm -rvf ./out
+
 .PHONY: clean
-clean:
+clean: $(clean-output)
 	rm -rvf ./tools
 
 .PHONY: edit
