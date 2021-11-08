@@ -1,6 +1,10 @@
 import subprocess
 import os
 
+LEG_EXPECTED_RES = 240
+LEG_MIN_RES = 240*0.9
+LEG_MAX_RES = 240*1.1
+
 def sim_params(template_script, outName, temp, gateVoltage, process, plotName=''):
   if plotName == '':
     plotName = outName

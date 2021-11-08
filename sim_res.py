@@ -1,4 +1,4 @@
-from leg_sim_util import sim_params
+from leg_sim_util import *
 
 tmp = 'test_resistance.spice'
 
@@ -35,3 +35,9 @@ print('Global max resistance = {r} ({t}C, {v}Vg, "{p}" proc).'.format(
 print()
 
 print('Simulations of {tmp} complete!'.format(tmp=tmp))
+
+if minr > LEG_MIN_RES:
+  print('Test passed. Minimum resistance is in range.')
+else:
+  print('Test FAILED. Minimum resistance {ra} ohms is below the min case {re} ohms.'.format( \
+    ra=minr, re=LEG_MIN_RES))

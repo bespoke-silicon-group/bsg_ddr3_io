@@ -70,7 +70,7 @@ save all
 set temp=SED_temp_SED
 
 * RUN SIMULATION
-dc vvddq 0.1 1.65 0.05
+dc vvddq 0.3 1.2 0.05
 * OUTPUT
 print v(vddq)/i(vtest)
 wrdata out/data/SED_plotName_SED.txt v(vddq)/i(vtest)
