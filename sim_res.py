@@ -4,8 +4,8 @@ tmp = 'test_resistance.spice'
 
 result = sim_params(tmp, outName='pres_sim_typ', temp=27, gateVoltage=1.8, process='tt');
 print('Typical case:')
-print('Min resistance = {r} ohms.'.format(r=round(result[0],1)))
-print('Max resistance = {r} ohms.'.format(r=round(result[1],1)))
+print('Min resistance = {r} ohms.'.format(r=round(min(result.values()),1)))
+print('Max resistance = {r} ohms.'.format(r=round(max(result.values()),1)))
 print()
 
 # All sim cases
@@ -20,18 +20,18 @@ for temp in temps:
     for proc in procs:
       name = 'pres_sim_{t}_{v}_{p}'.format(t=temp, v=vg, p=proc);
       result = sim_params(tmp, outName=name, temp=temp, gateVoltage=vg, process=proc);
-      if result[0] < minr:
-        minr = result[0]
-        mincase = [temp, vg, proc]
-      if result[1] > maxr:
-        maxr = result[1]
+      if min(result.values()) < minr:
+        minr = min(result.values())
+        mincase = [temp, vg, proc]  
+      if max(result.values()) > maxr:
+        maxr = max(result.values())
         maxcase = [temp, vg, proc]
 
 print()
 print('Global min resistance = {r} ({t}C, {v}Vg, "{p}" proc).'.format(
-  r=minr, t=mincase[0], v=mincase[1], p=mincase[2]))
+  r=round(minr, 1), t=mincase[0], v=mincase[1], p=mincase[2]))
 print('Global max resistance = {r} ({t}C, {v}Vg, "{p}" proc).'.format(
-  r=maxr, t=maxcase[0], v=maxcase[1], p=maxcase[2]))
+  r=round(maxr, 1), t=maxcase[0], v=maxcase[1], p=maxcase[2]))
 print()
 
 print('Simulations of {tmp} complete!'.format(tmp=tmp))

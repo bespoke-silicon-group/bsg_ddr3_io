@@ -1,5 +1,6 @@
 import subprocess
 import os
+from math import isclose
 
 LEG_EXPECTED_RES = 240
 LEG_MIN_RES = 240*0.9
@@ -53,13 +54,14 @@ def sim_params(template_script, outName, temp, gateVoltage, process, plotName=''
   print('NGSPICE complete.')
   #print('^^^ IGNORE NGSPICE ERRORS, THEY ARE A LIE (USUALLY) ^^^')
 
-  # Read data from output file
-  data = []
+  data = {}
   with open('out/data/{name}.txt'.format(name=plotName), 'r') as d_file:
     for line in d_file:
-      data.append( float(line.split()[1]) )
+      if isclose(float(line.split()[0]), 0.2*1.5):
+        data['r_lvt'] = float(line.split()[1])
+      if isclose(float(line.split()[0]), 0.5*1.5):
+        data['r_mvt'] = float(line.split()[1])
+      if isclose(float(line.split()[0]), 0.8*1.5):
+        data['r_hvt'] = float(line.split()[1])
 
-  min_r = min(data)
-  max_r = max(data)
-
-  return [min_r, max_r]
+  return data
