@@ -8,23 +8,23 @@ Xn1 vpulldown net2 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((n
 Vgate net2 GND SED_vg_SED
 Xnctrl0 net1 v_ctrl0 vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=12 m=12 
-Vctrl0 v_ctrl0 GND SED_vg_SED
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=6 m=6 
+Vctrl0 v_ctrl0 GND SED_vctrl0_SED
 Xnctrl1 net1 v_ctrl1 vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=6 m=6 
-Xnctrl2 net1 v_ctrl2 vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
-+ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=3 m=3 
-Xnctrl3 net1 v_ctrl3 vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.975 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+Xnctrl2 net1 v_ctrl2 vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.975 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1 
+Xnctrl3 net1 v_ctrl3 vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.4875 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1 
 Xnctrl_tot __UNCONNECTED_PIN__0 v_ctrl0 __UNCONNECTED_PIN__1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65
 + nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=22 m=22 
-Vctrl1 v_ctrl1 GND SED_vg_SED
-Vctrl2 v_ctrl2 GND SED_vg_SED
-Vctrl3 v_ctrl3 GND SED_vg_SED
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=10 m=10 
+Vctrl1 v_ctrl1 GND SED_vctrl1_SED
+Vctrl2 v_ctrl2 GND SED_vctrl2_SED
+Vctrl3 v_ctrl3 GND SED_vctrl3_SED
 **** begin user architecture code
  ** Local library links to pdk
 .lib ./libs/SED_process_SED_lib.spice SED_process_SED

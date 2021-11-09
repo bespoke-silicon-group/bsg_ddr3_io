@@ -1,8 +1,12 @@
 from leg_sim_util import sim_params
 
 tmp = 'n-leg.spice'
+ctrl_sig = [1, 1, 1, 1]
 
-result = sim_params(tmp, outName='n-leg_sim_typ', temp=27, gateVoltage=1.8, process='tt');
+print('Calibration input is: {a}'.format(a=ctrl_sig))
+
+result = sim_params(tmp, outName='n-leg_sim_typ', temp=27, gateVoltage=1.8, 
+  process='tt', ctrl_sig=ctrl_sig)
 print('Typical case:')
 print('Min resistance = {r} ohms.'.format(r=round(result[0],1)))
 print('Max resistance = {r} ohms.'.format(r=round(result[1],1)))
@@ -19,7 +23,9 @@ for temp in temps:
   for vg in Vgs:
     for proc in procs:
       name = 'n-leg_sim_{t}_{v}_{p}'.format(t=temp, v=vg, p=proc);
-      result = sim_params(tmp, outName=name, temp=temp, gateVoltage=vg, process=proc);
+      result = sim_params(tmp, outName=name, temp=temp, gateVoltage=vg, 
+        process=proc, ctrl_sig=ctrl_sig)
+      
       if result[0] < minr:
         minr = result[0]
         mincase = [temp, vg, proc]
