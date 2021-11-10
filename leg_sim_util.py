@@ -1,10 +1,28 @@
 import subprocess
 import os
 from math import isclose
+from time import sleep
 
 LEG_EXPECTED_RES = 240
 LEG_MIN_RES = 240*0.9
 LEG_MAX_RES = 240*1.1
+
+def checkResReq(r_set):
+  result = [0, 0, 0]
+  if   r_set['r_lvt'] < 0.6*LEG_EXPECTED_RES:
+    result[0] = -1
+  elif r_set['r_lvt'] > 1.1*LEG_EXPECTED_RES:
+    result[0] = 1
+  if   r_set['r_mvt'] < 0.9*LEG_EXPECTED_RES:
+    result[1] = -1
+  elif r_set['r_mvt'] > 1.1*LEG_EXPECTED_RES:
+    result[1] = 1
+  if   r_set['r_hvt'] < 0.9*LEG_EXPECTED_RES:
+    result[2] = -1
+  elif r_set['r_hvt'] > 1.4*LEG_EXPECTED_RES:
+    result[2] = 1  
+  return result
+
 
 def sim_params(template_script, outName, temp, gateVoltage, process, plotName='', ctrl_sig=[]):
   if plotName == '':
@@ -45,13 +63,19 @@ def sim_params(template_script, outName, temp, gateVoltage, process, plotName=''
   pname=plotName, vg=gateVoltage, temp=temp, proc=process, ctrl=ctrl_script, template=template_script, outName=outName))
 
   # Launch NGspice
-  print('NGSPICE launched script "{outName}.spice"... '.format(outName=outName))
-  os.system('''
-    make launch-ngspice \
-    args=out/scripts/{outName}.spice\\ -b\\ -o\\ out/logs/{outName}.log \
-    >/dev/null 2>&1'''.format(\
-    outName=outName))
-  print('NGSPICE complete.')
+  try:
+    print('NGSPICE launched script "{outName}.spice"... '.format(outName=outName))
+    os.system('''
+      make launch-ngspice \
+      args=out/scripts/{outName}.spice\\ -b\\ -o\\ out/logs/{outName}.log \
+      >/dev/null 2>&1'''.format(\
+      outName=outName))
+    print('NGSPICE complete.')
+    sleep(0.200) # 200 ms to leave time for interrupt
+  except KeyboardInterrupt:
+    print('\nSimulation halted')
+    quit()
+  
   #print('^^^ IGNORE NGSPICE ERRORS, THEY ARE A LIE (USUALLY) ^^^')
 
   data = {}
@@ -65,3 +89,4 @@ def sim_params(template_script, outName, temp, gateVoltage, process, plotName=''
         data['r_hvt'] = float(line.split()[1])
 
   return data
+

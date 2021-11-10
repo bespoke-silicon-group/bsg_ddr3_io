@@ -4,25 +4,8 @@ tmp = 'n-leg.spice'
 
 def cal2ctrl(n):
   result = [0, 0, 0, 0]
-  # print(bin(n)[::-1][:-2])
   for b in range(len(bin(n))-2): result[b] = int(bin(n)[::-1][:-2][b] == '1')
   result.reverse()
-  return result
-
-def checkResReq(r_set):
-  result = [0, 0, 0]
-  if   r_set['r_lvt'] < 0.6*240:
-    result[0] = -1
-  elif r_set['r_lvt'] > 1.1*240:
-    result[0] = 1
-  if   r_set['r_mvt'] < 0.9*240:
-    result[1] = -1
-  elif r_set['r_mvt'] > 1.1*240:
-    result[1] = 1
-  if   r_set['r_hvt'] < 0.9*240:
-    result[2] = -1
-  elif r_set['r_hvt'] > 1.4*240:
-    result[2] = 1  
   return result
 
 def simCal(temp, vg, proc):

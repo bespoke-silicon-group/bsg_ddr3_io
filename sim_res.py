@@ -26,6 +26,9 @@ for temp in temps:
       if max(result.values()) > maxr:
         maxr = max(result.values())
         maxcase = [temp, vg, proc]
+      if -1 in checkResReq(result):
+        print('Test FAILED resistance out of range! {r}'.format(r=result))
+        quit()
 
 print()
 print('Global min resistance = {r} ({t}C, {v}Vg, "{p}" proc).'.format(
@@ -36,8 +39,3 @@ print()
 
 print('Simulations of {tmp} complete!'.format(tmp=tmp))
 
-if minr > LEG_MIN_RES:
-  print('Test passed. Minimum resistance is in range.')
-else:
-  print('Test FAILED. Minimum resistance {ra} ohms is below the min case {re} ohms.'.format( \
-    ra=minr, re=LEG_MIN_RES))
