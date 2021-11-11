@@ -1,5 +1,7 @@
 from leg_sim_util import *
 from math import floor
+from numpy import arange
+from random import randrange
 tmp = 'n-leg.spice'
 
 def cal2ctrl(n):
@@ -64,5 +66,18 @@ with open('cal_log.txt', 'w') as outf:
           t=temp, v=vg, p=proc, cal=output['cal'], res=output['res']))
         print()
         print()
-print('ALL CALIBRATIONS PASSED!')
+print('ALL CORNER CALIBRATION CASES PASSED!')
 
+temps = list(range(-40, 85, 5))
+Vgs = list(arange(1.62, 1.98, 0.04))
+with open('cal_log.txt', 'a') as outf:
+  for i in range(500):
+    temp = temps[randrange(len(temps))]
+    vg   = round(Vgs[randrange(len(Vgs))], 3)
+    proc = procs[randrange(len(procs))]
+    output = simCal(temp, vg, proc)
+    outf.write('{t}, {v}, {p}\t\t{cal}\t{res}\n'.format(
+      t=temp, v=vg, p=proc, cal=output['cal'], res=output['res']))
+    print()
+    print()
+print('ALL M-C CASES PASSED!')
