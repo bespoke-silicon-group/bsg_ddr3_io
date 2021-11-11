@@ -30,9 +30,9 @@ def simCal(temp, vg, proc):
       print('Calibration impossible with resistances: {r}'.format(r=result))
       break
     elif 1 in res: # Resistance was too high
-      search_min = cal
+      search_min = cal+1
     elif -1 in res: # Resistance was too low
-      search_max = cal
+      search_max = cal-1
     else: assert(False)
   assert(False, 'CALIBRATION FAILED!') 
 
