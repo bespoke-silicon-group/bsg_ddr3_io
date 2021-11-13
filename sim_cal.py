@@ -54,7 +54,7 @@ def simCal(temp, vg, proc):
 #vg   = 1.98
 #proc = 'lh'
 
-temps = [-40, 85]
+temps = [-40, 125]
 Vgs = [1.98, 1.62]
 procs = ['ff', 'ff_mm', 'fs', 'fs_mm', 'hh', 'hh_mm', 'hl', 'hl_mm', 'lh', 'lh_mm', 'll', 'll_mm', 'sf', 'sf_mm', 'ss', 'ss_mm', 'tt', 'tt_mm']
 with open('cal_log.txt', 'w') as outf:
@@ -68,7 +68,7 @@ with open('cal_log.txt', 'w') as outf:
         print()
 print('ALL CORNER CALIBRATION CASES PASSED!')
 
-temps = list(range(-40, 85, 5))
+temps = list(range(-40, 125, 5))
 Vgs = list(arange(1.62, 1.98, 0.04))
 with open('cal_log.txt', 'a') as outf:
   for i in range(500):

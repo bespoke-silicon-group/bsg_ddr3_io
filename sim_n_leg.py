@@ -16,7 +16,7 @@ print()
 minr = 1000
 maxr = 0
 mincase = maxcase = [0, 0, '']
-temps = [-40, 85]
+temps = [-40, 125]
 Vgs = [1.98, 1.62]
 procs = ['ff', 'ff_mm', 'fs', 'fs_mm', 'hh', 'hh_mm', 'hl', 'hl_mm', 'lh', 'lh_mm', 'll', 'll_mm', 'sf', 'sf_mm', 'ss', 'ss_mm', 'tt', 'tt_mm']
 for temp in temps:
