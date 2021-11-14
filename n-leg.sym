@@ -1,0 +1,24 @@
+v {xschem version=3.0.0 file_version=1.2 }
+G {}
+K {type=subcircuit
+format="@name @@DQ @@pd_ctrl @@cal_ctrl[3:0] @symname"
+template="name=X1"}
+V {}
+S {}
+E {}
+L 4 460 -180 500 -180 {}
+L 4 20 -180 60 -180 {}
+L 4 20 -60 60 -60 {}
+B 5 497.5 -182.5 502.5 -177.5 {name=DQ
+dir=inout}
+B 5 17.5 -182.5 22.5 -177.5 {name=pd_ctrl
+dir=in}
+B 5 17.5 -62.5 22.5 -57.5 {name=cal_ctrl[3:0]
+dir=in}
+P 4 5 60 -200 460 -200 460 -40 60 -40 60 -200 {}
+T {240 Ohm 
+Pulldown} 160 -170 0 0 0.8 0.8 {}
+T {DQ} 430 -190 0 0 0.3 0.3 {}
+T {pd_ctrl} 70 -190 0 0 0.3 0.3 {}
+T {cal_ctrl[3:0]} 70 -70 0 0 0.3 0.3 {}
+T {@name} 230 -230 0 0 0.3 0.3 {}

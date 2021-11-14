@@ -1,6 +1,6 @@
 from leg_sim_util import sim_params
 
-tmp = 'n-leg.spice'
+tmp = 'n-leg_tb.spice'
 ctrl_sig = [1, 1, 1, 1]
 
 print('Calibration input is: {a}'.format(a=ctrl_sig))

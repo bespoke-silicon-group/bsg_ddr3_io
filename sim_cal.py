@@ -2,7 +2,7 @@ from leg_sim_util import *
 from math import floor
 from numpy import arange
 from random import randrange
-tmp = 'n-leg.spice'
+tmp = 'n-leg_tb.spice'
 
 def cal2ctrl(n):
   result = [0, 0, 0, 0]
@@ -71,7 +71,7 @@ print('ALL CORNER CALIBRATION CASES PASSED!')
 temps = list(range(-40, 125, 5))
 Vgs = list(arange(1.62, 1.98, 0.04))
 with open('cal_log.txt', 'a') as outf:
-  for i in range(500):
+  for i in range(200):
     temp = temps[randrange(len(temps))]
     vg   = round(Vgs[randrange(len(Vgs))], 3)
     proc = procs[randrange(len(procs))]
