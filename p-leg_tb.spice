@@ -1,0 +1,72 @@
+**.subckt p-leg_tb
+Vctrl0 VDD n_cal_ctrl[0] SED_vctrl0_SED
+Vctrl1 VDD n_cal_ctrl[1] SED_vctrl1_SED
+Vctrl2 VDD n_cal_ctrl[2] SED_vctrl2_SED
+Vctrl3 VDD n_cal_ctrl[3] SED_vctrl3_SED
+Vgate VDD n_pu_ctrl SED_vg_SED
+Vtest DQ VDDQ 0
+.save  i(vtest)
+V1v5 net1 GND 1.5
+Vpinvoltage net1 VDDQ 0
+X1 DQ n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-leg
+**** begin user architecture code
+ ** Local library links to pdk
+.lib ./libs/SED_process_SED_lib.spice SED_process_SED
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  p-leg.sym # of pins=3
+* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/p-leg-design/p-leg.sym
+* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/p-leg-design/p-leg.sch
+.subckt p-leg  DQ  n_pu_ctrl  n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0]
+*.ipin n_cal_ctrl[3],n_cal_ctrl[2],n_cal_ctrl[1],n_cal_ctrl[0]
+*.ipin n_pu_ctrl
+*.iopin DQ
+XM1 net1 n_pu_ctrl VDD VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=96 m=96
+R1 DQ net1 sky130_fd_pr__res_generic_po W=0.33 L=2.3 m=1
+XMctrl_tot VDD VDD VDD VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=18 m=18
+XMctrl0 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
+XMctrl1 DQ n_cal_ctrl[1] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
+XMctrl2 DQ n_cal_ctrl[2] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XMctrl3 DQ n_cal_ctrl[3] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND
+**** begin user architecture code
+
+
+
+* power voltage
+vvdd VDD 0 1.8
+
+.control
+save all
+set temp=SED_temp_SED
+
+* RUN SIMULATION
+dc Vpinvoltage 0.3 1.2 0.05
+* OUTPUT
+print (1.5-vddq)/i(vtest)
+wrdata out/data/SED_plotName_SED.txt (1.5-vddq)/i(vtest)
+set hcopydevtype = svg
+hardcopy ./out/plots/SED_plotName_SED.svg (1.5-vddq)/I(vtest) vs vddq title 'Resistance vs pin voltage'
+
+.endc
+
+
+**** end user architecture code
+.end

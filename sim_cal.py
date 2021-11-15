@@ -1,3 +1,4 @@
+from sys import argv
 from leg_sim_util import *
 from math import floor
 from numpy import arange
@@ -10,7 +11,7 @@ def cal2ctrl(n):
   result.reverse()
   return result
 
-def simCal(temp, vg, proc):
+def simCal(template, temp, vg, proc):
   name = 'cal_sim_{t}_{v}_{p}'.format(t=temp, v=vg, p=proc)
   search_max = 15
   search_min = 0
@@ -21,7 +22,7 @@ def simCal(temp, vg, proc):
     cal = floor((search_max+search_min)/2)
     ctrl_sig = cal2ctrl(cal)
     print('Trying cal = {c}: {a}'.format(c=cal, a=ctrl_sig))
-    result = sim_params(tmp, outName=name, temp=temp, gateVoltage=vg, 
+    result = sim_params(template, outName=name, temp=temp, gateVoltage=vg, 
       process=proc, ctrl_sig=ctrl_sig)
     res = checkResReq(result)
     if not(any(res)): # If all in range, we found calibration!
@@ -39,20 +40,20 @@ def simCal(temp, vg, proc):
   assert(False, 'CALIBRATION FAILED!') 
 
 
-# Typical 
-#temp = 27
-#vg   = 1.8
-#proc = 'tt'
 
-# Highest Resistance
-#temp = 85
-#vg   = 1.62
-#proc = 'fs_mm'
 
-# Lowest Resistance
-#temp = -40
-#vg   = 1.98
-#proc = 'lh'
+
+# Decide template script and output name based on user choice of 'pulldown' or 'pullup'
+if len(argv)>1 and argv[1]=='pulldown':
+  tmp       = 'n-leg_tb.spice'
+  name_temp = 'n-leg_sim'
+elif len(argv)>1 and argv[1]=='pullup':
+  tmp       = 'p-leg_tb.spice'
+  name_temp = 'p-leg_sim'
+else:
+  print('Missing argument. "pulldown" or "pullup"')
+  print('Usage: {fname} pulldown/pullup <CAL_OPTION>'.format(fname=argv[0]))
+  quit()
 
 temps = [-40, 125]
 Vgs = [1.98, 1.62]
@@ -61,7 +62,7 @@ with open('cal_log.txt', 'w') as outf:
   for temp in temps:
     for vg in Vgs:
       for proc in procs:
-        output = simCal(temp, vg, proc)
+        output = simCal(tmp, temp, vg, proc)
         outf.write('{t}, {v}, {p}\t\t{cal}\t{res}\n'.format(
           t=temp, v=vg, p=proc, cal=output['cal'], res=output['res']))
         print()
@@ -75,7 +76,7 @@ with open('cal_log.txt', 'a') as outf:
     temp = temps[randrange(len(temps))]
     vg   = round(Vgs[randrange(len(Vgs))], 3)
     proc = procs[randrange(len(procs))]
-    output = simCal(temp, vg, proc)
+    output = simCal(tmp, temp, vg, proc)
     outf.write('{t}, {v}, {p}\t\t{cal}\t{res}\n'.format(
       t=temp, v=vg, p=proc, cal=output['cal'], res=output['res']))
     print()

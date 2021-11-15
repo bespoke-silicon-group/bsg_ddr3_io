@@ -1,11 +1,26 @@
+from sys import argv
 from leg_sim_util import sim_params
 
-tmp = 'n-leg_tb.spice'
+# Decide template script and output name based on user choice of 'pulldown' or 'pullup'
+if len(argv)>1 and argv[1]=='pulldown':
+  tmp       = 'n-leg_tb.spice'
+  name_temp = 'n-leg_sim'
+elif len(argv)>1 and argv[1]=='pullup':
+  tmp       = 'p-leg_tb.spice'
+  name_temp = 'p-leg_sim'
+else:
+  print('Missing argument. "pulldown" or "pullup"')
+  print('Usage: {fname} pulldown/pullup <CAL_OPTION>'.format(fname=argv[0]))
+  quit()
+
+# Optionally, set the calibration control value from arguments
 ctrl_sig = [1, 1, 1, 1]
+if len(argv) > 2:
+  ctrl_sig = [int(c) for c in argv[2].split(',')]
 
 print('Calibration input is: {a}'.format(a=ctrl_sig))
 
-result = sim_params(tmp, outName='n-leg_sim_typ', temp=27, gateVoltage=1.8, 
+result = sim_params(tmp, outName='{n}_typ'.format(n=name_temp), temp=27, gateVoltage=1.8, 
   process='tt', ctrl_sig=ctrl_sig)
 print('Typical case:')
 print('Min resistance = {r} ohms.'.format(r=round(min(result.values()),1)))
@@ -22,7 +37,7 @@ procs = ['ff', 'ff_mm', 'fs', 'fs_mm', 'hh', 'hh_mm', 'hl', 'hl_mm', 'lh', 'lh_m
 for temp in temps:
   for vg in Vgs:
     for proc in procs:
-      name = 'n-leg_sim_{t}_{v}_{p}'.format(t=temp, v=vg, p=proc);
+      name = '{n}_{t}_{v}_{p}'.format(n=name_temp, t=temp, v=vg, p=proc); # TODO update name here!
       result = sim_params(tmp, outName=name, temp=temp, gateVoltage=vg, 
         process=proc, ctrl_sig=ctrl_sig)
 

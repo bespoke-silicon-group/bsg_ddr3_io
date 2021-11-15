@@ -1,4 +1,4 @@
-**.subckt test_resistance
+**.subckt test_pd_res
 R1 vpulldown net1 sky130_fd_pr__res_generic_po W=0.33 L=1.7 m=1
 vtest VDDQ net1 0
 .save  i(vtest)

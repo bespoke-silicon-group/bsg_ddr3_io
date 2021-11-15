@@ -1,6 +1,17 @@
+from sys import argv
 from leg_sim_util import *
 
-tmp = 'test_resistance.spice'
+# Decide template script and output name based on user choice of 'pulldown' or 'pullup'
+if len(argv)>1 and argv[1]=='pulldown':
+  tmp       = 'test_pd_res.spice'
+  name_temp = 'pd_pres_sim'
+elif len(argv)>1 and argv[1]=='pullup':
+  tmp       = 'test_pu_res.spice'
+  name_temp = 'pu_pres_sim'
+else:
+  print('Missing argument. "pulldown" or "pullup"')
+  print('Usage: {fname} pulldown/pullup'.format(fname=argv[0]))
+  quit()
 
 result = sim_params(tmp, outName='pres_sim_typ', temp=27, gateVoltage=1.8, process='tt');
 print('Typical case:')
@@ -18,7 +29,7 @@ procs = ['ff', 'ff_mm', 'fs', 'fs_mm', 'hh', 'hh_mm', 'hl', 'hl_mm', 'lh', 'lh_m
 for temp in temps:
   for vg in Vgs:
     for proc in procs:
-      name = 'pres_sim_{t}_{v}_{p}'.format(t=temp, v=vg, p=proc);
+      name = '{n}_{t}_{v}_{p}'.format(n=name_temp, t=temp, v=vg, p=proc); # TODO Add name here!
       result = sim_params(tmp, outName=name, temp=temp, gateVoltage=vg, process=proc);
       if min(result.values()) < minr:
         minr = min(result.values())
