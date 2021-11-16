@@ -17,8 +17,8 @@ X1 DQ n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-leg
 **.ends
 
 * expanding   symbol:  p-leg.sym # of pins=3
-* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/p-leg-design/p-leg.sym
-* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/p-leg-design/p-leg.sch
+* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/p-leg.sym
+* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/p-leg.sch
 .subckt p-leg  DQ  n_pu_ctrl  n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0]
 *.ipin n_cal_ctrl[3],n_cal_ctrl[2],n_cal_ctrl[1],n_cal_ctrl[0]
 *.ipin n_pu_ctrl
@@ -36,10 +36,10 @@ XMctrl0 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 
 XMctrl1 DQ n_cal_ctrl[1] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
-XMctrl2 DQ n_cal_ctrl[2] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+XMctrl2 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
-XMctrl3 DQ n_cal_ctrl[3] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+XMctrl3 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 .ends
