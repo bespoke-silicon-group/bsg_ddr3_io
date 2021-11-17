@@ -52,10 +52,10 @@ vpu_cal30 pu_cal[12] 0 SED_pucal30_SED
 vpu_cal31 pu_cal[13] 0 SED_pucal31_SED
 vpu_cal32 pu_cal[14] 0 SED_pucal32_SED
 vpu_cal33 pu_cal[15] 0 SED_pucal33_SED
-vpu_cal04 pu_cal[16] 0 SED_pucal40_SED
-vpu_cal04 pu_cal[17] 0 SED_pucal41_SED
-vpu_cal04 pu_cal[18] 0 SED_pucal42_SED
-vpu_cal04 pu_cal[19] 0 SED_pucal43_SED
+vpu_cal40 pu_cal[16] 0 SED_pucal40_SED
+vpu_cal41 pu_cal[17] 0 SED_pucal41_SED
+vpu_cal42 pu_cal[18] 0 SED_pucal42_SED
+vpu_cal43 pu_cal[19] 0 SED_pucal43_SED
 vpu_cal50 pu_cal[20] 0 SED_pucal50_SED
 vpu_cal51 pu_cal[21] 0 SED_pucal51_SED
 vpu_cal52 pu_cal[22] 0 SED_pucal52_SED
@@ -132,6 +132,7 @@ only_toplevel=true
 format="tcleval( @value )"
 value="** Local library links to pdk
 .lib ./libs/SED_process_SED_lib.spice SED_process_SED
+.include \\\\$::SKYWATER_STDCELLS\\\\/sky130_fd_sc_hd.spice
 "
 spice_ignore=false}
 C {devices/ammeter.sym} 910 -330 3 0 {name=vtest}

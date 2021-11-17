@@ -168,6 +168,14 @@ N 360 -580 420 -580 { lab=pd_ctrl[6:0]
 bus=true}
 N 420 -660 420 -580 { lab=pd_ctrl[6:0]
 bus=true}
+N 40 -420 80 -420 { lab=VPWR}
+N 40 -380 80 -380 { lab=VGND}
+N 40 -490 40 -480 { lab=VDD}
+N 40 -320 40 -310 { lab=GND}
+N 180 -420 220 -420 { lab=VPB}
+N 180 -380 220 -380 { lab=VNB}
+N 180 -490 180 -480 { lab=VDD}
+N 180 -320 180 -310 { lab=GND}
 C {p-leg.sym} 140 -940 0 0 {name=X1}
 C {n-leg.sym} 140 -700 0 0 {name=X2}
 C {p-leg.sym} 700 -940 0 0 {name=X3}
@@ -230,3 +238,15 @@ C {devices/lab_wire.sym} 360 -660 0 0 {name=l33 sig_type=std_logic lab=pd_ctrl[6
 C {devices/lab_wire.sym} 160 -1300 0 0 {name=l35 sig_type=std_logic lab=puc1[6:0]}
 C {devices/lab_wire.sym} 280 -1300 0 0 {name=l34 sig_type=std_logic lab=puc4[6:0]}
 C {devices/lab_wire.sym} 280 -580 0 0 {name=l36 sig_type=std_logic lab=pdc4[6:0]}
+C {devices/vdd.sym} 40 -490 0 0 {name=l37 lab=VDD}
+C {devices/gnd.sym} 40 -310 0 0 {name=l38 lab=GND}
+C {devices/lab_pin.sym} 80 -420 2 0 {name=l39 sig_type=std_logic lab=VPWR}
+C {devices/lab_pin.sym} 220 -420 2 0 {name=l41 sig_type=std_logic lab=VPB}
+C {devices/lab_pin.sym} 80 -380 2 0 {name=l42 sig_type=std_logic lab=VGND}
+C {devices/lab_pin.sym} 220 -380 2 0 {name=l44 sig_type=std_logic lab=VNB}
+C {devices/vsource.sym} 40 -450 0 0 {name=V1 value=0}
+C {devices/vsource.sym} 40 -350 0 0 {name=V2 value=0}
+C {devices/vdd.sym} 180 -490 0 0 {name=l40 lab=VDD}
+C {devices/gnd.sym} 180 -310 0 0 {name=l43 lab=GND}
+C {devices/vsource.sym} 180 -450 0 0 {name=V3 value=0}
+C {devices/vsource.sym} 180 -350 0 0 {name=V4 value=0}
