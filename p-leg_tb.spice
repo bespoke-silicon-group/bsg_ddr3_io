@@ -8,7 +8,7 @@ Vtest DQ VDDQ 0
 .save  i(vtest)
 V1v5 net1 GND 1.5
 Vpinvoltage net1 VDDQ 0
-X1 DQ n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-leg
+X1 DQ v1v5 n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-leg
 **** begin user architecture code
  ** Local library links to pdk
 .lib ./libs/SED_process_SED_lib.spice SED_process_SED
@@ -16,30 +16,31 @@ X1 DQ n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-leg
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  p-leg.sym # of pins=3
+* expanding   symbol:  p-leg.sym # of pins=4
 * sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/p-leg.sym
 * sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/p-leg.sch
-.subckt p-leg  DQ  n_pu_ctrl  n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0]
+.subckt p-leg  DQ  v1v5  n_pu_ctrl  n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0]
 *.ipin n_cal_ctrl[3],n_cal_ctrl[2],n_cal_ctrl[1],n_cal_ctrl[0]
 *.ipin n_pu_ctrl
 *.iopin DQ
-XM1 net1 n_pu_ctrl VDD VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+*.ipin v1v5
+R1 DQ net1 sky130_fd_pr__res_generic_po W=0.33 L=1.7 m=1
+XMpullup net1 n_pu_ctrl v1v5 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=96 m=96
-R1 DQ net1 sky130_fd_pr__res_generic_po W=0.33 L=2.3 m=1
-XMctrl_tot VDD VDD VDD VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=256 m=256
+XMctrltot VDD n_cal_ctrl[0] VDD VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=18 m=18
-XMctrl0 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=16 m=16
+XMctrl0 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
-XMctrl1 DQ n_cal_ctrl[1] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+XMctrl1 DQ n_cal_ctrl[1] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
-XMctrl2 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+XMctrl2 DQ n_cal_ctrl[2] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
-XMctrl3 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+XMctrl3 DQ n_cal_ctrl[3] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 .ends
@@ -52,6 +53,7 @@ XMctrl3 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_hvt L=0.15 W=1.4 nf=1 
 
 * power voltage
 vvdd VDD 0 1.8
+vv1v5 v1v5 0 1.5
 
 .control
 save all

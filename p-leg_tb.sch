@@ -25,7 +25,7 @@ N 400 -490 400 -480 { lab=VDD}
 N 270 -490 270 -480 { lab=VDD}
 N 130 -490 130 -480 { lab=VDD}
 N 490 -320 490 -310 { lab=VDD}
-N 1050 -250 1050 -230 { lab=n_pu_ctrl}
+N 1050 -250 1050 -230 { lab=DQ}
 N 1050 -170 1050 -150 { lab=VDDQ}
 N 570 -120 570 -100 { lab=VDDQ}
 N 460 -120 460 -110 { lab=GND}
@@ -45,6 +45,7 @@ value="
 
 * power voltage
 vvdd VDD 0 1.8
+vv1v5 v1v5 0 1.5
 
 .control
 save all
@@ -105,3 +106,4 @@ C {devices/bus_connect.sym} 140 -370 3 0 {name=l8 lab=n_cal_ctrl[0]}
 C {devices/lab_wire.sym} 350 -370 2 0 {name=l9 sig_type=std_logic lab=n_cal_ctrl[3:0]}
 C {devices/lab_pin.sym} 490 -250 0 0 {name=l10 sig_type=std_logic lab=n_pu_ctrl}
 C {devices/lab_pin.sym} 1050 -250 2 0 {name=l11 sig_type=std_logic lab=DQ}
+C {devices/lab_pin.sym} 910 -420 0 0 {name=l12 sig_type=std_logic lab=v1v5}

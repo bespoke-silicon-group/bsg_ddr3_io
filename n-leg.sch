@@ -23,7 +23,7 @@ E {}
 N 730 -360 730 -320 { lab=DQ}
 N 730 -260 730 -220 { lab=vpulldown}
 N 730 -160 730 -120 { lab=GND}
-N 640 -190 690 -190 { lab=#net1}
+N 640 -190 690 -190 { lab=pd_ctrl}
 N 730 -190 730 -160 { lab=GND}
 N 400 -390 410 -390 { lab=GND}
 N 620 -390 630 -390 { lab=GND}
@@ -46,7 +46,7 @@ N 950 -320 950 -260 { lab=GND}
 N 910 -290 950 -290 { lab=GND}
 N 260 -480 280 -480 { lab=cal_ctrl[3:0]
 bus=true}
-N 290 -390 360 -390 { lab=cal_ctrl[3]}
+N 290 -390 360 -390 { lab=cal_ctrl[0]}
 N 290 -290 360 -290 { lab=cal_ctrl[2]}
 N 280 -480 280 -250 { lab=cal_ctrl[3:0]
 bus=true}
@@ -154,7 +154,7 @@ C {devices/gnd.sym} 960 -290 0 0 {name=l21 lab=GND}
 C {devices/iopin.sym} 750 -420 0 0 {name=p1 lab=DQ}
 C {devices/ipin.sym} 640 -190 0 0 {name=p2 lab=pd_ctrl}
 C {devices/bus_connect.sym} 280 -250 1 0 {name=l3 lab=cal_ctrl[3]}
-C {devices/bus_connect.sym} 280 -350 1 0 {name=l6 lab=cal_ctrl[3]}
+C {devices/bus_connect.sym} 280 -350 1 0 {name=l6 lab=cal_ctrl[1]}
 C {devices/bus_connect.sym} 280 -300 1 0 {name=l7 lab=cal_ctrl[2]}
-C {devices/bus_connect.sym} 280 -400 1 0 {name=l8 lab=cal_ctrl[3]}
+C {devices/bus_connect.sym} 280 -400 1 0 {name=l8 lab=cal_ctrl[0]}
 C {devices/ipin.sym} 270 -480 0 0 {name=p3 lab=cal_ctrl[3:0]}
