@@ -24,19 +24,20 @@ minr = 1000
 maxr = 0
 mincase = maxcase = [0, 0, '']
 temps = [-40, 125]
-Vgs = [1.98, 1.62]
+# Edge cases of control FET gate voltage (1.8V +/-10%), and VDD (1.5V +/-5%)
+voltages = [[1.98, 1.575], [1.62, 1.475]]
 procs = ['ff', 'ff_mm', 'fs', 'fs_mm', 'hh', 'hh_mm', 'hl', 'hl_mm', 'lh', 'lh_mm', 'll', 'll_mm', 'sf', 'sf_mm', 'ss', 'ss_mm', 'tt', 'tt_mm']
 for temp in temps:
-  for vg in Vgs:
+  for v in voltages:    
     for proc in procs:
-      name = '{n}_{t}_{v}_{p}'.format(n=name_temp, t=temp, v=vg, p=proc); # TODO Add name here!
-      result = sim_params(tmp, outName=name, temp=temp, gateVoltage=vg, process=proc);
+      name = '{n}_{t}_{v}_{p}'.format(n=name_temp, t=temp, v=v[0], p=proc);
+      result = sim_params(tmp, outName=name, temp=temp, gateVoltage=v[0], v1v5=v[1], process=proc);
       if min(result.values()) < minr:
         minr = min(result.values())
-        mincase = [temp, vg, proc]  
+        mincase = [temp, v[0], proc]  
       if max(result.values()) > maxr:
         maxr = max(result.values())
-        maxcase = [temp, vg, proc]
+        maxcase = [temp, v[0], proc]
       if -1 in checkResReq(result):
         print('Test FAILED resistance out of range! {r}'.format(r=result))
         quit()

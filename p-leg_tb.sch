@@ -29,7 +29,7 @@ N 1050 -250 1050 -230 { lab=DQ}
 N 1050 -170 1050 -150 { lab=VDDQ}
 N 570 -120 570 -100 { lab=VDDQ}
 N 460 -120 460 -110 { lab=GND}
-N 460 -180 570 -180 { lab=#net1}
+N 460 -180 570 -180 { lab=v1v5}
 N 140 -370 570 -370 { lab=n_cal_ctrl[3:0]
 bus=true}
 N 530 -420 530 -380 { lab=n_cal_ctrl[3]}
@@ -45,7 +45,6 @@ value="
 
 * power voltage
 vvdd VDD 0 1.8
-vv1v5 v1v5 0 1.5
 
 .control
 save all
@@ -91,7 +90,7 @@ C {devices/vdd.sym} 400 -490 0 0 {name=l15 lab=VDD}
 C {devices/vdd.sym} 270 -490 0 0 {name=l17 lab=VDD}
 C {devices/vdd.sym} 130 -490 0 0 {name=l19 lab=VDD}
 C {devices/vsource.sym} 460 -150 0 0 {name=V1v5
-value=1.5
+value=SED_v1v5_SED
 }
 C {devices/vsource.sym} 570 -150 0 0 {name=Vpinvoltage
 value=0
@@ -107,3 +106,4 @@ C {devices/lab_wire.sym} 350 -370 2 0 {name=l9 sig_type=std_logic lab=n_cal_ctrl
 C {devices/lab_pin.sym} 490 -250 0 0 {name=l10 sig_type=std_logic lab=n_pu_ctrl}
 C {devices/lab_pin.sym} 1050 -250 2 0 {name=l11 sig_type=std_logic lab=DQ}
 C {devices/lab_pin.sym} 910 -420 0 0 {name=l12 sig_type=std_logic lab=v1v5}
+C {devices/lab_pin.sym} 460 -180 0 0 {name=l13 sig_type=std_logic lab=v1v5}

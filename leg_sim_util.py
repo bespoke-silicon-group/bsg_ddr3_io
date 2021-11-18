@@ -24,7 +24,7 @@ def checkResReq(r_set):
   return result
 
 
-def sim_params(template_script, outName, temp, gateVoltage, process, plotName='', ctrl_sig=[]):
+def sim_params(template_script, outName, temp, gateVoltage, process, v1v5=1.5, plotName='', ctrl_sig=[]):
   if plotName == '':
     plotName = outName
 
@@ -55,12 +55,13 @@ def sim_params(template_script, outName, temp, gateVoltage, process, plotName=''
   os.system('''sed '\
   s/SED_plotName_SED/{pname}/g; \
   s/SED_vg_SED/{vg}/g; \
+  s/SED_v1v5_SED/{v1v5}/g; \
   s/SED_temp_SED/{temp}/g; \
   s/SED_process_SED/{proc}/g; \
   {ctrl} \
   ' {template} \
   >> out/scripts/{outName}.spice'''.format( \
-  pname=plotName, vg=gateVoltage, temp=temp, proc=process, ctrl=ctrl_script, template=template_script, outName=outName))
+  pname=plotName, vg=gateVoltage, v1v5=v1v5, temp=temp, proc=process, ctrl=ctrl_script, template=template_script, outName=outName))
 
   # Launch NGspice
   try:
