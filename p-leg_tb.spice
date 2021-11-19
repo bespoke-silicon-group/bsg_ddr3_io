@@ -24,25 +24,25 @@ X1 DQ v1v5 n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-l
 *.ipin n_pu_ctrl
 *.iopin DQ
 *.ipin v1v5
-R1 DQ net1 sky130_fd_pr__res_generic_po W=0.33 L=1.9 m=1
+R1 DQ net1 sky130_fd_pr__res_generic_po W=0.33 L=1.8 m=1
 XMpullup net1 n_pu_ctrl v1v5 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=256 m=256
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=128 m=128
 XMctrltot VDD n_cal_ctrl[0] VDD VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=32 m=32
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=120 m=120
 XMctrl0 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=16 m=16
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=64 m=64
 XMctrl1 DQ n_cal_ctrl[1] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=16 m=16
 XMctrl2 DQ n_cal_ctrl[2] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
 XMctrl3 DQ n_cal_ctrl[3] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
-+ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
 .ends
 
 .GLOBAL VDD
@@ -61,10 +61,10 @@ set temp=SED_temp_SED
 * RUN SIMULATION
 dc Vpinvoltage 0.3 1.2 0.05
 * OUTPUT
-print (1.5-vddq)/i(vtest)
-wrdata out/data/SED_plotName_SED.txt (1.5-vddq)/i(vtest)
+print (SED_v1v5_SED-vddq)/i(vtest)
+wrdata out/data/SED_plotName_SED.txt (SED_v1v5_SED-vddq)/i(vtest)
 set hcopydevtype = svg
-hardcopy ./out/plots/SED_plotName_SED.svg (1.5-vddq)/I(vtest) vs vddq title 'Resistance vs pin voltage'
+hardcopy ./out/plots/SED_plotName_SED.svg (SED_v1v5_SED-vddq)/I(vtest) vs vddq title 'Resistance vs pin voltage'
 
 .endc
 

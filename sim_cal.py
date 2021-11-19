@@ -24,10 +24,12 @@ def simCal(template, temp, vg, v1v5, proc):
     print('Trying cal = {c}: {a}'.format(c=cal, a=ctrl_sig))
     result = sim_params(template, outName=name, temp=temp, gateVoltage=vg, v1v5=v1v5,
       process=proc, ctrl_sig=ctrl_sig)
+    print('Resistances: {l}, {m}, {h}'.format(
+      l=round(result['r_lvt']), m=round(result['r_mvt']), h=round(result['r_hvt'])))
     res = checkResReq(result)
     if not(any(res)): # If all in range, we found calibration!
       print('Calibration found: {c}'.format(c=ctrl_sig))
-      print('Resistances = {r}'.format(r=result))
+      #print('Resistances = {r}'.format(r=result))
       return {'cal':ctrl_sig, 'res':result}
     elif 1 in res and -1 in res: # If some out of range on either end, calibration is impossible!
       print('Calibration impossible with resistances: {r}'.format(r=result))

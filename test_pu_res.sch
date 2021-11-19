@@ -53,10 +53,10 @@ set temp=SED_temp_SED
 * RUN SIMULATION
 dc Vpinvoltage 0.3 1.2 0.05
 * OUTPUT
-print (1.5-vddq)/i(vtest)
-wrdata out/data/SED_plotName_SED.txt (1.5-vddq)/i(vtest)
+print (SED_v1v5_SED-vddq)/i(vtest)
+wrdata out/data/SED_plotName_SED.txt (SED_v1v5_SED-vddq)/i(vtest)
 set hcopydevtype = svg
-hardcopy ./out/plots/SED_plotName_SED.svg (1.5-vddq)/I(vtest) vs vddq title 'Resistance vs pin voltage'
+hardcopy ./out/plots/SED_plotName_SED.svg (SED_v1v5_SED-vddq)/I(vtest) vs vddq title 'Resistance vs pin voltage'
 
 .endc
 "}
@@ -72,7 +72,7 @@ C {devices/vsource.sym} 540 -510 0 0 {name=Vgate value=SED_vg_SED}
 C {devices/vdd.sym} 670 -510 0 0 {name=l6 lab=VDD}
 C {sky130_fd_pr/res_generic_po.sym} 640 -400 0 0 {name=R1
 W=0.33
-L=1.9
+L=1.8
 model=res_generic_po
 mult=1}
 C {devices/ammeter.sym} 640 -320 0 0 {name=vtest}
@@ -114,7 +114,7 @@ C {sky130/sky130_fd_pr/pfet_01v8_lvt.sym} 620 -480 0 0 {name=M3
 L=0.35
 W=1
 nf=1
-mult=256
+mult=128
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
 as="'int((nf+2)/2) * W/nf * 0.29'" 
