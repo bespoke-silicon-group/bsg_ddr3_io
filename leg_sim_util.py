@@ -24,7 +24,7 @@ def checkResReq(r_set):
   return result
 
 
-def sim_params(template_script, outName, temp, gateVoltage, process, v1v5=1.5, plotName='', ctrl_sig=[]):
+def sim_params(template_script, outName, temp, gateVoltage, process, vdd=1.5, plotName='', ctrl_sig=[]):
   if plotName == '':
     plotName = outName
 
@@ -55,13 +55,13 @@ def sim_params(template_script, outName, temp, gateVoltage, process, v1v5=1.5, p
   os.system('''sed '\
   s/SED_plotName_SED/{pname}/g; \
   s/SED_vg_SED/{vg}/g; \
-  s/SED_v1v5_SED/{v1v5}/g; \
+  s/SED_vdd_SED/{vdd}/g; \
   s/SED_temp_SED/{temp}/g; \
   s/SED_process_SED/{proc}/g; \
   {ctrl} \
   ' {template} \
   >> out/scripts/{outName}.spice'''.format( \
-  pname=plotName, vg=gateVoltage, v1v5=v1v5, temp=temp, proc=process, ctrl=ctrl_script, template=template_script, outName=outName))
+  pname=plotName, vg=gateVoltage, vdd=vdd, temp=temp, proc=process, ctrl=ctrl_script, template=template_script, outName=outName))
 
   # Launch NGspice
   try:
@@ -105,7 +105,7 @@ def sim_params(template_script, outName, temp, gateVoltage, process, v1v5=1.5, p
 default_ctrl_dict = {'pu':7*[{'en':0, 'cal':[0,0,0,0]}],
                      'pd':7*[{'en':0, 'cal':[0,0,0,0]}]}
 
-def sstl_res_sim(template_script, outName, temp, vddVoltage, process, ctrl_dict, v1v5=1.5, plotName=''):
+def sstl_res_sim(template_script, outName, temp, vddVoltage, process, ctrl_dict, plotName=''):
   if plotName == '':
     plotName = outName
 
@@ -146,13 +146,12 @@ def sstl_res_sim(template_script, outName, temp, vddVoltage, process, ctrl_dict,
   os.system('''sed '\
   s/SED_plotName_SED/{pname}/g; \
   s/SED_vdd_SED/{vdd}/g; \
-  s/SED_v1v5_SED/{v1v5}/g; \
   s/SED_temp_SED/{temp}/g; \
   s/SED_process_SED/{proc}/g; \
   {ctrl} \
   ' {template} \
   >> out/scripts/{outName}.spice'''.format( \
-  pname=plotName, vdd=vddVoltage, v1v5=v1v5, temp=temp, proc=process, ctrl=ctrl_script, template=template_script, outName=outName))
+  pname=plotName, vdd=vddVoltage, temp=temp, proc=process, ctrl=ctrl_script, template=template_script, outName=outName))
 
   # Launch NGspice
   try:

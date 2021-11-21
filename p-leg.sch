@@ -33,7 +33,6 @@ N 490 -360 490 -260 { lab=DQ}
 N 540 -320 620 -320 { lab=#net1}
 N 540 -260 620 -260 { lab=DQ}
 N 590 -450 690 -450 { lab=n_pu_ctrl}
-N 730 -520 730 -480 { lab=v1v5}
 N 730 -420 730 -320 { lab=#net1}
 N 1000 -290 1010 -290 { lab=VDD}
 N 400 -390 410 -390 { lab=VDD}
@@ -51,15 +50,14 @@ N 560 -290 560 -240 { lab=n_cal_ctrl[3]}
 N 260 -450 260 -250 {bus=true lab=n_cal_ctrl[3:0]}
 N 730 -260 730 -180 { lab=DQ}
 N 730 -180 820 -180 { lab=DQ}
-N 730 -450 770 -450 { lab=VDD}
-N 770 -520 770 -450 { lab=VDD}
-N 700 -520 730 -520 { lab=v1v5}
 N 950 -290 960 -290 { lab=n_cal_ctrl[0]}
 N 620 -320 730 -320 { lab=#net1}
 N 620 -260 730 -260 { lab=DQ}
 N 1000 -320 1000 -260 { lab=VDD}
+N 730 -520 730 -480 {}
+N 730 -480 730 -450 {}
 C {devices/title.sym} 160 -30 0 0 {name=l1 author="Derek H-M"}
-C {devices/vdd.sym} 770 -520 0 0 {name=l3 lab=VDD}
+C {devices/vdd.sym} 730 -520 0 0 {name=l3 lab=VDD}
 C {sky130/sky130_fd_pr/res_generic_po.sym} 730 -290 0 0 {name=R1
 W=0.33
 L=1.8
@@ -77,7 +75,6 @@ C {devices/bus_connect.sym} 260 -350 1 0 {name=l8 lab=n_cal_ctrl[1]}
 C {devices/bus_connect.sym} 260 -250 1 0 {name=l4 lab=n_cal_ctrl[3]}
 C {devices/ipin.sym} 590 -450 0 0 {name=p2 lab=n_pu_ctrl}
 C {devices/iopin.sym} 820 -180 0 0 {name=p3 lab=DQ}
-C {devices/ipin.sym} 700 -520 0 0 {name=p4 lab=v1v5}
 C {devices/lab_pin.sym} 950 -290 0 0 {name=l7 sig_type=std_logic lab=n_cal_ctrl[0]}
 C {sky130/sky130_fd_pr/pfet_01v8_lvt.sym} 710 -450 0 0 {name=Mpullup
 L=0.35

@@ -11,8 +11,8 @@ def cal2ctrl(n):
   result.reverse()
   return result
 
-def simCal(template, temp, vg, v1v5, proc):
-  name = 'cal_sim_{t}_{v}_{p}'.format(t=temp, v=vg, p=proc)
+def simCal(template, temp, vdd, proc):
+  name = 'cal_sim_{t}_{v}_{p}'.format(t=temp, v=vdd, p=proc)
   search_max = 15
   search_min = 0
   while True: # until break!
@@ -22,7 +22,7 @@ def simCal(template, temp, vg, v1v5, proc):
     cal = floor((search_max+search_min)/2)
     ctrl_sig = cal2ctrl(cal)
     print('Trying cal = {c}: {a}'.format(c=cal, a=ctrl_sig))
-    result = sim_params(template, outName=name, temp=temp, gateVoltage=vg, v1v5=v1v5,
+    result = sim_params(template, outName=name, temp=temp, gateVoltage=vdd, vdd=vdd,
       process=proc, ctrl_sig=ctrl_sig)
     print('Resistances: {l}, {m}, {h}'.format(
       l=round(result['r_lvt']), m=round(result['r_mvt']), h=round(result['r_hvt'])))
@@ -58,30 +58,28 @@ else:
   quit()
 
 temps = [-40, 125]
-# Edge cases of control FET gate voltage (1.8V +/-10%), and VDD (1.5V +/-5%)
-voltages = [[1.98, 1.575], [1.62, 1.475]]
+# Edge cases of voltage (1.5V +/-5%)
+vdds = [1.575, 1.475]
 procs = ['ff', 'ff_mm', 'fs', 'fs_mm', 'hh', 'hh_mm', 'hl', 'hl_mm', 'lh', 'lh_mm', 'll', 'll_mm', 'sf', 'sf_mm', 'ss', 'ss_mm', 'tt', 'tt_mm']
 with open('cal_log.txt', 'w') as outf:
   for temp in temps:
-    for v in voltages:
+    for vdd in vdds:
       for proc in procs:
-        output = simCal(tmp, temp, v[0], v[1], proc)
+        output = simCal(tmp, temp, vdd, proc)
         outf.write('{t}, {v}, {p}\t\t{cal}\t{res}\n'.format(
-          t=temp, v=v[0], p=proc, cal=output['cal'], res=output['res']))
+          t=temp, v=vdd, p=proc, cal=output['cal'], res=output['res']))
         print()
         print()
 print('ALL CORNER CALIBRATION CASES PASSED!')
 
 temps = list(range(-40, 125, 5))
-Vgs = list(arange(1.62, 1.98, 0.04))
-V1v5s = list(arange(1.475, 1.575, 0.025))
+vdds = list(arange(1.475, 1.575, 0.025))
 with open('cal_log.txt', 'a') as outf:
   for i in range(200):
-    temp = temps[randrange(len(temps))]
-    vg   = round(  Vgs[randrange(len(  Vgs))], 3)
-    v1v5 = round(V1v5s[randrange(len(V1v5s))], 3)
+    temp = temps[randrange(len(temps))]    
+    vdd = round(vdds[randrange(len(V1v5s))], 3)
     proc = procs[randrange(len(procs))]
-    output = simCal(tmp, temp, vg, v1v5, proc)
+    output = simCal(tmp, temp, vdd, proc)
     outf.write('{t}, {v}, {p}\t\t{cal}\t{res}\n'.format(
       t=temp, v=vg, p=proc, cal=output['cal'], res=output['res']))
     print()

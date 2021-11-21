@@ -6,9 +6,8 @@ Vctrl3 VDD n_cal_ctrl[3] SED_vctrl3_SED
 Vgate VDD n_pu_ctrl SED_vg_SED
 Vtest DQ VDDQ 0
 .save  i(vtest)
-V1v5 v1v5 GND SED_v1v5_SED
 Vpinvoltage v1v5 VDDQ 0
-X1 DQ v1v5 n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-leg
+X1 DQ n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-leg
 **** begin user architecture code
  ** Local library links to pdk
 .lib ./libs/SED_process_SED_lib.spice SED_process_SED
@@ -16,16 +15,15 @@ X1 DQ v1v5 n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-l
 **** end user architecture code
 **.ends
 
-* expanding   symbol:  p-leg.sym # of pins=4
+* expanding   symbol:  p-leg.sym # of pins=3
 * sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/p-leg.sym
 * sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/p-leg.sch
-.subckt p-leg  DQ  v1v5  n_pu_ctrl  n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0]
+.subckt p-leg  DQ  n_pu_ctrl  n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0]
 *.ipin n_cal_ctrl[3],n_cal_ctrl[2],n_cal_ctrl[1],n_cal_ctrl[0]
 *.ipin n_pu_ctrl
 *.iopin DQ
-*.ipin v1v5
 R1 DQ net1 sky130_fd_pr__res_generic_po W=0.33 L=1.8 m=1
-XMpullup net1 n_pu_ctrl v1v5 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
+XMpullup net1 n_pu_ctrl VDD VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
 + as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=128 m=128
 XMctrltot VDD n_cal_ctrl[0] VDD VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
@@ -46,13 +44,13 @@ XMctrl3 DQ n_cal_ctrl[3] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad
 .ends
 
 .GLOBAL VDD
-.GLOBAL GND
 **** begin user architecture code
 
 
 
 * power voltage
-vvdd VDD 0 1.8
+vvdd VDD 0 SED_vdd_SED
+vv1v5 v1v5 0 1.5
 
 .control
 save all
@@ -61,10 +59,10 @@ set temp=SED_temp_SED
 * RUN SIMULATION
 dc Vpinvoltage 0.3 1.2 0.05
 * OUTPUT
-print (SED_v1v5_SED-vddq)/i(vtest)
-wrdata out/data/SED_plotName_SED.txt (SED_v1v5_SED-vddq)/i(vtest)
+print (SED_vdd_SED-vddq)/i(vtest)
+wrdata out/data/SED_plotName_SED.txt (SED_vdd_SED-vddq)/i(vtest)
 set hcopydevtype = svg
-hardcopy ./out/plots/SED_plotName_SED.svg (SED_v1v5_SED-vddq)/I(vtest) vs vddq title 'Resistance vs pin voltage'
+hardcopy ./out/plots/SED_plotName_SED.svg (SED_vdd_SED-vddq)/I(vtest) vs vddq title 'Resistance vs pin voltage'
 
 .endc
 

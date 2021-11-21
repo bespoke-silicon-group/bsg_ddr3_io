@@ -49,7 +49,6 @@ Xnctrl_tot GND GND GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((n
 
 * power voltage
 vvddq VDDQ 0 0
-*.param rwidth=4.6
 
 .control
 save all

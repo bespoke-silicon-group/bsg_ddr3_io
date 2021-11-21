@@ -20,7 +20,7 @@ if len(argv) > 2:
 
 print('Calibration input is: {a}'.format(a=ctrl_sig))
 
-result = sim_params(tmp, outName='{n}_typ'.format(n=name_temp), temp=27, gateVoltage=1.8, 
+result = sim_params(tmp, outName='{n}_typ'.format(n=name_temp), temp=27, gateVoltage=1.5, 
   process='tt', ctrl_sig=ctrl_sig)
 print('Typical case:')
 print('Min resistance = {r} ohms.'.format(r=round(min(result.values()),1)))
@@ -33,26 +33,26 @@ maxr = 0
 mincase = maxcase = [0, 0, '']
 temps = [-40, 125]
 # Edge cases of control FET gate voltage (1.8V +/-10%), and VDD (1.5V +/-5%)
-voltages = [[1.98, 1.575], [1.62, 1.475]]
+vdds = [1.575, 1.475]
 procs = ['ff', 'ff_mm', 'fs', 'fs_mm', 'hh', 'hh_mm', 'hl', 'hl_mm', 'lh', 'lh_mm', 'll', 'll_mm', 'sf', 'sf_mm', 'ss', 'ss_mm', 'tt', 'tt_mm']
 for temp in temps:
-  for v in voltages:
+  for vdd in vdds:
     for proc in procs:
-      name = '{n}_{t}_{v}_{p}'.format(n=name_temp, t=temp, v=v[0], p=proc);
-      result = sim_params(tmp, outName=name, temp=temp, gateVoltage=v[0], v1v5=v[1], 
+      name = '{n}_{t}_{v}_{p}'.format(n=name_temp, t=temp, v=vdd, p=proc);
+      result = sim_params(tmp, outName=name, temp=temp, gateVoltage=vdd, vdd=vdd, 
         process=proc, ctrl_sig=ctrl_sig)
 
       if min(result.values()) < minr:
         minr = min(result.values())
-        mincase = [temp, v[0], proc]  
+        mincase = [temp, vdd, proc]  
       if max(result.values()) > maxr:
         maxr = max(result.values())
-        maxcase = [temp, v[0], proc]
+        maxcase = [temp, vdd, proc]
 
 print()
-print('Global min resistance = {r} ({t}C, {v}Vg, "{p}" proc).'.format(
+print('Global min resistance = {r} ({t}C, {v}Vdd, "{p}" proc).'.format(
   r=round(minr, 1), t=mincase[0], v=mincase[1], p=mincase[2]))
-print('Global max resistance = {r} ({t}C, {v}Vg, "{p}" proc).'.format(
+print('Global max resistance = {r} ({t}C, {v}Vdd, "{p}" proc).'.format(
   r=round(maxr, 1), t=maxcase[0], v=maxcase[1], p=maxcase[2]))
 print()
 

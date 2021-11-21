@@ -33,7 +33,6 @@ value="
 * power voltage
 vvddq VDDQ 0 0
 vvdd VDD 0 SED_vdd_SED
-vv1v5 v1v5 0 SED_v1v5_SED
 
 ** CALIBRATION CONTROL **
 * PULLUP
@@ -144,4 +143,3 @@ C {devices/lab_pin.sym} 350 -390 0 0 {name=l3 sig_type=std_logic lab=pu_ctrl[6:0
 C {devices/lab_pin.sym} 350 -270 0 0 {name=l10 sig_type=std_logic lab=pd_ctrl[6:0]}
 C {devices/lab_pin.sym} 350 -360 0 0 {name=l13 sig_type=std_logic lab=pu_cal[27:0]}
 C {devices/lab_pin.sym} 350 -300 0 0 {name=l14 sig_type=std_logic lab=pd_cal[27:0]}
-C {devices/lab_pin.sym} 740 -430 0 0 {name=l2 sig_type=std_logic lab=v1v5}

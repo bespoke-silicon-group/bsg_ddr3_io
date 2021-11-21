@@ -21,7 +21,7 @@ V {}
 S {}
 E {}
 N 1020 -520 1020 -490 { lab=VDDQ}
-N 500 -220 500 -210 { lab=cal_ctrl[0]}
+N 500 -220 500 -210 { lab=cal_ctrl[3]}
 N 500 -150 500 -140 { lab=GND}
 N 370 -220 370 -210 { lab=cal_ctrl[2]}
 N 370 -150 370 -140 { lab=GND}
@@ -31,7 +31,7 @@ N 100 -220 100 -210 { lab=cal_ctrl[0]}
 N 100 -150 100 -140 { lab=GND}
 N 1020 -430 1020 -410 { lab=DQ}
 N 490 -350 490 -330 { lab=GND}
-N 500 -280 500 -220 { lab=cal_ctrl[0]}
+N 500 -280 500 -220 { lab=cal_ctrl[3]}
 N 370 -280 370 -220 { lab=cal_ctrl[2]}
 N 240 -280 240 -220 { lab=cal_ctrl[1]}
 N 100 -280 100 -220 { lab=cal_ctrl[0]}
@@ -46,7 +46,6 @@ value="
 
 * power voltage
 vvddq VDDQ 0 0
-*.param rwidth=4.6
 
 .control
 save all

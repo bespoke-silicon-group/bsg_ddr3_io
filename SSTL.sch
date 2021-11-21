@@ -250,11 +250,3 @@ C {devices/vdd.sym} 180 -490 0 0 {name=l40 lab=VDD}
 C {devices/gnd.sym} 180 -310 0 0 {name=l43 lab=GND}
 C {devices/vsource.sym} 180 -450 0 0 {name=V3 value=0}
 C {devices/vsource.sym} 180 -350 0 0 {name=V4 value=0}
-C {devices/lab_pin.sym} 500 -1170 0 0 {name=l45 sig_type=std_logic lab=v1v5}
-C {devices/lab_pin.sym} 1060 -1170 0 0 {name=l46 sig_type=std_logic lab=v1v5}
-C {devices/lab_pin.sym} 1620 -1170 0 0 {name=l47 sig_type=std_logic lab=v1v5}
-C {devices/lab_pin.sym} 2180 -1170 0 0 {name=l48 sig_type=std_logic lab=v1v5}
-C {devices/lab_pin.sym} 2740 -1170 0 0 {name=l49 sig_type=std_logic lab=v1v5}
-C {devices/lab_pin.sym} 3300 -1170 0 0 {name=l50 sig_type=std_logic lab=v1v5}
-C {devices/lab_pin.sym} 3860 -1170 0 0 {name=l51 sig_type=std_logic lab=v1v5}
-C {devices/ipin.sym} 20 -940 0 0 {name=p6 lab=v1v5}
