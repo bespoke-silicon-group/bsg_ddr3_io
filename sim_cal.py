@@ -77,11 +77,11 @@ vdds = list(arange(1.475, 1.575, 0.025))
 with open('cal_log.txt', 'a') as outf:
   for i in range(200):
     temp = temps[randrange(len(temps))]    
-    vdd = round(vdds[randrange(len(V1v5s))], 3)
+    vdd = round(vdds[randrange(len(vdds))], 3)
     proc = procs[randrange(len(procs))]
     output = simCal(tmp, temp, vdd, proc)
     outf.write('{t}, {v}, {p}\t\t{cal}\t{res}\n'.format(
-      t=temp, v=vg, p=proc, cal=output['cal'], res=output['res']))
+      t=temp, v=vdd, p=proc, cal=output['cal'], res=output['res']))
     print()
     print()
 print('ALL M-C CASES PASSED!')
