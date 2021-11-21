@@ -257,3 +257,4 @@ C {devices/lab_pin.sym} 2180 -1170 0 0 {name=l48 sig_type=std_logic lab=v1v5}
 C {devices/lab_pin.sym} 2740 -1170 0 0 {name=l49 sig_type=std_logic lab=v1v5}
 C {devices/lab_pin.sym} 3300 -1170 0 0 {name=l50 sig_type=std_logic lab=v1v5}
 C {devices/lab_pin.sym} 3860 -1170 0 0 {name=l51 sig_type=std_logic lab=v1v5}
+C {devices/ipin.sym} 20 -940 0 0 {name=p6 lab=v1v5}

@@ -1,7 +1,7 @@
 v {xschem version=3.0.0 file_version=1.2 }
 G {}
 K {type=subcircuit
-format="@name @@DQ @@pd_ctrl[6:0] @@pu_ctrl[6:0] @@pd_cal_ctrl[27:0] @@pu_cal_ctrl[27:0] @symname"
+format="@name @@DQ @@v1v5 @@pd_ctrl[6:0] @@pu_ctrl[6:0] @@pd_cal_ctrl[27:0] @@pu_cal_ctrl[27:0] @symname"
 template="name=X1"}
 V {}
 S {}
@@ -11,6 +11,7 @@ L 4 20 -60 60 -60 {}
 L 4 20 -90 60 -90 {}
 L 4 20 -180 60 -180 {}
 L 4 20 -150 60 -150 {}
+L 4 380 -220 380 -200 {}
 B 5 497.5 -122.5 502.5 -117.5 {name=DQ
 dir=inout}
 B 5 17.5 -62.5 22.5 -57.5 {name=pd_ctrl[6:0]
@@ -21,6 +22,8 @@ B 5 17.5 -182.5 22.5 -177.5 {name=pu_ctrl[6:0]
 dir=in}
 B 5 17.5 -152.5 22.5 -147.5 {name=pu_cal_ctrl[27:0]
 dir=in}
+B 5 377.5 -222.5 382.5 -217.5 {name=v1v5
+dir=in}
 P 4 5 60 -200 460 -200 460 -40 60 -40 60 -200 {}
 T {DDR3 SSTL} 150 -140 0 0 0.8 0.8 {}
 T {DQ} 430 -130 0 0 0.3 0.3 {}
@@ -29,3 +32,4 @@ T {pd_cal_ctrl[27:0]} 70 -100 0 0 0.3 0.3 {}
 T {@name} 230 -230 0 0 0.3 0.3 {}
 T {pu_ctrl[6:0]} 70 -190 0 0 0.3 0.3 {}
 T {pu_cal_ctrl[27:0]} 70 -160 0 0 0.3 0.3 {}
+T {v1v5} 370 -200 0 0 0.3 0.3 {}
