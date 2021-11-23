@@ -3,23 +3,22 @@ import os
 from math import isclose
 from time import sleep
 
-LEG_EXPECTED_RES = 240
-LEG_MIN_RES = 240*0.9
-LEG_MAX_RES = 240*1.1
 
-def checkResReq(r_set):
+def checkResReq(r_set, expected_res=240, negate=False):
+  if negate: 
+    for k in r_set: r_set[k] = -r_set[k]
   result = [0, 0, 0]
-  if   r_set['r_lvt'] < 0.6*LEG_EXPECTED_RES:
+  if   r_set['r_lvt'] < 0.6*expected_res:
     result[0] = -1
-  elif r_set['r_lvt'] > 1.1*LEG_EXPECTED_RES:
+  elif r_set['r_lvt'] > 1.1*expected_res:
     result[0] = 1
-  if   r_set['r_mvt'] < 0.9*LEG_EXPECTED_RES:
+  if   r_set['r_mvt'] < 0.9*expected_res:
     result[1] = -1
-  elif r_set['r_mvt'] > 1.1*LEG_EXPECTED_RES:
+  elif r_set['r_mvt'] > 1.1*expected_res:
     result[1] = 1
-  if   r_set['r_hvt'] < 0.9*LEG_EXPECTED_RES:
+  if   r_set['r_hvt'] < 0.9*expected_res:
     result[2] = -1
-  elif r_set['r_hvt'] > 1.4*LEG_EXPECTED_RES:
+  elif r_set['r_hvt'] > 1.4*expected_res:
     result[2] = 1  
   return result
 
@@ -105,7 +104,7 @@ def sim_params(template_script, outName, temp, gateVoltage, process, vdd=1.5, pl
 default_ctrl_dict = {'pu':7*[{'en':0, 'cal':[0,0,0,0]}],
                      'pd':7*[{'en':0, 'cal':[0,0,0,0]}]}
 
-def sstl_res_sim(template_script, outName, temp, vddVoltage, process, ctrl_dict, plotName=''):
+def sstl_res_sim(template_script, outName, is_pulldown, temp, vddVoltage, process, ctrl_dict, plotName=''):
   if plotName == '':
     plotName = outName
 
@@ -173,10 +172,16 @@ def sstl_res_sim(template_script, outName, temp, vddVoltage, process, ctrl_dict,
   with open('out/data/{name}.txt'.format(name=plotName), 'r') as d_file:
     for line in d_file:
       if isclose(float(line.split()[0]), 0.2*1.5):
-        data['r_lvt'] = float(line.split()[1])
+        if not is_pulldown:
+          data['r_hvt'] = 0.8*1.5 / float(line.split()[1])
+        else:
+          data['r_lvt'] = 0.2*1.5 / float(line.split()[1])
       if isclose(float(line.split()[0]), 0.5*1.5):
-        data['r_mvt'] = float(line.split()[1])
+        data['r_mvt'] = 0.5*1.5 / float(line.split()[1])
       if isclose(float(line.split()[0]), 0.8*1.5):
-        data['r_hvt'] = float(line.split()[1])
+        if not is_pulldown:
+          data['r_lvt'] = 0.2*1.5 / float(line.split()[1])
+        else:
+          data['r_hvt'] = 0.8*1.5 / float(line.split()[1])
 
   return data

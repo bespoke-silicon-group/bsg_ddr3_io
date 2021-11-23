@@ -37,7 +37,7 @@ $(XSCHEM):
 	git clone ${XSCHEMREPO} ./tools/xschem-src
 	cd ./tools/xschem-src &&\
 		source /opt/rh/devtoolset-8/enable &&\
-		./configure --prefix=`pwd`/../xschem-install &&\
+		./configure --prefix=`pwd`/../xschem-install --enable-openmp &&\
 		make &&\
 		make install
 	ln -s ${PDKSPATH}/${PDKNAME}/libs.tech/xschem/ ./tools/xschem-install/share/xschem/xschem_library/sky130
