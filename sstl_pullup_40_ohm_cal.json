@@ -1,0 +1,794 @@
+[
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ff",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      30.0,
+      36.1,
+      39.1
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ff_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      30.0,
+      36.2,
+      39.2
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "fs",
+    "valid_cal_enum": 0,
+    "calibrated_resistances": [
+      36.3,
+      41.4,
+      42.9
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "fs_mm",
+    "valid_cal_enum": 0,
+    "calibrated_resistances": [
+      36.3,
+      41.4,
+      42.9
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "hh",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      34.5,
+      41.5,
+      44.8
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "hh_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      34.6,
+      41.6,
+      44.8
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "hl",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      35.6,
+      42.8,
+      46.3
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "hl_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      35.5,
+      42.8,
+      46.2
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "lh",
+    "valid_cal_enum": 0,
+    "calibrated_resistances": [
+      33.2,
+      37.9,
+      39.5
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "lh_mm",
+    "valid_cal_enum": 0,
+    "calibrated_resistances": [
+      33.2,
+      37.9,
+      39.5
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ll",
+    "valid_cal_enum": 0,
+    "calibrated_resistances": [
+      34.4,
+      39.3,
+      40.9
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ll_mm",
+    "valid_cal_enum": 0,
+    "calibrated_resistances": [
+      34.4,
+      39.3,
+      40.9
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "sf",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      29.9,
+      37.8,
+      42.3
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "sf_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      29.9,
+      37.8,
+      42.2
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ss",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      29.2,
+      36.8,
+      41.2
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ss_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      29.3,
+      37.0,
+      41.4
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "tt",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      32.0,
+      38.4,
+      41.3
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "tt_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      31.9,
+      38.2,
+      41.2
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ff",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      41.5,
+      41.8,
+      43.3
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ff_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      41.9,
+      42.1,
+      43.5
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "fs",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      41.3,
+      41.6,
+      43.0
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "fs_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      41.5,
+      41.7,
+      43.1
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "hh",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      37.5,
+      40.5,
+      44.3
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "hh_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      37.4,
+      40.4,
+      44.2
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "hl",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      38.3,
+      41.5,
+      45.5
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "hl_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      38.4,
+      41.5,
+      45.5
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "lh",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      40.4,
+      40.3,
+      41.4
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "lh_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      40.3,
+      40.2,
+      41.3
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ll",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      33.9,
+      36.1,
+      39.0
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ll_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      33.9,
+      36.1,
+      39.0
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "sf",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      33.7,
+      38.8,
+      44.2
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "sf_mm",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      33.7,
+      38.8,
+      44.2
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ss",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      32.3,
+      37.0,
+      42.3
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ss_mm",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      32.2,
+      36.9,
+      42.2
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "tt",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      35.6,
+      38.1,
+      41.4
+    ]
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "tt_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      35.6,
+      38.2,
+      41.4
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ff",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      35.2,
+      42.2,
+      45.6
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ff_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      35.2,
+      42.2,
+      45.5
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "fs",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      34.3,
+      41.7,
+      45.2
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "fs_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      34.3,
+      41.7,
+      45.2
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "hh",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      32.1,
+      40.0,
+      45.1
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "hh_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      32.1,
+      39.9,
+      45.1
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "hl",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      32.8,
+      41.0,
+      46.3
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "hl_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      32.8,
+      40.9,
+      46.2
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "lh",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      34.5,
+      40.6,
+      43.5
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "lh_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      34.5,
+      40.7,
+      43.5
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ll",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      35.5,
+      41.9,
+      44.8
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ll_mm",
+    "valid_cal_enum": 1,
+    "calibrated_resistances": [
+      35.5,
+      41.9,
+      44.8
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "sf",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      34.6,
+      42.6,
+      47.4
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "sf_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      34.6,
+      42.5,
+      47.3
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ss",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      34.3,
+      42.1,
+      46.8
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ss_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      34.3,
+      42.1,
+      46.9
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "tt",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      30.5,
+      37.7,
+      42.3
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "tt_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      30.5,
+      37.8,
+      42.4
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ff",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      38.1,
+      40.1,
+      43.4
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ff_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      38.2,
+      40.2,
+      43.4
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "fs",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      37.3,
+      39.7,
+      43.1
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "fs_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      37.1,
+      39.6,
+      42.9
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "hh",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      33.2,
+      36.5,
+      41.7
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "hh_mm",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      33.1,
+      36.4,
+      41.6
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "hl",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      33.7,
+      37.1,
+      42.5
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "hl_mm",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      33.5,
+      36.9,
+      42.3
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "lh",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      39.7,
+      40.9,
+      43.6
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "lh_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      39.7,
+      40.9,
+      43.6
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ll",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      40.6,
+      41.9,
+      44.7
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ll_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      40.5,
+      41.8,
+      44.6
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "sf",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      38.6,
+      42.0,
+      47.3
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "sf_mm",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      38.6,
+      42.0,
+      47.3
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ss",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      38.0,
+      41.2,
+      46.3
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ss_mm",
+    "valid_cal_enum": 7,
+    "calibrated_resistances": [
+      38.0,
+      41.2,
+      46.3
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "tt",
+    "valid_cal_enum": 5,
+    "calibrated_resistances": [
+      36.4,
+      38.9,
+      43.1
+    ]
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "tt_mm",
+    "valid_cal_enum": 3,
+    "calibrated_resistances": [
+      42.4,
+      43.9,
+      47.1
+    ]
+  }
+]
