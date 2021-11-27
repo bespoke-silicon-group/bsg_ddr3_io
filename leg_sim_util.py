@@ -22,12 +22,8 @@ def checkResReq(r_set, expected_res=240, negate=False):
     result[2] = 1  
   return result
 
-
-def sim_params(template_script, outName, temp, gateVoltage, process, vdd=1.5, plotName='', ctrl_sig=[]):
-  if plotName == '':
-    plotName = outName
-
-  # Add output directories
+def gen_spice_script(template, outName, replace_dict):
+  # Add output directories (if they don't exist)
   try: os.mkdir('./out') 
   except: pass
   try: os.mkdir('./out/scripts')
@@ -43,24 +39,33 @@ def sim_params(template_script, outName, temp, gateVoltage, process, vdd=1.5, pl
   except: pass # (in case the file does not exist)
   try: os.remove('./out/logs/{outName}.log'.format(outName=outName))
   except: pass # (in case the file does not exist)
+  # Generate the SED replacement strings
+  replace_script = ''
+  for k in replace_dict:
+    replace_script += 's/SED_{k}_SED/{v}/g; '.format(k=k, v=replace_dict[k])
+  os.system('''sed '\
+  {rep} \
+  ' {template} \
+  >> out/scripts/{outName}.spice'''.format(rep=replace_script, 
+    template=template, outName=outName))
 
-  ctrl_script=''
+
+def sim_params(template_script, outName, temp, gateVoltage, process, vdd=1.5, plotName='', ctrl_sig=[]):
+  if plotName == '':
+    plotName = outName
+
+  replace_dict = {}
+  replace_dict['plotName'] = plotName
+  replace_dict['vg']       = gateVoltage
+  replace_dict['vdd']      = vdd
+  replace_dict['temp']     = temp
+  replace_dict['process']  = process
   for i in range(len(ctrl_sig)):
     s = '0'
     if ctrl_sig[i]: s = str(gateVoltage)
-    ctrl_script += 's/SED_vctrl{n}_SED/{s}/g; '.format(n=i, s=s)
+    replace_dict['vctrl{}'.format(i)] = s
 
-  # Call Main SED script to fill in params
-  os.system('''sed '\
-  s/SED_plotName_SED/{pname}/g; \
-  s/SED_vg_SED/{vg}/g; \
-  s/SED_vdd_SED/{vdd}/g; \
-  s/SED_temp_SED/{temp}/g; \
-  s/SED_process_SED/{proc}/g; \
-  {ctrl} \
-  ' {template} \
-  >> out/scripts/{outName}.spice'''.format( \
-  pname=plotName, vg=gateVoltage, vdd=vdd, temp=temp, proc=process, ctrl=ctrl_script, template=template_script, outName=outName))
+  gen_spice_script(template_script, outName, replace_dict)
 
   # Launch NGspice
   try:
@@ -93,64 +98,34 @@ def sim_params(template_script, outName, temp, gateVoltage, process, vdd=1.5, pl
 
 
 
-
-
-
-
-
-
-
-
 default_ctrl_dict = {'pu':7*[{'en':0, 'cal':[0,0,0,0]}],
                      'pd':7*[{'en':0, 'cal':[0,0,0,0]}]}
 
 def sstl_res_sim(template_script, outName, is_pulldown, temp, vddVoltage, process, ctrl_dict, plotName=''):
   if plotName == '':
     plotName = outName
-
-  # Add output directories
-  try: os.mkdir('./out') 
-  except: pass
-  try: os.mkdir('./out/scripts')
-  except: pass
-  try: os.mkdir('./out/logs')
-  except: pass
-  try: os.mkdir('./out/data')
-  except: pass
-  try: os.mkdir('./out/plots')
-  except: pass
-  # Remove old file if it exists
-  try: os.remove('./out/scripts/{outName}.spice'.format(outName=outName))
-  except: pass # (in case the file does not exist)
-  try: os.remove('./out/logs/{outName}.log'.format(outName=outName))
-  except: pass # (in case the file does not exist)
-
-  ctrl_script=''
+  
+  replace_dict = {}
+  replace_dict['plotName'] = plotName
+  replace_dict['vdd']      = vddVoltage
+  replace_dict['temp']     = temp
+  replace_dict['process']  = process
   for i in range(7): # 7 pullup and pulldown legs
     s = '0'
     if ctrl_dict['pu'][i]['en']: s = str(vddVoltage)
-    ctrl_script += 's/SED_puctrl{n}_SED/{s}/g; '.format(n=i, s=s)
+    replace_dict['puctrl{}'.format(i)] = s    
     s = '0'
     if ctrl_dict['pd'][i]['en']: s = str(vddVoltage)
-    ctrl_script += 's/SED_pdctrl{n}_SED/{s}/g; '.format(n=i, s=s)
+    replace_dict['pdctrl{}'.format(i)] = s
     for j in range(4): # 4 calibration fets for each leg
       s = '0'
       if ctrl_dict['pu'][i]['cal'][j]: s = str(vddVoltage)
-      ctrl_script += 's/SED_pucal{l}{n}_SED/{s}/g; '.format(l=i, n=j, s=s)
+      replace_dict['pucal{l}{n}'.format(l=i, n=j)] = s
       s = '0'
       if ctrl_dict['pd'][i]['cal'][j]: s = str(vddVoltage)
-      ctrl_script += 's/SED_pdcal{l}{n}_SED/{s}/g; '.format(l=i, n=j, s=s)
+      replace_dict['pdcal{l}{n}'.format(l=i, n=j)] = s
 
-  # Call Main SED script to fill in params
-  os.system('''sed '\
-  s/SED_plotName_SED/{pname}/g; \
-  s/SED_vdd_SED/{vdd}/g; \
-  s/SED_temp_SED/{temp}/g; \
-  s/SED_process_SED/{proc}/g; \
-  {ctrl} \
-  ' {template} \
-  >> out/scripts/{outName}.spice'''.format( \
-  pname=plotName, vdd=vddVoltage, temp=temp, proc=process, ctrl=ctrl_script, template=template_script, outName=outName))
+  gen_spice_script(template_script, outName, replace_dict)
 
   # Launch NGspice
   try:
