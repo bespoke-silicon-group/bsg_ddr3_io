@@ -14,11 +14,11 @@
     "temp": -40,
     "vdd": 1.575,
     "process": "ff_mm",
-    "valid_cal_enum": 0,
+    "valid_cal_enum": 1,
     "calibrated_resistances": [
-      31.2,
-      35.5,
-      36.9
+      25.7,
+      31.0,
+      33.5
     ]
   },
   {
@@ -38,7 +38,7 @@
     "process": "fs_mm",
     "valid_cal_enum": 0,
     "calibrated_resistances": [
-      31.1,
+      31.2,
       35.5,
       36.8
     ]
@@ -60,7 +60,7 @@
     "process": "hh_mm",
     "valid_cal_enum": 1,
     "calibrated_resistances": [
-      29.6,
+      29.7,
       35.6,
       38.4
     ]
@@ -82,9 +82,9 @@
     "process": "hl_mm",
     "valid_cal_enum": 1,
     "calibrated_resistances": [
-      30.4,
-      36.7,
-      39.6
+      30.5,
+      36.8,
+      39.7
     ]
   },
   {
@@ -148,9 +148,9 @@
     "process": "sf_mm",
     "valid_cal_enum": 3,
     "calibrated_resistances": [
-      25.6,
-      32.4,
-      36.2
+      25.5,
+      32.3,
+      36.1
     ]
   },
   {
@@ -192,9 +192,9 @@
     "process": "tt_mm",
     "valid_cal_enum": 1,
     "calibrated_resistances": [
-      27.5,
-      33.0,
-      35.5
+      27.4,
+      32.9,
+      35.4
     ]
   },
   {
@@ -236,8 +236,8 @@
     "process": "fs_mm",
     "valid_cal_enum": 1,
     "calibrated_resistances": [
-      35.4,
-      35.6,
+      35.5,
+      35.7,
       36.9
     ]
   },
@@ -258,9 +258,9 @@
     "process": "hh_mm",
     "valid_cal_enum": 3,
     "calibrated_resistances": [
-      32.4,
-      35.0,
-      38.1
+      32.2,
+      34.7,
+      37.9
     ]
   },
   {
@@ -280,8 +280,8 @@
     "process": "hl_mm",
     "valid_cal_enum": 3,
     "calibrated_resistances": [
-      32.8,
-      35.5,
+      32.9,
+      35.6,
       38.9
     ]
   },
@@ -302,9 +302,9 @@
     "process": "lh_mm",
     "valid_cal_enum": 1,
     "calibrated_resistances": [
+      34.7,
       34.6,
-      34.5,
-      35.4
+      35.5
     ]
   },
   {
@@ -368,9 +368,9 @@
     "process": "ss_mm",
     "valid_cal_enum": 7,
     "calibrated_resistances": [
-      27.7,
-      31.7,
-      36.3
+      27.8,
+      31.8,
+      36.4
     ]
   },
   {
@@ -390,9 +390,9 @@
     "process": "tt_mm",
     "valid_cal_enum": 3,
     "calibrated_resistances": [
-      30.4,
-      32.6,
-      35.4
+      30.6,
+      32.8,
+      35.6
     ]
   },
   {
@@ -413,7 +413,7 @@
     "valid_cal_enum": 1,
     "calibrated_resistances": [
       30.4,
-      36.3,
+      36.4,
       39.2
     ]
   },
@@ -436,7 +436,7 @@
     "calibrated_resistances": [
       30.0,
       36.2,
-      39.1
+      39.2
     ]
   },
   {
@@ -456,9 +456,9 @@
     "process": "hh_mm",
     "valid_cal_enum": 3,
     "calibrated_resistances": [
-      27.6,
-      34.3,
-      38.7
+      27.7,
+      34.4,
+      38.8
     ]
   },
   {
@@ -522,9 +522,9 @@
     "process": "ll_mm",
     "valid_cal_enum": 1,
     "calibrated_resistances": [
-      30.4,
+      30.5,
       35.9,
-      38.4
+      38.5
     ]
   },
   {
@@ -546,7 +546,7 @@
     "calibrated_resistances": [
       29.7,
       36.5,
-      40.7
+      40.6
     ]
   },
   {
@@ -567,8 +567,8 @@
     "valid_cal_enum": 3,
     "calibrated_resistances": [
       29.4,
-      36.0,
-      40.1
+      36.1,
+      40.2
     ]
   },
   {
@@ -588,9 +588,9 @@
     "process": "tt_mm",
     "valid_cal_enum": 3,
     "calibrated_resistances": [
-      26.0,
-      32.2,
-      36.2
+      26.2,
+      32.5,
+      36.4
     ]
   },
   {
@@ -656,7 +656,7 @@
     "calibrated_resistances": [
       28.5,
       31.3,
-      35.8
+      35.7
     ]
   },
   {
@@ -678,7 +678,7 @@
     "calibrated_resistances": [
       28.9,
       31.8,
-      36.4
+      36.5
     ]
   },
   {
@@ -698,9 +698,9 @@
     "process": "lh_mm",
     "valid_cal_enum": 3,
     "calibrated_resistances": [
-      34.2,
-      35.2,
-      37.5
+      34.1,
+      35.1,
+      37.4
     ]
   },
   {
@@ -720,9 +720,9 @@
     "process": "ll_mm",
     "valid_cal_enum": 3,
     "calibrated_resistances": [
-      34.8,
+      34.9,
       35.9,
-      38.3
+      38.4
     ]
   },
   {
@@ -743,7 +743,7 @@
     "valid_cal_enum": 7,
     "calibrated_resistances": [
       33.1,
-      36.1,
+      36.0,
       40.6
     ]
   },
@@ -764,9 +764,9 @@
     "process": "ss_mm",
     "valid_cal_enum": 7,
     "calibrated_resistances": [
-      32.7,
-      35.4,
-      39.8
+      32.5,
+      35.3,
+      39.7
     ]
   },
   {
@@ -787,8 +787,8 @@
     "valid_cal_enum": 5,
     "calibrated_resistances": [
       31.2,
-      33.4,
-      37.0
+      33.3,
+      36.9
     ]
   }
 ]
