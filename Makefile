@@ -17,7 +17,7 @@ $(NGSPICE):
 	cd ./tools/ngspice-src &&\
 		source /opt/rh/devtoolset-8/enable &&\
 		./autogen.sh &&\
-		./configure --prefix=`pwd`/../ngspice-install &&\
+		./configure --prefix=`pwd`/../ngspice-install --enable-openmp &&\
 		make &&\
 		make install
 .PHONY: install-ngspice
@@ -37,7 +37,7 @@ $(XSCHEM):
 	git clone ${XSCHEMREPO} ./tools/xschem-src
 	cd ./tools/xschem-src &&\
 		source /opt/rh/devtoolset-8/enable &&\
-		./configure --prefix=`pwd`/../xschem-install --enable-openmp &&\
+		./configure --prefix=`pwd`/../xschem-install &&\
 		make &&\
 		make install
 	ln -s ${PDKSPATH}/${PDKNAME}/libs.tech/xschem/ ./tools/xschem-install/share/xschem/xschem_library/sky130

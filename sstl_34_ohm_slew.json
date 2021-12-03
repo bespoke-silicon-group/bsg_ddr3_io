@@ -1,0 +1,506 @@
+[
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ff",
+    "slew_up": 5.19,
+    "slew_down": 0.6
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ff_mm",
+    "slew_up": 5.12,
+    "slew_down": 0.59
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "fs",
+    "slew_up": 3.42,
+    "slew_down": 0.69
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "fs_mm",
+    "slew_up": 3.53,
+    "slew_down": 0.69
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "hh",
+    "slew_up": 3.81,
+    "slew_down": 0.53
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "hh_mm",
+    "slew_up": 3.85,
+    "slew_down": 0.52
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "hl",
+    "slew_up": 3.74,
+    "slew_down": 0.52
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "hl_mm",
+    "slew_up": 3.71,
+    "slew_down": 0.52
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "lh",
+    "slew_up": 4.04,
+    "slew_down": 0.52
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "lh_mm",
+    "slew_up": 3.92,
+    "slew_down": 0.53
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ll",
+    "slew_up": 3.97,
+    "slew_down": 0.51
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ll_mm",
+    "slew_up": 3.92,
+    "slew_down": 0.52
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "sf",
+    "slew_up": 3.7,
+    "slew_down": 0.4
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "sf_mm",
+    "slew_up": 3.84,
+    "slew_down": 0.4
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ss",
+    "slew_up": 2.24,
+    "slew_down": 0.39
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "ss_mm",
+    "slew_up": 2.41,
+    "slew_down": 0.39
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "tt",
+    "slew_up": 3.85,
+    "slew_down": 0.49
+  },
+  {
+    "temp": -40,
+    "vdd": 1.575,
+    "process": "tt_mm",
+    "slew_up": 3.89,
+    "slew_down": 0.49
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ff",
+    "slew_up": 4.27,
+    "slew_down": 0.49
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ff_mm",
+    "slew_up": 4.17,
+    "slew_down": 0.49
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "fs",
+    "slew_up": 2.63,
+    "slew_down": 0.63
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "fs_mm",
+    "slew_up": 2.54,
+    "slew_down": 0.63
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "hh",
+    "slew_up": 2.99,
+    "slew_down": 0.42
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "hh_mm",
+    "slew_up": 3.05,
+    "slew_down": 0.42
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "hl",
+    "slew_up": 2.95,
+    "slew_down": 0.41
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "hl_mm",
+    "slew_up": 3.1,
+    "slew_down": 0.41
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "lh",
+    "slew_up": 3.15,
+    "slew_down": 0.42
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "lh_mm",
+    "slew_up": 3.44,
+    "slew_down": 0.43
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ll",
+    "slew_up": 3.1,
+    "slew_down": 0.42
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ll_mm",
+    "slew_up": 3.14,
+    "slew_down": 0.42
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "sf",
+    "slew_up": 2.87,
+    "slew_down": 0.32
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "sf_mm",
+    "slew_up": 2.73,
+    "slew_down": 0.32
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ss",
+    "slew_up": 1.63,
+    "slew_down": 0.31
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "ss_mm",
+    "slew_up": 1.77,
+    "slew_down": 0.32
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "tt",
+    "slew_up": 3.09,
+    "slew_down": 0.44
+  },
+  {
+    "temp": -40,
+    "vdd": 1.475,
+    "process": "tt_mm",
+    "slew_up": 3.1,
+    "slew_down": 0.43
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ff",
+    "slew_up": 3.77,
+    "slew_down": 0.65
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ff_mm",
+    "slew_up": 3.76,
+    "slew_down": 0.65
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "fs",
+    "slew_up": 2.47,
+    "slew_down": 0.88
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "fs_mm",
+    "slew_up": 2.51,
+    "slew_down": 0.89
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "hh",
+    "slew_up": 2.86,
+    "slew_down": 0.58
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "hh_mm",
+    "slew_up": 2.82,
+    "slew_down": 0.59
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "hl",
+    "slew_up": 2.82,
+    "slew_down": 0.58
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "hl_mm",
+    "slew_up": 2.77,
+    "slew_down": 0.58
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "lh",
+    "slew_up": 2.98,
+    "slew_down": 0.55
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "lh_mm",
+    "slew_up": 3.0,
+    "slew_down": 0.56
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ll",
+    "slew_up": 2.94,
+    "slew_down": 0.54
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ll_mm",
+    "slew_up": 2.98,
+    "slew_down": 0.54
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "sf",
+    "slew_up": 2.98,
+    "slew_down": 0.41
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "sf_mm",
+    "slew_up": 3.03,
+    "slew_down": 0.41
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ss",
+    "slew_up": 1.68,
+    "slew_down": 0.42
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "ss_mm",
+    "slew_up": 1.68,
+    "slew_down": 0.41
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "tt",
+    "slew_up": 2.89,
+    "slew_down": 0.53
+  },
+  {
+    "temp": 125,
+    "vdd": 1.575,
+    "process": "tt_mm",
+    "slew_up": 2.9,
+    "slew_down": 0.53
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ff",
+    "slew_up": 3.3,
+    "slew_down": 0.56
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ff_mm",
+    "slew_up": 3.33,
+    "slew_down": 0.56
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "fs",
+    "slew_up": 1.98,
+    "slew_down": 0.69
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "fs_mm",
+    "slew_up": 1.98,
+    "slew_down": 0.7
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "hh",
+    "slew_up": 2.4,
+    "slew_down": 0.52
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "hh_mm",
+    "slew_up": 2.39,
+    "slew_down": 0.52
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "hl",
+    "slew_up": 2.37,
+    "slew_down": 0.51
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "hl_mm",
+    "slew_up": 2.37,
+    "slew_down": 0.5
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "lh",
+    "slew_up": 2.46,
+    "slew_down": 0.47
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "lh_mm",
+    "slew_up": 2.41,
+    "slew_down": 0.46
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ll",
+    "slew_up": 2.42,
+    "slew_down": 0.46
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ll_mm",
+    "slew_up": 2.43,
+    "slew_down": 0.47
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "sf",
+    "slew_up": 2.48,
+    "slew_down": 0.34
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "sf_mm",
+    "slew_up": 2.43,
+    "slew_down": 0.35
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ss",
+    "slew_up": 1.34,
+    "slew_down": 0.41
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "ss_mm",
+    "slew_up": 1.31,
+    "slew_down": 0.42
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "tt",
+    "slew_up": 2.42,
+    "slew_down": 0.5
+  },
+  {
+    "temp": 125,
+    "vdd": 1.475,
+    "process": "tt_mm",
+    "slew_up": 2.43,
+    "slew_down": 0.5
+  }
+]
