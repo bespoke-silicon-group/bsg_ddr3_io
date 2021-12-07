@@ -132,34 +132,21 @@ vpd_ctrl4 VDD pd_ctrl[4] 0 PULSE 0 SED_pdctrl4_SED 10n 10p 10p 10n 20n 0
 vpd_ctrl5 VDD pd_ctrl[5] 0 PULSE 0 SED_pdctrl5_SED 10n 10p 10p 10n 20n 0
 vpd_ctrl6 VDD pd_ctrl[6] 0 PULSE 0 SED_pdctrl6_SED 10n 10p 10p 10n 20n 0
 
-* Set V-out-low-AC and V-out-high-AC voltages
-Evohac vohac 0 VDD 0 0.6
-Evlhac volac 0 VDD 0 0.4
-
 .control
-set num_threads=4
 save all
 set temp=SED_temp_SED
 
 * RUN SIMULATION
 tran 1p 25n
 * Measure rise time
-*meas tran tdiff_rise trig dq val=volac rise=1 targ dq val=vohac rise=1
 meas tran tdiff_rise trig dq val=SED_volac_SED rise=1 targ dq val=SED_vohac_SED rise=1
 * Measure fall time
-*meas tran tdiff_fall trig dq val=vohac fall=1 targ dq val=volac fall=1
 meas tran tdiff_fall trig dq val=SED_vohac_SED fall=1 targ dq val=SED_volac_SED fall=1
 
 * OUTPUT
-
 wrdata ./out/data/SED_plotName_SED.txt tdiff_rise tdiff_fall
 set hcopydevtype = svg
 hardcopy ./out/plots/SED_plotName_SED.svg dq pu_in_test_4 pd_in_test_4 title 'DQ vs time'
-
-*print i(vtest)
-*wrdata out/data/SED_plotName_SED.txt i(vtest)
-*set hcopydevtype = svg
-*hardcopy ./out/plots/SED_plotName_SED.svg I(vtest) vs vddq title 'Resistance vs pin voltage'
 
 .endc
 "}
@@ -193,14 +180,14 @@ C {devices/vcvs.sym} 1110 -300 0 1 {name=Ehalf_vdd
 value=0.5}
 C {devices/gnd.sym} 1110 -250 0 0 {name=l4 lab=GND}
 C {devices/vdd.sym} 1150 -330 0 0 {name=l5 lab=VDD}
-C {sky130/sky130_stdcells/inv_1.sym} -80 -390 0 0 {name=xpui1[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_1.sym} 20 -390 0 0 {name=xpui2[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_1.sym} 120 -390 0 0 {name=xpui3[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_1.sym} 220 -390 0 0 {name=xpui4[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_1.sym} -80 -270 0 0 {name=xpdi1[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_1.sym} 20 -270 0 0 {name=xpdi2[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_1.sym} 120 -270 0 0 {name=xpdi3[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_1.sym} 220 -270 0 0 {name=xpdi4[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130/sky130_stdcells/clkinv_1.sym} -80 -390 0 0 {name=xpui1[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130/sky130_stdcells/clkinv_1.sym} 20 -390 0 0 {name=xpui2[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130/sky130_stdcells/clkinv_1.sym} 120 -390 0 0 {name=xpui3[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130/sky130_stdcells/clkinv_1.sym} 220 -390 0 0 {name=xpui4[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130/sky130_stdcells/clkinv_1.sym} -80 -270 0 0 {name=xpdi1[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130/sky130_stdcells/clkinv_1.sym} 20 -270 0 0 {name=xpdi2[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130/sky130_stdcells/clkinv_1.sym} 120 -270 0 0 {name=xpdi3[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130/sky130_stdcells/clkinv_1.sym} 220 -270 0 0 {name=xpdi4[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
 C {devices/lab_wire.sym} -20 -390 0 0 {name=l6 sig_type=std_logic lab=pub1[6:0]}
 C {devices/lab_wire.sym} 80 -390 0 0 {name=l7 sig_type=std_logic lab=pub2[6:0]}
 C {devices/lab_wire.sym} 180 -390 0 0 {name=l8 sig_type=std_logic lab=pub3[6:0]}

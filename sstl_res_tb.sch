@@ -114,6 +114,7 @@ vpd_ctrl6 pd_ctrl[6] 0 SED_pdctrl6_SED
 
 
 .control
+set num_threads=4
 save all
 set temp=SED_temp_SED
 

@@ -221,11 +221,11 @@ C {devices/bus_connect.sym} 3490 -1220 1 0 {name=l26 lab=n_pu_ctrl[0]}
 C {devices/bus_connect.sym} 3510 -1180 1 0 {name=l27 lab=n_pu_cal_ctrl[3:0]}
 C {devices/bus_connect.sym} 3530 -700 3 0 {name=l28 lab=pd_cal_ctrl[3:0]}
 C {devices/bus_connect.sym} 3510 -660 3 0 {name=l29 lab=pd_ctrl_buff[0]}
-C {sky130/sky130_stdcells/inv_4.sym} 200 -580 0 0 {name=xpd_buff_4[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_6.sym} 320 -580 0 0 {name=xpd_buff_6[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_4.sym} 200 -1300 0 0 {name=xpu_buff_4[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_6.sym} 320 -1300 0 0 {name=xpu_buff_6[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/inv_1.sym} 80 -1300 0 0 {name=xpu_buff_1[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130_stdcells/clkinv_4.sym} 200 -580 0 0 {name=xpd_buff_4[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130_stdcells/clkinv_8.sym} 320 -580 0 0 {name=xpd_buff_6[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130_stdcells/clkinv_8.sym} 200 -1300 0 0 {name=xpu_buff_4[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130_stdcells/clkinv_16.sym} 320 -1300 0 0 {name=xpu_buff_6[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130_stdcells/clkinv_2.sym} 80 -1300 0 0 {name=xpu_buff_1[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
 C {devices/ipin.sym} 20 -1180 0 0 {name=p2 lab=pu_cal_ctrl[27:0]}
 C {sky130/sky130_stdcells/inv_1.sym} 80 -1180 0 0 {name=xpu_cal_inv[27:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
 C {devices/lab_wire.sym} 380 -1220 0 0 {name=l30 sig_type=std_logic lab=n_pu_ctrl[6:0]}

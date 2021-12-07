@@ -23,16 +23,15 @@ E {}
 N 340 -390 360 -390 { lab=n_cal_ctrl[0]}
 N 560 -390 580 -390 { lab=n_cal_ctrl[1]}
 N 400 -420 620 -420 { lab=#net1}
-N 400 -360 620 -360 { lab=DQ}
+N 400 -360 620 -360 { lab=#net2}
 N 340 -290 360 -290 { lab=n_cal_ctrl[2]}
 N 560 -290 580 -290 { lab=n_cal_ctrl[3]}
 N 400 -320 540 -320 { lab=#net1}
-N 400 -260 540 -260 { lab=DQ}
+N 400 -260 540 -260 { lab=#net2}
 N 470 -420 470 -320 { lab=#net1}
-N 490 -360 490 -260 { lab=DQ}
+N 490 -360 490 -260 { lab=#net2}
 N 540 -320 620 -320 { lab=#net1}
-N 540 -260 620 -260 { lab=DQ}
-N 590 -450 690 -450 { lab=n_pu_ctrl}
+N 540 -260 620 -260 { lab=#net2}
 N 730 -420 730 -320 { lab=#net1}
 N 1000 -290 1010 -290 { lab=VDD}
 N 400 -390 410 -390 { lab=VDD}
@@ -48,14 +47,16 @@ N 270 -290 340 -290 { lab=n_cal_ctrl[2]}
 N 270 -240 560 -240 { lab=n_cal_ctrl[3]}
 N 560 -290 560 -240 { lab=n_cal_ctrl[3]}
 N 260 -450 260 -250 {bus=true lab=n_cal_ctrl[3:0]}
-N 730 -260 730 -180 { lab=DQ}
 N 730 -180 820 -180 { lab=DQ}
 N 950 -290 960 -290 { lab=n_cal_ctrl[0]}
 N 620 -320 730 -320 { lab=#net1}
-N 620 -260 730 -260 { lab=DQ}
+N 620 -260 730 -260 { lab=#net2}
 N 1000 -320 1000 -260 { lab=VDD}
-N 730 -520 730 -480 {}
-N 730 -480 730 -450 {}
+N 730 -520 730 -480 { lab=VDD}
+N 730 -480 730 -450 { lab=VDD}
+N 730 -260 730 -240 { lab=#net2}
+N 590 -450 610 -450 {}
+N 670 -450 690 -450 {}
 C {devices/title.sym} 160 -30 0 0 {name=l1 author="Derek H-M"}
 C {devices/vdd.sym} 730 -520 0 0 {name=l3 lab=VDD}
 C {sky130/sky130_fd_pr/res_generic_po.sym} 730 -290 0 0 {name=R1
@@ -160,3 +161,5 @@ sa=0 sb=0 sd=0
 model=pfet_01v8_lvt
 spiceprefix=X
 }
+C {devices/ammeter.sym} 730 -210 0 0 {name=Vcur_out}
+C {devices/ammeter.sym} 640 -450 3 0 {name=Vcur_in}
