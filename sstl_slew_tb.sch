@@ -116,28 +116,29 @@ vpd_cal63 pd_cal[27] 0 SED_pdcal63_SED
 
 ** LEG ENABLE/DISABLE CONTROL
 * PULLUP
-vpu_ctrl0 pu_ctrl[0] 0 0 PULSE 0 SED_puctrl0_SED 10n 10p 10p 10n 20n 0
-vpu_ctrl1 pu_ctrl[1] 0 0 PULSE 0 SED_puctrl1_SED 10n 10p 10p 10n 20n 0
-vpu_ctrl2 pu_ctrl[2] 0 0 PULSE 0 SED_puctrl2_SED 10n 10p 10p 10n 20n 0
-vpu_ctrl3 pu_ctrl[3] 0 0 PULSE 0 SED_puctrl3_SED 10n 10p 10p 10n 20n 0
-vpu_ctrl4 pu_ctrl[4] 0 0 PULSE 0 SED_puctrl4_SED 10n 10p 10p 10n 20n 0
-vpu_ctrl5 pu_ctrl[5] 0 0 PULSE 0 SED_puctrl5_SED 10n 10p 10p 10n 20n 0
-vpu_ctrl6 pu_ctrl[6] 0 0 PULSE 0 SED_puctrl6_SED 10n 10p 10p 10n 20n 0
+*          vlow, vhigh, delay, risetime, falltime, pulsewidth, period, phase
+vpu_ctrl0 pu_ctrl[0] 0 0 PULSE 0 SED_puctrl0_SED 1n 10p 10p 5n 10n 0
+vpu_ctrl1 pu_ctrl[1] 0 0 PULSE 0 SED_puctrl1_SED 1n 10p 10p 5n 10n 0
+vpu_ctrl2 pu_ctrl[2] 0 0 PULSE 0 SED_puctrl2_SED 1n 10p 10p 5n 10n 0
+vpu_ctrl3 pu_ctrl[3] 0 0 PULSE 0 SED_puctrl3_SED 1n 10p 10p 5n 10n 0
+vpu_ctrl4 pu_ctrl[4] 0 0 PULSE 0 SED_puctrl4_SED 1n 10p 10p 5n 10n 0
+vpu_ctrl5 pu_ctrl[5] 0 0 PULSE 0 SED_puctrl5_SED 1n 10p 10p 5n 10n 0
+vpu_ctrl6 pu_ctrl[6] 0 0 PULSE 0 SED_puctrl6_SED 1n 10p 10p 5n 10n 0
 * PULLDOWN
-vpd_ctrl0 VDD pd_ctrl[0] 0 PULSE 0 SED_pdctrl0_SED 10n 10p 10p 10n 20n 0
-vpd_ctrl1 VDD pd_ctrl[1] 0 PULSE 0 SED_pdctrl1_SED 10n 10p 10p 10n 20n 0
-vpd_ctrl2 VDD pd_ctrl[2] 0 PULSE 0 SED_pdctrl2_SED 10n 10p 10p 10n 20n 0
-vpd_ctrl3 VDD pd_ctrl[3] 0 PULSE 0 SED_pdctrl3_SED 10n 10p 10p 10n 20n 0
-vpd_ctrl4 VDD pd_ctrl[4] 0 PULSE 0 SED_pdctrl4_SED 10n 10p 10p 10n 20n 0
-vpd_ctrl5 VDD pd_ctrl[5] 0 PULSE 0 SED_pdctrl5_SED 10n 10p 10p 10n 20n 0
-vpd_ctrl6 VDD pd_ctrl[6] 0 PULSE 0 SED_pdctrl6_SED 10n 10p 10p 10n 20n 0
+vpd_ctrl0 VDD pd_ctrl[0] 0 PULSE 0 SED_pdctrl0_SED 1.1n 10p 10p 5n 10n 0
+vpd_ctrl1 VDD pd_ctrl[1] 0 PULSE 0 SED_pdctrl1_SED 1.1n 10p 10p 5n 10n 0
+vpd_ctrl2 VDD pd_ctrl[2] 0 PULSE 0 SED_pdctrl2_SED 1.1n 10p 10p 5n 10n 0
+vpd_ctrl3 VDD pd_ctrl[3] 0 PULSE 0 SED_pdctrl3_SED 1.1n 10p 10p 5n 10n 0
+vpd_ctrl4 VDD pd_ctrl[4] 0 PULSE 0 SED_pdctrl4_SED 1.1n 10p 10p 5n 10n 0
+vpd_ctrl5 VDD pd_ctrl[5] 0 PULSE 0 SED_pdctrl5_SED 1.1n 10p 10p 5n 10n 0
+vpd_ctrl6 VDD pd_ctrl[6] 0 PULSE 0 SED_pdctrl6_SED 1.1n 10p 10p 5n 10n 0
 
 .control
 save all
 set temp=SED_temp_SED
 
 * RUN SIMULATION
-tran 1p 25n
+tran 1p 8n
 * Measure rise time
 meas tran tdiff_rise trig dq val=SED_volac_SED rise=1 targ dq val=SED_vohac_SED rise=1
 * Measure fall time
