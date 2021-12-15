@@ -77,9 +77,10 @@ if num_leg_en == 6:
   pu_cal_file = 'sstl_pullup_40_ohm_cal.json'
   pd_cal_file = 'sstl_pulldown_40_ohm_cal.json'
 data_arr = []
-temps = [-40, 125] # Temperature edge cases
-vdds = [1.575, 1.475] # Edge cases of voltage (1.5V +/-5%)
-procs = ['ff', 'ff_mm', 'fs', 'fs_mm', 'hh', 'hh_mm', 'hl', 'hl_mm', 'lh', 'lh_mm', 'll', 'll_mm', 'sf', 'sf_mm', 'ss', 'ss_mm', 'tt', 'tt_mm']
+temps = [125, -40] # Temperature edge cases
+vdds = [1.475, 1.575] # Edge cases of voltage (1.5V +/-5%)
+procs = ['tt', 'tt_mm', 'ff', 'ff_mm', 'fs', 'fs_mm', 'sf', 'sf_mm', 'ss', 'ss_mm']
+# procs = ['sf', 'tt', 'ff', 'ff_mm', 'fs', 'fs_mm', 'hh', 'hh_mm', 'hl', 'hl_mm', 'lh', 'lh_mm', 'll', 'll_mm', 'sf_mm', 'ss', 'ss_mm', 'tt_mm']
 for temp in temps:
   for vdd in vdds:
     for proc in procs:
