@@ -6,15 +6,20 @@ PDKSPATH=/gro/cad/pdk
 PDKNAME=sky130A
 
 NGSPICEREPO=https://git.code.sf.net/p/ngspice/ngspice
+NGSPICEREV=87b9df668 
 XSCHEMREPO=https://github.com/StefanSchippers/xschem.git
+XSCHEMREV=290fc3c 
 MAGICREPO=https://github.com/RTimothyEdwards/magic.git
+MAGICREV=8.3.227
 NETGENREPO=https://github.com/RTimothyEdwards/netgen.git
+NETGENREV=20f6d76
 
 NGSPICE=./tools/ngspice-install/bin/ngspice
 $(NGSPICE):
 	########## INSTALLING NGSPICE ##########
 	git clone ${NGSPICEREPO} ./tools/ngspice-src
 	cd ./tools/ngspice-src &&\
+		git checkout ${NGSPICEREV} &&\
 		source /opt/rh/devtoolset-8/enable &&\
 		./autogen.sh &&\
 		./configure --prefix=`pwd`/../ngspice-install --enable-openmp &&\
@@ -36,12 +41,12 @@ $(XSCHEM):
 	########## INSTALLING XSCHEM ##########
 	git clone ${XSCHEMREPO} ./tools/xschem-src
 	cd ./tools/xschem-src &&\
+		git checkout ${XSCHEMREV} &&\
 		source /opt/rh/devtoolset-8/enable &&\
 		./configure --prefix=`pwd`/../xschem-install &&\
 		make &&\
 		make install
-	ln -s ${PDKSPATH}/${PDKNAME}/libs.tech/xschem/ ./tools/xschem-install/share/xschem/xschem_library/sky130
-	# TODO set up sky130 xschem examples?
+	ln -s ${PDKSPATH}/${PDKNAME}/libs.tech/xschem/ ./tools/xschem-install/share/xschem/xschem_library/sky130	
 .PHONY: install-xschem
 install-xschem: $(XSCHEM)
 .PHONY: launch-xschem
@@ -58,6 +63,7 @@ $(MAGIC):
 	########## INSTALLING MAGIC ##########
 	git clone ${MAGICREPO} ./tools/magic-src
 	cd ./tools/magic-src &&\
+		git checkout ${MAGICREV} &&\
 		source /opt/rh/devtoolset-8/enable &&\
 		./configure --prefix=`pwd`/../magic-install &&\
 		make &&\
@@ -78,6 +84,7 @@ $(NETGEN):
 	########## INSTALLING NETGEN ##########
 	git clone ${NETGENREPO} ./tools/netgen-src
 	cd ./tools/netgen-src &&\
+		git checkout ${NETGENREV} &&\
 		source /opt/rh/devtoolset-8/enable &&\
 		./configure --prefix=`pwd`/../netgen-install &&\
 		make &&\
