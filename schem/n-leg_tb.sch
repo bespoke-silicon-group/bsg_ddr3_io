@@ -55,9 +55,9 @@ set temp=SED_temp_SED
 dc vvddq 0.3 1.2 0.05
 * OUTPUT
 print v(vddq)/i(vtest)
-wrdata out/data/SED_plotName_SED.txt v(vddq)/i(vtest)
+wrdata out/SED_plotName_SED/SED_plotName_SED.txt v(vddq)/i(vtest)
 set hcopydevtype = svg
-hardcopy ./out/plots/SED_plotName_SED.svg vddq/I(vtest) vs vddq title 'Resistance vs pin voltage'
+hardcopy ./out/SED_plotName_SED/SED_plotName_SED.svg vddq/I(vtest) vs vddq title 'Resistance vs pin voltage'
 
 .endc
 "}

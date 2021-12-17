@@ -1,9 +1,106 @@
 
 # CONFIGURE THESE:
 PDKSPATH=/gro/cad/pdk
-
-
 PDKNAME=sky130A
+
+TEMPS:=125 -40
+VOLTAGES:=1.475 1.575
+PROCS:=ff ff_mm fs fs_mm hh hh_mm hl hl_mm lh lh_mm ll ll_mm sf sf_mm ss ss_mm tt tt_mm
+
+C1:=$(foreach v, $(VOLTAGES), $(addsuffix _$(v), $(TEMPS)))
+CORNS:=$(foreach p, $(PROCS), $(addsuffix _$(p), $(C1)))
+
+# SIMPLIFIED LEG SIMULATIONS
+SIMPLE_N_LEG_TARGETS:=$(addprefix out/simple_pd_leg_, $(addsuffix /out.json,$(CORNS) ))
+SIMPLE_P_LEG_TARGETS:=$(addprefix out/simple_pu_leg_, $(addsuffix /out.json,$(CORNS) ))
+.PHONY: simple-leg-sim
+simple-leg-sim: $(SIMPLE_N_LEG_TARGETS) $(SIMPLE_P_LEG_TARGETS)
+	python scripts/simplified_leg_result.py
+
+out/simple_pd_leg_%/out.json: schem/test_pd_res.spice | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )	
+	python scripts/sim_simplified_leg.py --dir pd --voltage ${V} --temp ${T} --process ${P}
+# 	touch $@
+
+out/simple_pu_leg_%/out.json: schem/test_pu_res.spice | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )
+	python scripts/sim_simplified_leg.py --dir pu --voltage $(V) --temp $(T) --process $(P)	
+# 	touch $@
+
+# FULL LEG SIMULATIONS
+N_LEG_TARGETS:=$(addprefix out/pd_leg_, $(addsuffix /out.json,$(CORNS) ))
+P_LEG_TARGETS:=$(addprefix out/pu_leg_, $(addsuffix /out.json,$(CORNS) ))
+.PHONY: leg-sim
+leg-sim: $(N_LEG_TARGETS) $(P_LEG_TARGETS)
+	python scripts/leg_result.py
+
+out/pd_leg_%/out.json: schem/n-leg_tb.spice | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )	
+	python scripts/sim_leg.py --dir pd --voltage ${V} --temp ${T} --process ${P}
+# 	touch $@
+
+out/pu_leg_%/out.json: schem/p-leg_tb.spice | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )
+	python scripts/sim_leg.py --dir pu --voltage $(V) --temp $(T) --process $(P)
+# 	touch $@
+
+# SSTL RESISTANCE AND CALIBRATION SIMULATIONS
+SSTL_PD_7_TARGETS:=$(addprefix out/sstl_pd_7_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
+SSTL_PU_7_TARGETS:=$(addprefix out/sstl_pu_7_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
+SSTL_PD_6_TARGETS:=$(addprefix out/sstl_pd_6_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
+SSTL_PU_6_TARGETS:=$(addprefix out/sstl_pu_6_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
+
+.PHONY: sstl-res-sim
+sstl-res-sim: $(SSTL_PD_7_TARGETS) $(SSTL_PU_7_TARGETS) $(SSTL_PD_6_TARGETS) $(SSTL_PU_6_TARGETS)
+	python scripts/sstl_res_result.py
+
+out/sstl_pd_7_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )
+	python scripts/sim_sstl_res.py --dir pd --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
+
+out/sstl_pu_7_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )
+	python scripts/sim_sstl_res.py --dir pu --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
+
+out/sstl_pd_6_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )
+	python scripts/sim_sstl_res.py --dir pd --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
+
+out/sstl_pu_6_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )
+	python scripts/sim_sstl_res.py --dir pu --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
+
+
+.PHONY: list-corners
+list-corners: 
+	# $(foreach c,$(SIMPLE_N_LEG_TARGETS), ${c})
+
+decode-corner_%:
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )
+	echo "Voltage=$(V) Temp=$(T) Process=$(P)"
+
+out:
+	mkdir out
+
+### TOOL INSTALATION ##########################################################
 
 NGSPICEREPO=https://git.code.sf.net/p/ngspice/ngspice
 NGSPICEREV=87b9df668 
@@ -103,15 +200,17 @@ endif
 
 .PHONY: install-tools
 .DEFAULT_GOAL:=
-install-tools: $(NGSPICE) $(XSCHEM) $(MAGIC) $(NETGEN)
+install-tools: $(NGSPICE) $(XSCHEM) $(MAGIC) $(NETGEN) pdk
+	
+pdk:
 	ln -s ${PDKSPATH}/${PDKNAME} pdk
 
 .PHONY: clean-output
 clean-output:
 	rm -rvf ./out
 
-.PHONY: clean
-clean: $(clean-output)
+.PHONY: clean-tools
+clean-tools: $(clean-output)
 	rm -rvf ./tools
 
 .PHONY: edit
