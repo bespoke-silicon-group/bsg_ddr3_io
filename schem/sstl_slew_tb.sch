@@ -145,9 +145,9 @@ meas tran tdiff_rise trig dq val=SED_volac_SED rise=1 targ dq val=SED_vohac_SED 
 meas tran tdiff_fall trig dq val=SED_vohac_SED fall=1 targ dq val=SED_volac_SED fall=1
 
 * OUTPUT
-wrdata ./out/data/SED_plotName_SED.txt tdiff_rise tdiff_fall
+wrdata ./out/SED_plotName_SED/SED_plotName_SED.txt tdiff_rise tdiff_fall
 set hcopydevtype = svg
-hardcopy ./out/plots/SED_plotName_SED.svg dq pu_in_test_4 pd_in_test_4 title 'DQ vs time'
+hardcopy ./out/SED_plotName_SED/SED_plotName_SED.svg dq pu_in_test_4 pd_in_test_4 title 'DQ vs time'
 
 *plot dq pu_in_test_4 pd_in_test_4 x1.v_pu_ctrl_0 x1.v_pd_ctrl_0
 

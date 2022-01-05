@@ -25,6 +25,11 @@ def checkResReq(r_set, expected_res=240, negate=False):
     result[2] = 1  
   return result
 
+def cal2ctrl(n):
+  result = [0, 0, 0, 0]
+  for b in range(len(bin(n))-2): result[b] = int(bin(n)[::-1][:-2][b] == '1')
+  result.reverse()
+  return result
 
 def gen_spice_script(template, outName, replace_dict):
   try: os.mkdir('./out/{}'.format(outName))

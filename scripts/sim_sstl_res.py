@@ -6,12 +6,6 @@ from numpy import arange
 from random import randrange
 import json
 
-def cal2ctrl(n):
-  result = [0, 0, 0, 0]
-  for b in range(len(bin(n))-2): result[b] = int(bin(n)[::-1][:-2][b] == '1')
-  result.reverse()
-  return result
-
 def simCal(template, name, ctrl_dict, temp, vdd, proc):
   num_pd_en = 0
   for i in range(7): 

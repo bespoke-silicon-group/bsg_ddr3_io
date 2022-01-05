@@ -80,8 +80,8 @@ Vtest10 pd_in_test_4 pdb4[0] 0
 **.ends
 
 * expanding   symbol:  SSTL.sym # of pins=5
-* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/SSTL.sym
-* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/SSTL.sch
+* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/SSTL.sym
+* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/SSTL.sch
 .subckt SSTL  DQ  pd_ctrl[6] pd_ctrl[5] pd_ctrl[4] pd_ctrl[3] pd_ctrl[2] pd_ctrl[1] pd_ctrl[0]
 +  pu_ctrl[6] pu_ctrl[5] pu_ctrl[4] pu_ctrl[3] pu_ctrl[2] pu_ctrl[1] pu_ctrl[0]  pd_cal_ctrl[27] pd_cal_ctrl[26]
 + pd_cal_ctrl[25] pd_cal_ctrl[24] pd_cal_ctrl[23] pd_cal_ctrl[22] pd_cal_ctrl[21] pd_cal_ctrl[20] pd_cal_ctrl[19]
@@ -200,8 +200,8 @@ xpu_buff_1[0] puc4[0] VGND VNB VPB VPWR n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
 
 
 * expanding   symbol:  p-leg.sym # of pins=3
-* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/p-leg.sym
-* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/p-leg.sch
+* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/p-leg.sym
+* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/p-leg.sch
 .subckt p-leg  DQ  n_pu_ctrl  n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0]
 *.ipin n_cal_ctrl[3],n_cal_ctrl[2],n_cal_ctrl[1],n_cal_ctrl[0]
 *.ipin n_pu_ctrl
@@ -233,8 +233,8 @@ Vcur_in n_pu_ctrl net3 0
 
 
 * expanding   symbol:  n-leg.sym # of pins=3
-* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/n-leg.sym
-* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/n-leg.sch
+* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/n-leg.sym
+* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/n-leg.sch
 .subckt n-leg  DQ  pd_ctrl  cal_ctrl[3] cal_ctrl[2] cal_ctrl[1] cal_ctrl[0]
 *.iopin DQ
 *.ipin pd_ctrl
@@ -363,9 +363,9 @@ meas tran tdiff_rise trig dq val=SED_volac_SED rise=1 targ dq val=SED_vohac_SED 
 meas tran tdiff_fall trig dq val=SED_vohac_SED fall=1 targ dq val=SED_volac_SED fall=1
 
 * OUTPUT
-wrdata ./out/data/SED_plotName_SED.txt tdiff_rise tdiff_fall
+wrdata ./out/SED_plotName_SED/SED_plotName_SED.txt tdiff_rise tdiff_fall
 set hcopydevtype = svg
-hardcopy ./out/plots/SED_plotName_SED.svg dq pu_in_test_4 pd_in_test_4 title 'DQ vs time'
+hardcopy ./out/SED_plotName_SED/SED_plotName_SED.svg dq pu_in_test_4 pd_in_test_4 title 'DQ vs time'
 
 *plot dq pu_in_test_4 pd_in_test_4 x1.v_pu_ctrl_0 x1.v_pd_ctrl_0
 

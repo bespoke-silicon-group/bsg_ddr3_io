@@ -62,6 +62,9 @@ SSTL_PU_6_TARGETS:=$(addprefix out/sstl_pu_6_cal_sim_, $(addsuffix /out.json,$(C
 sstl-res-sim: $(SSTL_PD_7_TARGETS) $(SSTL_PU_7_TARGETS) $(SSTL_PD_6_TARGETS) $(SSTL_PU_6_TARGETS)
 	python scripts/sstl_res_result.py
 
+out/results/sstl_%_resistance.json: $(SSTL_PD_7_TARGETS) $(SSTL_PU_7_TARGETS) $(SSTL_PD_6_TARGETS) $(SSTL_PU_6_TARGETS)
+	python scripts/sstl_res_result.py
+
 out/sstl_pd_7_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
 	$(eval T= `python scripts/decode_corn_string.py $* t` )
 	$(eval V= `python scripts/decode_corn_string.py $* v` )
@@ -86,6 +89,27 @@ out/sstl_pu_6_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
 	$(eval P= `python scripts/decode_corn_string.py $* p` )
 	python scripts/sim_sstl_res.py --dir pu --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
 
+# SSTL SLEW SIMULATIONS
+SSTL_SLEW_7_TARGETS:=$(addprefix out/sstl_7_slew_, $(addsuffix /out.json,$(CORNS) ))
+SSTL_SLEW_6_TARGETS:=$(addprefix out/sstl_6_slew_, $(addsuffix /out.json,$(CORNS) ))
+
+.PHONY: sstl-slew-sim
+sstl-slew-sim: $(SSTL_SLEW_7_TARGETS)
+	# NOTE: the the spec only specifies a slew requirement for the 7-leg configuraiton, 
+	# so the 6-leg configuration slew tests are not run by default.
+	python scripts/sstl_slew_result.py
+
+out/sstl_7_slew_%/out.json: schem/sstl_slew_tb.spice out/results/sstl_pu_7_resistance.json out/results/sstl_pd_7_resistance.json | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )
+	python scripts/sim_sstl_slew.py --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
+
+out/sstl_6_slew_%/out.json: schem/sstl_slew_tb.spice out/results/sstl_pu_6_resistance.json out/results/sstl_pd_6_resistance.json | out
+	$(eval T= `python scripts/decode_corn_string.py $* t` )
+	$(eval V= `python scripts/decode_corn_string.py $* v` )
+	$(eval P= `python scripts/decode_corn_string.py $* p` )
+	python scripts/sim_sstl_slew.py --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
 
 .PHONY: list-corners
 list-corners: 
