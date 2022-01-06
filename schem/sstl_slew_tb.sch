@@ -157,7 +157,7 @@ C {devices/code.sym} 930 -200 0 0 {name=MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="** Local library links to pdk
-.lib ./libs/SED_process_SED_lib.spice SED_process_SED
+.lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
 .include \\\\$::SKYWATER_STDCELLS\\\\/sky130_fd_sc_hd.spice
 "
 spice_ignore=false}

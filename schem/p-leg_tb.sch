@@ -64,7 +64,7 @@ C {devices/code.sym} 810 -180 0 0 {name=MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="** Local library links to pdk
-.lib ./libs/SED_process_SED_lib.spice SED_process_SED
+.lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
 "
 spice_ignore=false}
 C {devices/vsource.sym} 130 -450 0 0 {name=Vctrl0

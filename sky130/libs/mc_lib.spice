@@ -1,0 +1,9 @@
+.lib mc
+
+.param mc_mm_switch=0
+.param mc_pr_switch=1
+
+.include "../../pdk/libs.tech/ngspice/parameters/critical.spice"
+.include "../../pdk/libs.tech/ngspice/parameters/montecarlo.spice"
+
+.endl mc

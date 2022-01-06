@@ -10,7 +10,7 @@ Vpinvoltage v1v5 VDDQ 0
 X1 DQ n_pu_ctrl n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0] p-leg
 **** begin user architecture code
  ** Local library links to pdk
-.lib ./libs/SED_process_SED_lib.spice SED_process_SED
+.lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
 
 **** end user architecture code
 **.ends

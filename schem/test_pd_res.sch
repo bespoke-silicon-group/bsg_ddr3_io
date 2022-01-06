@@ -54,7 +54,7 @@ C {devices/code.sym} 980 -200 0 0 {name=MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="** Local library links to pdk
-.lib ./libs/SED_process_SED_lib.spice SED_process_SED
+.lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
 "
 spice_ignore=false}
 C {sky130_fd_pr/res_generic_po.sym} 660 -320 0 0 {name=R1

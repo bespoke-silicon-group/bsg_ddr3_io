@@ -9,7 +9,7 @@ Vctrl3 cal_ctrl[3] GND SED_vctrl3_SED
 X1 DQ pd_ctrl cal_ctrl[3] cal_ctrl[2] cal_ctrl[1] cal_ctrl[0] n-leg
 **** begin user architecture code
  ** Local library links to pdk
-.lib ./libs/SED_process_SED_lib.spice SED_process_SED
+.lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
 
 **** end user architecture code
 **.ends

@@ -73,7 +73,7 @@ Vtest9 pu_in_test_4 pub4[0] 0
 Vtest10 pd_in_test_4 pdb4[0] 0
 **** begin user architecture code
  ** Local library links to pdk
-.lib ./libs/SED_process_SED_lib.spice SED_process_SED
+.lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
 .include /gro/cad/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
 
 **** end user architecture code

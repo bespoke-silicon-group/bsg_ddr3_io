@@ -1,9 +1,0 @@
-.lib mc
-
-.param mc_mm_switch=0
-.param mc_pr_switch=1
-
-.include "sky130_libs/parameters/critical.spice"
-.include "sky130_libs/parameters/montecarlo.spice"
-
-.endl mc

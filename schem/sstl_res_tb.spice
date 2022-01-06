@@ -11,7 +11,7 @@ X1 DQ pd_ctrl[6] pd_ctrl[5] pd_ctrl[4] pd_ctrl[3] pd_ctrl[2] pd_ctrl[1] pd_ctrl[
 + pu_cal[1] pu_cal[0] SSTL
 **** begin user architecture code
  ** Local library links to pdk
-.lib ./libs/SED_process_SED_lib.spice SED_process_SED
+.lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
 .include /gro/cad/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
 
 **** end user architecture code

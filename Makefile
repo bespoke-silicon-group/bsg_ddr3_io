@@ -236,6 +236,7 @@ clean-output:
 .PHONY: clean-tools
 clean-tools: $(clean-output)
 	rm -rvf ./tools
+	unlink pdk
 
 .PHONY: edit
 edit:
