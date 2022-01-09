@@ -29,13 +29,13 @@ def sim_slew(template, name, num_leg_en, pu_cal, pd_cal, temp, vdd, proc):
     if i < num_leg_en: s = str(vdd)
     replace_dict['puctrl{}'.format(i)] = s
     replace_dict['pdctrl{}'.format(i)] = s
-    for j in range(4): # 4 calibration fets for each leg
-      s = '0'
-      if cal2ctrl(pu_cal)[j]: s = str(vdd)
-      replace_dict['pucal{l}{n}'.format(l=i, n=j)] = s
-      s = '0'
-      if cal2ctrl(pd_cal)[j]: s = str(vdd)
-      replace_dict['pdcal{l}{n}'.format(l=i, n=j)] = s
+  for j in range(4): # 4 calibration fets for each leg
+    s = '0'
+    if cal2ctrl(pu_cal)[j]: s = str(vdd)
+    replace_dict['pucal{}'.format(j)] = s
+    s = '0'
+    if cal2ctrl(pd_cal)[j]: s = str(vdd)
+    replace_dict['pdcal{}'.format(j)] = s
 
   gen_spice_script(template, name, replace_dict)
 

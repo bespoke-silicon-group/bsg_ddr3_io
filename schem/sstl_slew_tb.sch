@@ -20,7 +20,7 @@ K {}
 V {}
 S {}
 E {}
-N 350 -360 380 -360 { lab=pu_cal[27:0]}
+N 350 -360 380 -360 { lab=pu_cal[3:0]}
 N 350 -300 380 -300 { lab=pd_cal[27:0]}
 N 860 -330 990 -330 { lab=DQ}
 N 930 -270 930 -260 { lab=GND}
@@ -56,63 +56,15 @@ vvdd VDD 0 SED_vdd_SED
 
 ** CALIBRATION CONTROL **
 * PULLUP
-vpu_cal00 pu_cal[0] 0 SED_pucal00_SED
-vpu_cal01 pu_cal[1] 0 SED_pucal01_SED
-vpu_cal02 pu_cal[2] 0 SED_pucal02_SED
-vpu_cal03 pu_cal[3] 0 SED_pucal03_SED
-vpu_cal10 pu_cal[4] 0 SED_pucal10_SED
-vpu_cal11 pu_cal[5] 0 SED_pucal11_SED
-vpu_cal12 pu_cal[6] 0 SED_pucal12_SED
-vpu_cal13 pu_cal[7] 0 SED_pucal13_SED
-vpu_cal20 pu_cal[8] 0 SED_pucal20_SED
-vpu_cal21 pu_cal[9] 0 SED_pucal21_SED
-vpu_cal22 pu_cal[10] 0 SED_pucal22_SED
-vpu_cal23 pu_cal[11] 0 SED_pucal23_SED
-vpu_cal30 pu_cal[12] 0 SED_pucal30_SED
-vpu_cal31 pu_cal[13] 0 SED_pucal31_SED
-vpu_cal32 pu_cal[14] 0 SED_pucal32_SED
-vpu_cal33 pu_cal[15] 0 SED_pucal33_SED
-vpu_cal40 pu_cal[16] 0 SED_pucal40_SED
-vpu_cal41 pu_cal[17] 0 SED_pucal41_SED
-vpu_cal42 pu_cal[18] 0 SED_pucal42_SED
-vpu_cal43 pu_cal[19] 0 SED_pucal43_SED
-vpu_cal50 pu_cal[20] 0 SED_pucal50_SED
-vpu_cal51 pu_cal[21] 0 SED_pucal51_SED
-vpu_cal52 pu_cal[22] 0 SED_pucal52_SED
-vpu_cal53 pu_cal[23] 0 SED_pucal53_SED
-vpu_cal60 pu_cal[24] 0 SED_pucal60_SED
-vpu_cal61 pu_cal[25] 0 SED_pucal61_SED
-vpu_cal62 pu_cal[26] 0 SED_pucal62_SED
-vpu_cal63 pu_cal[27] 0 SED_pucal63_SED
+vpu_cal0 pu_cal[0] 0 SED_pucal0_SED
+vpu_cal1 pu_cal[1] 0 SED_pucal1_SED
+vpu_cal2 pu_cal[2] 0 SED_pucal2_SED
+vpu_cal3 pu_cal[3] 0 SED_pucal3_SED
 * PULLDOWN
-vpd_cal00 pd_cal[0] 0 SED_pdcal00_SED
-vpd_cal01 pd_cal[1] 0 SED_pdcal01_SED
-vpd_cal02 pd_cal[2] 0 SED_pdcal02_SED
-vpd_cal03 pd_cal[3] 0 SED_pdcal03_SED
-vpd_cal10 pd_cal[4] 0 SED_pdcal10_SED
-vpd_cal11 pd_cal[5] 0 SED_pdcal11_SED
-vpd_cal12 pd_cal[6] 0 SED_pdcal12_SED
-vpd_cal13 pd_cal[7] 0 SED_pdcal13_SED
-vpd_cal20 pd_cal[8] 0 SED_pdcal20_SED
-vpd_cal21 pd_cal[9] 0 SED_pdcal21_SED
-vpd_cal22 pd_cal[10] 0 SED_pdcal22_SED
-vpd_cal23 pd_cal[11] 0 SED_pdcal23_SED
-vpd_cal30 pd_cal[12] 0 SED_pdcal30_SED
-vpd_cal31 pd_cal[13] 0 SED_pdcal31_SED
-vpd_cal32 pd_cal[14] 0 SED_pdcal32_SED
-vpd_cal33 pd_cal[15] 0 SED_pdcal33_SED
-vpd_cal40 pd_cal[16] 0 SED_pdcal40_SED
-vpd_cal41 pd_cal[17] 0 SED_pdcal41_SED
-vpd_cal42 pd_cal[18] 0 SED_pdcal42_SED
-vpd_cal43 pd_cal[19] 0 SED_pdcal43_SED
-vpd_cal50 pd_cal[20] 0 SED_pdcal50_SED
-vpd_cal51 pd_cal[21] 0 SED_pdcal51_SED
-vpd_cal52 pd_cal[22] 0 SED_pdcal52_SED
-vpd_cal53 pd_cal[23] 0 SED_pdcal53_SED
-vpd_cal60 pd_cal[24] 0 SED_pdcal60_SED
-vpd_cal61 pd_cal[25] 0 SED_pdcal61_SED
-vpd_cal62 pd_cal[26] 0 SED_pdcal62_SED
-vpd_cal63 pd_cal[27] 0 SED_pdcal63_SED
+vpd_cal0 pd_cal[0] 0 SED_pdcal0_SED
+vpd_cal1 pd_cal[1] 0 SED_pdcal1_SED
+vpd_cal2 pd_cal[2] 0 SED_pdcal2_SED
+vpd_cal3 pd_cal[3] 0 SED_pdcal3_SED
 
 ** LEG ENABLE/DISABLE CONTROL
 * PULLUP
@@ -166,8 +118,8 @@ C {devices/lab_wire.sym} 860 -330 2 0 {name=l9 sig_type=std_logic lab=DQ}
 C {devices/lab_wire.sym} 1050 -330 0 1 {name=l11 sig_type=std_logic lab=VDDQ}
 C {devices/lab_pin.sym} -120 -390 0 0 {name=l3 sig_type=std_logic lab=pu_ctrl[6:0]}
 C {devices/lab_pin.sym} -120 -270 0 0 {name=l10 sig_type=std_logic lab=pd_ctrl[6:0]}
-C {devices/lab_pin.sym} 350 -360 0 0 {name=l13 sig_type=std_logic lab=pu_cal[27:0]}
-C {devices/lab_pin.sym} 350 -300 0 0 {name=l14 sig_type=std_logic lab=pd_cal[27:0]}
+C {devices/lab_pin.sym} 350 -360 0 0 {name=l13 sig_type=std_logic lab=pu_cal[3:0]}
+C {devices/lab_pin.sym} 350 -300 0 0 {name=l14 sig_type=std_logic lab=pd_cal[3:0]}
 C {devices/res.sym} 1020 -330 1 0 {name=Rtb
 value=25
 footprint=1206
