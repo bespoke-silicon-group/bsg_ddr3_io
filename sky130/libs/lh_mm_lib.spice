@@ -1,0 +1,12 @@
+* Low-High corner with mismatch (lh_mm)
+.lib lh_mm
+.param mc_mm_switch=1
+.param mc_pr_switch=0
+* MOSFET
+.include "../../pdk/libs.tech/ngspice/corners/tt.spice"
+* Resistor/Capacitor
+.include "../../pdk/libs.tech/ngspice/r+c/res_low__cap_high.spice"
+.include "../../pdk/libs.tech/ngspice/r+c/res_low__cap_high__lin.spice"
+* Special cells
+.include "../../pdk/libs.tech/ngspice/corners/tt/specialized_cells.spice"
+.endl lh_mm

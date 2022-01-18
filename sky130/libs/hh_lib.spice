@@ -1,0 +1,12 @@
+* High-High corner (hh)
+.lib hh
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+* MOSFET
+.include "../../pdk/libs.tech/ngspice/corners/tt.spice"
+* Resistor/Capacitor
+.include "../../pdk/libs.tech/ngspice/r+c/res_high__cap_high.spice"
+.include "../../pdk/libs.tech/ngspice/r+c/res_high__cap_high__lin.spice"
+* Special cells
+.include "../../pdk/libs.tech/ngspice/corners/tt/specialized_cells.spice"
+.endl hh
