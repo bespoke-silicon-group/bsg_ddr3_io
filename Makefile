@@ -195,9 +195,9 @@ install-magic: $(MAGIC)
 launch-magic: $(MAGIC)
 ifndef args
 	# TO ADD ARGS, use "make launch-magic args=<ARGS_TO_PASS_IN>"
-	${MAGIC} -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc &
+	${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc &
 else
-	${MAGIC} -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc ${args} &
+	${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc ${args} &
 endif
 
 NETGEN=./tools/netgen-install/bin/netgen
@@ -221,6 +221,13 @@ else
 	${NETGEN} ${args}
 endif
 
+.PHONY: netgen-lvs-compare
+netgen-lvs-compare: $(NETGEN)
+	# USAGE: make netgen-lvs-compare cell1="<FILE1> <CELL_NAME>" cell2="<FILE2> <CELL_NAME>"
+	# (If the netlist is not a subcircuit in a file then cell1="<FILE1>" is suffecient.)
+	# 
+	${NETGEN} -batch lvs "${cell1}" "${cell2}" ./pdk/libs.tech/netgen/sky130A_setup.tcl lvs_result.txt
+	# If LVS completed, see "lvs_result.txt" for details
 
 .PHONY: install-tools
 .DEFAULT_GOAL:=
