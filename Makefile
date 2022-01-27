@@ -131,7 +131,7 @@ NGSPICEREV=87b9df668
 XSCHEMREPO=https://github.com/StefanSchippers/xschem.git
 XSCHEMREV=290fc3c 
 MAGICREPO=https://github.com/RTimothyEdwards/magic.git
-MAGICREV=8.3.227
+MAGICREV=8.3.261
 NETGENREPO=https://github.com/RTimothyEdwards/netgen.git
 NETGENREV=20f6d76
 
