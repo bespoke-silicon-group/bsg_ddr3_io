@@ -1,6 +1,7 @@
 lvs_result.txt
 layout/*.ext
 layout/*.spice
+spice
 out
 tools
 pdk

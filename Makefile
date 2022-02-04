@@ -16,6 +16,18 @@ PROCS:=ff ff_mm fs fs_mm hh hh_mm hl hl_mm lh lh_mm ll ll_mm sf sf_mm ss ss_mm t
 C1:=$(foreach v, $(VOLTAGES), $(addsuffix _$(v), $(TEMPS)))
 CORNS:=$(foreach p, $(PROCS), $(addsuffix _$(p), $(C1)))
 
+# Generate spice scripts from xschem schematics
+spice: 
+	mkdir spice
+
+# Use a file lock to prevent too many instances of xschem at once. 
+# (this causes issues for some reason...)
+spice/%.spice: $(XSCHEM) schem/%.sch | spice
+	flock /tmp/.spicegenlock make launch-xschem args="-xq -o ./spice/ --netlist ./schem/$*.sch"
+
+# Do not delete intermediate files
+.PRECIOUS: spice/%.spice
+
 # SIMPLIFIED LEG SIMULATIONS
 SIMPLE_N_LEG_TARGETS:=$(addprefix out/simple_pd_leg_, $(addsuffix /out.json,$(CORNS) ))
 SIMPLE_P_LEG_TARGETS:=$(addprefix out/simple_pu_leg_, $(addsuffix /out.json,$(CORNS) ))
@@ -23,13 +35,13 @@ SIMPLE_P_LEG_TARGETS:=$(addprefix out/simple_pu_leg_, $(addsuffix /out.json,$(CO
 simple-leg-sim: $(SIMPLE_N_LEG_TARGETS) $(SIMPLE_P_LEG_TARGETS)
 	$(PYTHON) scripts/simplified_leg_result.py
 
-out/simple_pd_leg_%/out.json: schem/test_pd_res.spice | out
+out/simple_pd_leg_%/out.json: spice/test_pd_res.spice | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )	
 	$(PYTHON) scripts/sim_simplified_leg.py --dir pd --voltage ${V} --temp ${T} --process ${P}
 
-out/simple_pu_leg_%/out.json: schem/test_pu_res.spice | out
+out/simple_pu_leg_%/out.json: spice/test_pu_res.spice | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
@@ -42,13 +54,13 @@ P_LEG_TARGETS:=$(addprefix out/pu_leg_, $(addsuffix /out.json,$(CORNS) ))
 leg-sim: $(N_LEG_TARGETS) $(P_LEG_TARGETS)
 	$(PYTHON) scripts/leg_result.py
 
-out/pd_leg_%/out.json: schem/n-leg_tb.spice | out
+out/pd_leg_%/out.json: spice/n-leg_tb.spice | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )	
 	$(PYTHON) scripts/sim_leg.py --dir pd --voltage ${V} --temp ${T} --process ${P}
 
-out/pu_leg_%/out.json: schem/p-leg_tb.spice | out
+out/pu_leg_%/out.json: spice/p-leg_tb.spice | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
@@ -67,25 +79,25 @@ sstl-res-sim: $(SSTL_PD_7_TARGETS) $(SSTL_PU_7_TARGETS) $(SSTL_PD_6_TARGETS) $(S
 out/results/sstl_%_resistance.json: $(SSTL_PD_7_TARGETS) $(SSTL_PU_7_TARGETS) $(SSTL_PD_6_TARGETS) $(SSTL_PU_6_TARGETS)
 	$(PYTHON) scripts/sstl_res_result.py
 
-out/sstl_pd_7_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
+out/sstl_pd_7_cal_sim_%/out.json: spice/sstl_res_tb.spice | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_res.py --dir pd --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
 
-out/sstl_pu_7_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
+out/sstl_pu_7_cal_sim_%/out.json: spice/sstl_res_tb.spice | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_res.py --dir pu --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
 
-out/sstl_pd_6_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
+out/sstl_pd_6_cal_sim_%/out.json: spice/sstl_res_tb.spice | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_res.py --dir pd --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
 
-out/sstl_pu_6_cal_sim_%/out.json: schem/sstl_res_tb.spice | out
+out/sstl_pu_6_cal_sim_%/out.json: spice/sstl_res_tb.spice | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
@@ -101,13 +113,13 @@ sstl-slew-sim: $(SSTL_SLEW_7_TARGETS)
 	# so the 6-leg configuration slew tests are not run by default.
 	$(PYTHON) scripts/sstl_slew_result.py
 
-out/sstl_7_slew_%/out.json: schem/sstl_slew_tb.spice out/results/sstl_pu_7_resistance.json out/results/sstl_pd_7_resistance.json | out
+out/sstl_7_slew_%/out.json: spice/sstl_slew_tb.spice out/results/sstl_pu_7_resistance.json out/results/sstl_pd_7_resistance.json | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_slew.py --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
 
-out/sstl_6_slew_%/out.json: schem/sstl_slew_tb.spice out/results/sstl_pu_6_resistance.json out/results/sstl_pd_6_resistance.json | out
+out/sstl_6_slew_%/out.json: spice/sstl_slew_tb.spice out/results/sstl_pu_6_resistance.json out/results/sstl_pd_6_resistance.json | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
@@ -238,14 +250,18 @@ install-tools: $(NGSPICE) $(XSCHEM) $(MAGIC) $(NETGEN) pdk
 pdk:
 	ln -s ${PDKSPATH}/${PDKNAME} pdk
 
-.PHONY: clean-output
-clean-output:
-	rm -rvf ./out
-
 .PHONY: clean-tools
 clean-tools: $(clean-output)
 	rm -rvf ./tools
 	unlink pdk
+
+.PHONY: clean-output
+clean-output:
+	rm -rvf ./out
+
+.PHONY: clean-spice
+clean-spice:
+	rm -rvf ./spice
 
 .PHONY: edit
 edit:

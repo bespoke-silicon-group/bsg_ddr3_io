@@ -19,7 +19,7 @@ def main():
   outname = 'simple_{d}_leg_{t}_{v}_{p}'.format(d=args.dir, v=args.voltage, t=args.temp, p=args.process)
 
   # Select template spice script
-  tmp = 'schem/test_{d}_res.spice'.format(d=args.dir)  
+  tmp = 'spice/test_{d}_res.spice'.format(d=args.dir)  
   # Run simulation
   result = sim_leg_res(tmp, outname, 
     temp=args.temp, gateVoltage=args.voltage, vdd=args.voltage, process=args.process);

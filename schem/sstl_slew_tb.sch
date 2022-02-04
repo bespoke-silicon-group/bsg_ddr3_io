@@ -129,7 +129,7 @@ value=0.5}
 C {devices/gnd.sym} 1110 -250 0 0 {name=l4 lab=GND}
 C {devices/vdd.sym} 1150 -330 0 0 {name=l5 lab=VDD}
 C {sky130/sky130_stdcells/clkinv_1.sym} -80 -390 0 0 {name=xpui1[6:0] VGND=GND VNB=GND VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
-C {sky130/sky130_stdcells/clkinv_1.sym} -80 -270 0 0 {name=xpdi1[6:0] VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ }
+C {sky130/sky130_stdcells/clkinv_1.sym} -80 -270 0 0 {name=xpdi1[6:0] VGND=GND VNB=GND VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
 C {devices/lab_wire.sym} -20 -390 0 0 {name=l6 sig_type=std_logic lab=pub1[6:0]}
 C {devices/lab_wire.sym} 80 -390 0 0 {name=l7 sig_type=std_logic lab=pub2[6:0]}
 C {devices/lab_wire.sym} 180 -390 0 0 {name=l8 sig_type=std_logic lab=pub3[6:0]}

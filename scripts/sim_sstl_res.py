@@ -71,7 +71,8 @@ def main():
     help='Number of enabled legs. (Sets the target resistance to "240/num_leg_en ohms")')
   args = parser.parse_args()
 
-  tmp = 'schem/sstl_res_tb.spice' # Spice script template
+  tmp = 'spice/sstl_res_tb.spice' # Spice script template
+  # tmp = 'spice/post_layout_sstl_res_tb.spice' # Spice script template
 
   outName = 'sstl_{d}_{n}_cal_sim_{t}_{v}_{p}'.format(
     d=args.dir, n=args.num_leg_en, t=args.temp, v=args.voltage, p=args.process)

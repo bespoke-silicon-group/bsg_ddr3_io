@@ -24,7 +24,7 @@ def main():
   d = 'n'
   if args.dir == 'pu':
     d = 'p'
-  tmp = 'schem/{d}-leg_tb.spice'.format(d=d)
+  tmp = 'spice/{d}-leg_tb.spice'.format(d=d)
   # Generate control signal list
   ctrl_sig = [int(c) for c in args.ctrl_sig.split(',')]
   # Run simulation
