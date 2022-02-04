@@ -195,9 +195,9 @@ install-magic: $(MAGIC)
 launch-magic: $(MAGIC)
 ifndef args
 	# TO ADD ARGS, use "make launch-magic args=<ARGS_TO_PASS_IN>"
-	${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc &
+	${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc 
 else
-	${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc ${args} &
+	${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc ${args}
 endif
 
 NETGEN=./tools/netgen-install/bin/netgen

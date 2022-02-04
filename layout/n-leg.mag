@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1642974570
+timestamp 1643392248
 << pwell >>
 rect 1883 1071 1917 1105
 rect 3355 1071 3389 1105
@@ -1349,19 +1349,21 @@ rect 1854 1006 6546 1012
 rect 1854 972 1866 1006
 rect 4880 972 6546 1006
 rect 1854 966 6546 972
-rect 1854 892 3566 938
-rect 4227 932 6546 938
+rect 4227 932 5935 938
 rect 3974 926 3980 932
 rect 4076 926 4082 932
-rect 3520 824 3566 892
+rect 1854 880 3566 926
 rect 3968 886 3980 926
 rect 4076 886 4088 926
 rect 4227 898 5039 932
-rect 5853 898 6546 932
+rect 5853 926 5935 932
+rect 5853 898 6546 926
 rect 4227 892 6546 898
 rect 3974 880 3980 886
 rect 4076 880 4082 886
+rect 3520 824 3566 880
 rect 4227 824 4273 892
+rect 5889 880 6546 892
 rect 4420 852 4426 858
 rect 4522 852 4528 858
 rect 3520 778 4273 824
@@ -1431,10 +1433,10 @@ rect 6333 527 6391 561
 rect 6425 527 6483 561
 rect 6517 527 6546 561
 rect 1854 496 6546 527
-rect 1854 431 4076 445
-rect 1854 379 3999 431
+rect 3980 431 4076 445
+rect 3980 379 3999 431
 rect 4051 379 4076 431
-rect 1854 349 4076 379
+rect 3980 349 4076 379
 rect 4426 412 4593 421
 rect 4426 360 4438 412
 rect 4490 360 4593 412
@@ -1537,6 +1539,18 @@ rect 4426 412 4522 806
 rect 4426 360 4438 412
 rect 4490 360 4522 412
 rect 4426 349 4522 360
+use n-leg_ctrl_fet_3  n-leg_ctrl_fet_3_0
+timestamp 1642734083
+transform 1 0 6404 0 1 727
+box -73 -107 73 107
+use n-leg_ctrl_fet_2  n-leg_ctrl_fet_2_0
+timestamp 1642733691
+transform 1 0 6104 0 1 847
+box -129 -153 221 91
+use n-leg_ctrl_fet_1  n-leg_ctrl_fet_1_0
+timestamp 1642732258
+transform 1 0 5164 0 -1 795
+box -129 -153 689 91
 use n-leg_ctrl_fet_0  n-leg_ctrl_fet_0_0
 timestamp 1642450972
 transform 1 0 1991 0 -1 869
@@ -1545,18 +1559,6 @@ use n-leg_polyres  n-leg_polyres_0
 timestamp 1642386543
 transform 0 1 4251 -1 0 398
 box -33 -243 33 243
-use n-leg_ctrl_fet_1  n-leg_ctrl_fet_1_0
-timestamp 1642732258
-transform 1 0 5164 0 -1 795
-box -129 -153 689 91
-use n-leg_ctrl_fet_2  n-leg_ctrl_fet_2_0
-timestamp 1642733691
-transform 1 0 6104 0 1 847
-box -129 -153 221 91
-use n-leg_ctrl_fet_3  n-leg_ctrl_fet_3_0
-timestamp 1642734083
-transform 1 0 6404 0 1 727
-box -73 -107 73 107
 << labels >>
 flabel metal1 1900 733 1900 733 7 FreeSerif 320 0 0 0 cal_ctrl[2]
 port 7 w
@@ -1571,8 +1573,8 @@ flabel viali 1900 1089 1900 1089 7 FreeSerif 320 0 0 0 GND
 port 2 w
 flabel metal1 s 1900 995 1900 995 7 FreeSerif 320 0 0 0 cal_ctrl[0]
 port 5 w
-flabel metal1 s 1900 921 1900 921 7 FreeSerif 320 0 0 0 cal_ctrl[1]
-port 6 w
-flabel metal1 1900 396 1900 396 7 FreeSerif 320 0 0 0 DQ
+flabel metal2 4033 370 4033 370 7 FreeSerif 320 0 0 0 DQ
 port 3 w
+flabel metal1 s 1900 909 1900 909 7 FreeSerif 320 0 0 0 cal_ctrl[1]
+port 6 w
 << end >>

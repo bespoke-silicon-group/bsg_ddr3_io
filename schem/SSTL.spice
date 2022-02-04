@@ -1,0 +1,137 @@
+**.subckt SSTL DQ pu_cal_ctrl[3],pu_cal_ctrl[2],pu_cal_ctrl[1],pu_cal_ctrl[0]
+*+ pd_cal_ctrl[3],pd_cal_ctrl[2],pd_cal_ctrl[1],pd_cal_ctrl[0] pu_ctrl[6],pu_ctrl[5],pu_ctrl[4],pu_ctrl[3],pu_ctrl[2],pu_ctrl[1],pu_ctrl[0]
+*+ pd_ctrl[6],pd_ctrl[5],pd_ctrl[4],pd_ctrl[3],pd_ctrl[2],pd_ctrl[1],pd_ctrl[0]
+*.iopin DQ
+*.ipin pu_cal_ctrl[3],pu_cal_ctrl[2],pu_cal_ctrl[1],pu_cal_ctrl[0]
+*.ipin pd_cal_ctrl[3],pd_cal_ctrl[2],pd_cal_ctrl[1],pd_cal_ctrl[0]
+*.ipin pu_ctrl[6],pu_ctrl[5],pu_ctrl[4],pu_ctrl[3],pu_ctrl[2],pu_ctrl[1],pu_ctrl[0]
+*.ipin pd_ctrl[6],pd_ctrl[5],pd_ctrl[4],pd_ctrl[3],pd_ctrl[2],pd_ctrl[1],pd_ctrl[0]
+X1 DQ n_pu_ctrl[6] n_pu_cal_ctrl[3] n_pu_cal_ctrl[2] n_pu_cal_ctrl[1] n_pu_cal_ctrl[0] p-leg
+X2 DQ pd_ctrl_buff[6] pd_cal_ctrl[3] pd_cal_ctrl[2] pd_cal_ctrl[1] pd_cal_ctrl[0] n-leg
+X3 DQ n_pu_ctrl[5] n_pu_cal_ctrl[3] n_pu_cal_ctrl[2] n_pu_cal_ctrl[1] n_pu_cal_ctrl[0] p-leg
+X4 DQ pd_ctrl_buff[5] pd_cal_ctrl[3] pd_cal_ctrl[2] pd_cal_ctrl[1] pd_cal_ctrl[0] n-leg
+X5 DQ n_pu_ctrl[4] n_pu_cal_ctrl[3] n_pu_cal_ctrl[2] n_pu_cal_ctrl[1] n_pu_cal_ctrl[0] p-leg
+X6 DQ pd_ctrl_buff[4] pd_cal_ctrl[3] pd_cal_ctrl[2] pd_cal_ctrl[1] pd_cal_ctrl[0] n-leg
+X7 DQ n_pu_ctrl[3] n_pu_cal_ctrl[3] n_pu_cal_ctrl[2] n_pu_cal_ctrl[1] n_pu_cal_ctrl[0] p-leg
+X8 DQ pd_ctrl_buff[3] pd_cal_ctrl[3] pd_cal_ctrl[2] pd_cal_ctrl[1] pd_cal_ctrl[0] n-leg
+X9 DQ n_pu_ctrl[2] n_pu_cal_ctrl[3] n_pu_cal_ctrl[2] n_pu_cal_ctrl[1] n_pu_cal_ctrl[0] p-leg
+X10 DQ pd_ctrl_buff[2] pd_cal_ctrl[3] pd_cal_ctrl[2] pd_cal_ctrl[1] pd_cal_ctrl[0] n-leg
+X11 DQ n_pu_ctrl[1] n_pu_cal_ctrl[3] n_pu_cal_ctrl[2] n_pu_cal_ctrl[1] n_pu_cal_ctrl[0] p-leg
+X12 DQ pd_ctrl_buff[1] pd_cal_ctrl[3] pd_cal_ctrl[2] pd_cal_ctrl[1] pd_cal_ctrl[0] n-leg
+X13 DQ n_pu_ctrl[0] n_pu_cal_ctrl[3] n_pu_cal_ctrl[2] n_pu_cal_ctrl[1] n_pu_cal_ctrl[0] p-leg
+X14 DQ pd_ctrl_buff[0] pd_cal_ctrl[3] pd_cal_ctrl[2] pd_cal_ctrl[1] pd_cal_ctrl[0] n-leg
+xpd_buff_4[6] pdc2[6] VGND VNB VPB VPWR pdc4[6] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[5] pdc2[5] VGND VNB VPB VPWR pdc4[5] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[4] pdc2[4] VGND VNB VPB VPWR pdc4[4] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[3] pdc2[3] VGND VNB VPB VPWR pdc4[3] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[2] pdc2[2] VGND VNB VPB VPWR pdc4[2] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[1] pdc2[1] VGND VNB VPB VPWR pdc4[1] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[0] pdc2[0] VGND VNB VPB VPWR pdc4[0] sky130_fd_sc_hd__clkinv_4
+xpd_buff_6[6] pdc4[6] VGND VNB VPB VPWR pd_ctrl_buff[6] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[5] pdc4[5] VGND VNB VPB VPWR pd_ctrl_buff[5] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[4] pdc4[4] VGND VNB VPB VPWR pd_ctrl_buff[4] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[3] pdc4[3] VGND VNB VPB VPWR pd_ctrl_buff[3] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[2] pdc4[2] VGND VNB VPB VPWR pd_ctrl_buff[2] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[1] pdc4[1] VGND VNB VPB VPWR pd_ctrl_buff[1] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[0] pdc4[0] VGND VNB VPB VPWR pd_ctrl_buff[0] sky130_fd_sc_hd__clkbuf_8
+xpu_buff_4[6] pu_ctrl[6] VGND VNB VPB VPWR puc4[6] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[5] pu_ctrl[5] VGND VNB VPB VPWR puc4[5] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[4] pu_ctrl[4] VGND VNB VPB VPWR puc4[4] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[3] pu_ctrl[3] VGND VNB VPB VPWR puc4[3] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[2] pu_ctrl[2] VGND VNB VPB VPWR puc4[2] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[1] pu_ctrl[1] VGND VNB VPB VPWR puc4[1] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[0] pu_ctrl[0] VGND VNB VPB VPWR puc4[0] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_6[6] puc4[6] VGND VNB VPB VPWR n_pu_ctrl[6] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[5] puc4[5] VGND VNB VPB VPWR n_pu_ctrl[5] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[4] puc4[4] VGND VNB VPB VPWR n_pu_ctrl[4] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[3] puc4[3] VGND VNB VPB VPWR n_pu_ctrl[3] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[2] puc4[2] VGND VNB VPB VPWR n_pu_ctrl[2] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[1] puc4[1] VGND VNB VPB VPWR n_pu_ctrl[1] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[0] puc4[0] VGND VNB VPB VPWR n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
+xpu_cal_inv[3] pu_cal_ctrl[3] VGND VNB VPB VPWR n_pu_cal_ctrl[3] sky130_fd_sc_hd__inv_1
+xpu_cal_inv[2] pu_cal_ctrl[2] VGND VNB VPB VPWR n_pu_cal_ctrl[2] sky130_fd_sc_hd__inv_1
+xpu_cal_inv[1] pu_cal_ctrl[1] VGND VNB VPB VPWR n_pu_cal_ctrl[1] sky130_fd_sc_hd__inv_1
+xpu_cal_inv[0] pu_cal_ctrl[0] VGND VNB VPB VPWR n_pu_cal_ctrl[0] sky130_fd_sc_hd__inv_1
+V1 VDD VPWR 0
+V2 VGND GND 0
+V3 VDD VPB 0
+V4 VNB GND 0
+Vpd_ctrl_0 v_pd_ctrl_0 pd_ctrl_buff[6] 0
+Vpd_ctrl_1 v_pu_ctrl_0 n_pu_ctrl[6] 0
+xpu_buff_2[6] puc4[6] VGND VNB VPB VPWR n_pu_ctrl[6] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[5] puc4[5] VGND VNB VPB VPWR n_pu_ctrl[5] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[4] puc4[4] VGND VNB VPB VPWR n_pu_ctrl[4] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[3] puc4[3] VGND VNB VPB VPWR n_pu_ctrl[3] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[2] puc4[2] VGND VNB VPB VPWR n_pu_ctrl[2] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[1] puc4[1] VGND VNB VPB VPWR n_pu_ctrl[1] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[0] puc4[0] VGND VNB VPB VPWR n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
+xpd_buff_1[6] pd_ctrl[6] VGND VNB VPB VPWR pdc2[6] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[5] pd_ctrl[5] VGND VNB VPB VPWR pdc2[5] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[4] pd_ctrl[4] VGND VNB VPB VPWR pdc2[4] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[3] pd_ctrl[3] VGND VNB VPB VPWR pdc2[3] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[2] pd_ctrl[2] VGND VNB VPB VPWR pdc2[2] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[1] pd_ctrl[1] VGND VNB VPB VPWR pdc2[1] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[0] pd_ctrl[0] VGND VNB VPB VPWR pdc2[0] sky130_fd_sc_hd__clkinv_4
+xpu_buff_1[6] puc4[6] VGND VNB VPB VPWR n_pu_ctrl[6] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[5] puc4[5] VGND VNB VPB VPWR n_pu_ctrl[5] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[4] puc4[4] VGND VNB VPB VPWR n_pu_ctrl[4] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[3] puc4[3] VGND VNB VPB VPWR n_pu_ctrl[3] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[2] puc4[2] VGND VNB VPB VPWR n_pu_ctrl[2] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[1] puc4[1] VGND VNB VPB VPWR n_pu_ctrl[1] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[0] puc4[0] VGND VNB VPB VPWR n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
+**.ends
+
+* expanding   symbol:  p-leg.sym # of pins=3
+* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/p-leg.sym
+* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/p-leg.sch
+.subckt p-leg  DQ  n_pu_ctrl  n_cal_ctrl[3] n_cal_ctrl[2] n_cal_ctrl[1] n_cal_ctrl[0]
+*.ipin n_cal_ctrl[3],n_cal_ctrl[2],n_cal_ctrl[1],n_cal_ctrl[0]
+*.ipin n_pu_ctrl
+*.iopin DQ
+R1 DQ net1 sky130_fd_pr__res_generic_po W=0.33 L=1.8 m=1
+XMpullup net1 n_pu_ctrl VDD VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=96 m=96
+XMctrl0 DQ n_cal_ctrl[0] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=48 m=48
+XMctrl1 DQ n_cal_ctrl[1] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=24 m=24
+XMctrl2 DQ n_cal_ctrl[2] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=12 m=12
+XMctrl3 DQ n_cal_ctrl[3] net1 VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=6 m=6
+.ends
+
+
+* expanding   symbol:  n-leg.sym # of pins=3
+* sym_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/n-leg.sym
+* sch_path: /mnt/users/ssd2/homes/hinesd3/proj/sstl-design/schem/n-leg.sch
+.subckt n-leg  DQ  pd_ctrl  cal_ctrl[3] cal_ctrl[2] cal_ctrl[1] cal_ctrl[0]
+*.iopin DQ
+*.ipin pd_ctrl
+*.ipin cal_ctrl[3],cal_ctrl[2],cal_ctrl[1],cal_ctrl[0]
+R1 vpulldown DQ sky130_fd_pr__res_generic_po W=0.33 L=1.7 m=1
+Xn1 vpulldown pd_ctrl GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=48 m=48
+Xnctrl0 DQ cal_ctrl[0] vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=32 m=32
+Xnctrl1 DQ cal_ctrl[1] vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
+Xnctrl2 DQ cal_ctrl[2] vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=3 m=3
+Xnctrl3 DQ cal_ctrl[3] vpulldown GND sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29'
++ as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL VDD
+.GLOBAL GND
+.end
