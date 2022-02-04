@@ -21,10 +21,10 @@ V {}
 S {}
 E {}
 N 860 -330 880 -330 { lab=DQ}
-N 350 -390 380 -390 { lab=pu_ctrl[6:0]}
-N 350 -360 380 -360 { lab=pu_cal[3:0]}
-N 350 -300 380 -300 { lab=pd_cal[3:0]}
-N 350 -270 380 -270 { lab=pd_ctrl[6:0]}
+N 350 -390 380 -390 { lab=pu_ctrl[0:6]}
+N 350 -360 380 -360 { lab=pu_cal[0:3]}
+N 350 -300 380 -300 { lab=pd_cal[0:3]}
+N 350 -270 380 -270 { lab=pd_ctrl[0:6]}
 C {devices/title.sym} 160 -30 0 0 {name=l1 author="Derek H-M"}
 C {devices/code.sym} 790 -200 0 0 {name=STIMULI 
 only_toplevel=true
@@ -86,26 +86,16 @@ format="tcleval( @value )"
 value="** Local library links to pdk
 .lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
 .include \\\\$::SKYWATER_STDCELLS\\\\/sky130_fd_sc_hd.spice
+.include ./layout/lvs_SSTL.spice
 "
 spice_ignore=false}
 C {devices/ammeter.sym} 910 -330 3 0 {name=vtest}
 C {devices/lab_wire.sym} 860 -330 2 0 {name=l9 sig_type=std_logic lab=DQ}
 C {devices/lab_wire.sym} 940 -330 2 0 {name=l11 sig_type=std_logic lab=VDDQ}
-C {devices/lab_pin.sym} 350 -390 0 0 {name=l3 sig_type=std_logic lab=pu_ctrl[6:0]}
-C {devices/lab_pin.sym} 350 -270 0 0 {name=l10 sig_type=std_logic lab=pd_ctrl[6:0]}
-C {devices/lab_pin.sym} 350 -360 0 0 {name=l13 sig_type=std_logic lab=pu_cal[3:0]}
-C {devices/lab_pin.sym} 350 -300 0 0 {name=l14 sig_type=std_logic lab=pd_cal[3:0]}
-C {devices/code_shown.sym} 340 -580 0 0 {name=Circuit_Instance
-only_toplevel=true
-value="
-.include ./layout/lvs_SSTL.spice
-
-XSSTL DQ GND 
-+ pd_cal_ctrl[0] pd_cal_ctrl[1] pd_cal_ctrl[2] pd_cal_ctrl[3]
-+ pd_ctrl[0] pd_ctrl[1] pd_ctrl[2] pd_ctrl[3] pd_ctrl[4] pd_ctrl[5] pd_ctrl[6] 
-+ pu_cal_ctrl[0] pu_cal_ctrl[1] pu_cal_ctrl[2] pu_cal_ctrl[3] 
-+ pu_ctrl[0] pu_ctrl[1] pu_ctrl[2] pu_ctrl[3] pu_ctrl[4] pu_ctrl[5] pu_ctrl[6] 
-+ VDD
-+ SSTL
-"
-}
+C {devices/lab_pin.sym} 350 -390 0 0 {name=l3 sig_type=std_logic lab=pu_ctrl[0:6]}
+C {devices/lab_pin.sym} 350 -270 0 0 {name=l10 sig_type=std_logic lab=pd_ctrl[0:6]}
+C {devices/lab_pin.sym} 350 -360 0 0 {name=l13 sig_type=std_logic lab=pu_cal[0:3]}
+C {devices/lab_pin.sym} 350 -300 0 0 {name=l14 sig_type=std_logic lab=pd_cal[0:3]}
+C {schem/post_layout_SSTL.sym} 360 -210 0 0 {name=X1}
+C {devices/gnd.sym} 460 -210 0 0 {name=l2 lab=GND}
+C {devices/vdd.sym} 460 -450 0 0 {name=l4 lab=VDD}
