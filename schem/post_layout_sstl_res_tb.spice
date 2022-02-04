@@ -1,0 +1,75 @@
+**.subckt post_layout_sstl_res_tb
+vtest DQ VDDQ 0
+.save  i(vtest)
+**** begin user architecture code
+ ** Local library links to pdk
+.lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
+.include /home/derekhm/cad/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+
+
+
+.include ./layout/lvs_SSTL.spice
+
+XSSTL DQ GND   pd_cal_ctrl[0] pd_cal_ctrl[1] pd_cal_ctrl[2] pd_cal_ctrl[3]  pd_ctrl[0] pd_ctrl[1]
++ pd_ctrl[2] pd_ctrl[3] pd_ctrl[4] pd_ctrl[5] pd_ctrl[6]   pu_cal_ctrl[0] pu_cal_ctrl[1] pu_cal_ctrl[2]
++ pu_cal_ctrl[3]   pu_ctrl[0] pu_ctrl[1] pu_ctrl[2] pu_ctrl[3] pu_ctrl[4] pu_ctrl[5] pu_ctrl[6]   VDD  SSTL
+
+
+**** end user architecture code
+**.ends
+**** begin user architecture code
+
+
+* power voltage
+vvddq VDDQ 0 0
+vvdd VDD 0 SED_vdd_SED
+
+** CALIBRATION CONTROL **
+* PULLUP
+vpu_cal0 pu_cal[0] 0 SED_pucal0_SED
+vpu_cal1 pu_cal[1] 0 SED_pucal1_SED
+vpu_cal2 pu_cal[2] 0 SED_pucal2_SED
+vpu_cal3 pu_cal[3] 0 SED_pucal3_SED
+* PULLDOWN
+vpd_cal0 pd_cal[0] 0 SED_pdcal0_SED
+vpd_cal1 pd_cal[1] 0 SED_pdcal1_SED
+vpd_cal2 pd_cal[2] 0 SED_pdcal2_SED
+vpd_cal3 pd_cal[3] 0 SED_pdcal3_SED
+
+** LEG ENABLE/DISABLE CONTROL
+* PULLUP
+vpu_ctrl0 pu_ctrl[0] 0 SED_puctrl0_SED
+vpu_ctrl1 pu_ctrl[1] 0 SED_puctrl1_SED
+vpu_ctrl2 pu_ctrl[2] 0 SED_puctrl2_SED
+vpu_ctrl3 pu_ctrl[3] 0 SED_puctrl3_SED
+vpu_ctrl4 pu_ctrl[4] 0 SED_puctrl4_SED
+vpu_ctrl5 pu_ctrl[5] 0 SED_puctrl5_SED
+vpu_ctrl6 pu_ctrl[6] 0 SED_puctrl6_SED
+* PULLDOWN
+vpd_ctrl0 pd_ctrl[0] 0 SED_pdctrl0_SED
+vpd_ctrl1 pd_ctrl[1] 0 SED_pdctrl1_SED
+vpd_ctrl2 pd_ctrl[2] 0 SED_pdctrl2_SED
+vpd_ctrl3 pd_ctrl[3] 0 SED_pdctrl3_SED
+vpd_ctrl4 pd_ctrl[4] 0 SED_pdctrl4_SED
+vpd_ctrl5 pd_ctrl[5] 0 SED_pdctrl5_SED
+vpd_ctrl6 pd_ctrl[6] 0 SED_pdctrl6_SED
+
+
+.control
+set num_threads=1
+save all
+set temp=SED_temp_SED
+
+* RUN SIMULATION
+dc vvddq 0.3 1.2 0.05
+* OUTPUT
+print i(vtest)
+wrdata out/SED_plotName_SED/SED_plotName_SED.txt i(vtest)
+set hcopydevtype = svg
+hardcopy ./out/SED_plotName_SED/SED_plotName_SED.svg I(vtest) vs vddq title 'Resistance vs pin voltage'
+
+.endc
+
+
+**** end user architecture code
+.end
