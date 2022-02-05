@@ -119,7 +119,7 @@ format="tcleval( @value )"
 value="** Local library links to pdk
 .lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
 .include \\\\$::SKYWATER_STDCELLS\\\\/sky130_fd_sc_hd.spice
-.include ./layout/lvs_SSTL.spice
+.include ./layout/pex_SSTL.spice
 "
 spice_ignore=false}
 C {devices/lab_wire.sym} 860 -330 2 0 {name=l9 sig_type=std_logic lab=DQ}
