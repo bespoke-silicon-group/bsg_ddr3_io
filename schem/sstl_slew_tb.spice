@@ -5,34 +5,13 @@ X1 DQ pdb4[6] pdb4[5] pdb4[4] pdb4[3] pdb4[2] pdb4[1] pdb4[0] pub4[6] pub4[5] pu
 Rtb VDDQ DQ 25 m=1
 Cpad DQ GND 1.4p m=1
 Ehalf_vdd VDDQ GND VDD GND 0.5
-xpui1[6] pu_ctrl[6] VGND VNB VPB VPWR pub1[6] sky130_fd_sc_hd__clkinv_1
-xpui1[5] pu_ctrl[5] VGND VNB VPB VPWR pub1[5] sky130_fd_sc_hd__clkinv_1
-xpui1[4] pu_ctrl[4] VGND VNB VPB VPWR pub1[4] sky130_fd_sc_hd__clkinv_1
-xpui1[3] pu_ctrl[3] VGND VNB VPB VPWR pub1[3] sky130_fd_sc_hd__clkinv_1
-xpui1[2] pu_ctrl[2] VGND VNB VPB VPWR pub1[2] sky130_fd_sc_hd__clkinv_1
-xpui1[1] pu_ctrl[1] VGND VNB VPB VPWR pub1[1] sky130_fd_sc_hd__clkinv_1
-xpui1[0] pu_ctrl[0] VGND VNB VPB VPWR pub1[0] sky130_fd_sc_hd__clkinv_1
-xpui2[6] pub1[6] VGND VNB VPB VPWR pub2[6] sky130_fd_sc_hd__clkinv_1
-xpui2[5] pub1[5] VGND VNB VPB VPWR pub2[5] sky130_fd_sc_hd__clkinv_1
-xpui2[4] pub1[4] VGND VNB VPB VPWR pub2[4] sky130_fd_sc_hd__clkinv_1
-xpui2[3] pub1[3] VGND VNB VPB VPWR pub2[3] sky130_fd_sc_hd__clkinv_1
-xpui2[2] pub1[2] VGND VNB VPB VPWR pub2[2] sky130_fd_sc_hd__clkinv_1
-xpui2[1] pub1[1] VGND VNB VPB VPWR pub2[1] sky130_fd_sc_hd__clkinv_1
-xpui2[0] pub1[0] VGND VNB VPB VPWR pub2[0] sky130_fd_sc_hd__clkinv_1
-xpui3[6] pub2[6] VGND VNB VPB VPWR pub3[6] sky130_fd_sc_hd__clkinv_1
-xpui3[5] pub2[5] VGND VNB VPB VPWR pub3[5] sky130_fd_sc_hd__clkinv_1
-xpui3[4] pub2[4] VGND VNB VPB VPWR pub3[4] sky130_fd_sc_hd__clkinv_1
-xpui3[3] pub2[3] VGND VNB VPB VPWR pub3[3] sky130_fd_sc_hd__clkinv_1
-xpui3[2] pub2[2] VGND VNB VPB VPWR pub3[2] sky130_fd_sc_hd__clkinv_1
-xpui3[1] pub2[1] VGND VNB VPB VPWR pub3[1] sky130_fd_sc_hd__clkinv_1
-xpui3[0] pub2[0] VGND VNB VPB VPWR pub3[0] sky130_fd_sc_hd__clkinv_1
-xpui4[6] pub3[6] VGND VNB VPB VPWR pub4[6] sky130_fd_sc_hd__clkinv_1
-xpui4[5] pub3[5] VGND VNB VPB VPWR pub4[5] sky130_fd_sc_hd__clkinv_1
-xpui4[4] pub3[4] VGND VNB VPB VPWR pub4[4] sky130_fd_sc_hd__clkinv_1
-xpui4[3] pub3[3] VGND VNB VPB VPWR pub4[3] sky130_fd_sc_hd__clkinv_1
-xpui4[2] pub3[2] VGND VNB VPB VPWR pub4[2] sky130_fd_sc_hd__clkinv_1
-xpui4[1] pub3[1] VGND VNB VPB VPWR pub4[1] sky130_fd_sc_hd__clkinv_1
-xpui4[0] pub3[0] VGND VNB VPB VPWR pub4[0] sky130_fd_sc_hd__clkinv_1
+xpui1[6] pu_ctrl[6] GND GND VDD VDD pub1[6] sky130_fd_sc_hd__clkinv_1
+xpui1[5] pu_ctrl[5] GND GND VDD VDD pub1[5] sky130_fd_sc_hd__clkinv_1
+xpui1[4] pu_ctrl[4] GND GND VDD VDD pub1[4] sky130_fd_sc_hd__clkinv_1
+xpui1[3] pu_ctrl[3] GND GND VDD VDD pub1[3] sky130_fd_sc_hd__clkinv_1
+xpui1[2] pu_ctrl[2] GND GND VDD VDD pub1[2] sky130_fd_sc_hd__clkinv_1
+xpui1[1] pu_ctrl[1] GND GND VDD VDD pub1[1] sky130_fd_sc_hd__clkinv_1
+xpui1[0] pu_ctrl[0] GND GND VDD VDD pub1[0] sky130_fd_sc_hd__clkinv_1
 xpdi1[6] pd_ctrl[6] VGND VNB VPB VPWR pdb1[6] sky130_fd_sc_hd__clkinv_1
 xpdi1[5] pd_ctrl[5] VGND VNB VPB VPWR pdb1[5] sky130_fd_sc_hd__clkinv_1
 xpdi1[4] pd_ctrl[4] VGND VNB VPB VPWR pdb1[4] sky130_fd_sc_hd__clkinv_1
@@ -40,33 +19,50 @@ xpdi1[3] pd_ctrl[3] VGND VNB VPB VPWR pdb1[3] sky130_fd_sc_hd__clkinv_1
 xpdi1[2] pd_ctrl[2] VGND VNB VPB VPWR pdb1[2] sky130_fd_sc_hd__clkinv_1
 xpdi1[1] pd_ctrl[1] VGND VNB VPB VPWR pdb1[1] sky130_fd_sc_hd__clkinv_1
 xpdi1[0] pd_ctrl[0] VGND VNB VPB VPWR pdb1[0] sky130_fd_sc_hd__clkinv_1
-xpdi2[6] pdb1[6] VGND VNB VPB VPWR pdb2[6] sky130_fd_sc_hd__clkinv_1
-xpdi2[5] pdb1[5] VGND VNB VPB VPWR pdb2[5] sky130_fd_sc_hd__clkinv_1
-xpdi2[4] pdb1[4] VGND VNB VPB VPWR pdb2[4] sky130_fd_sc_hd__clkinv_1
-xpdi2[3] pdb1[3] VGND VNB VPB VPWR pdb2[3] sky130_fd_sc_hd__clkinv_1
-xpdi2[2] pdb1[2] VGND VNB VPB VPWR pdb2[2] sky130_fd_sc_hd__clkinv_1
-xpdi2[1] pdb1[1] VGND VNB VPB VPWR pdb2[1] sky130_fd_sc_hd__clkinv_1
-xpdi2[0] pdb1[0] VGND VNB VPB VPWR pdb2[0] sky130_fd_sc_hd__clkinv_1
-xpdi3[6] pdb2[6] VGND VNB VPB VPWR pdb3[6] sky130_fd_sc_hd__clkinv_1
-xpdi3[5] pdb2[5] VGND VNB VPB VPWR pdb3[5] sky130_fd_sc_hd__clkinv_1
-xpdi3[4] pdb2[4] VGND VNB VPB VPWR pdb3[4] sky130_fd_sc_hd__clkinv_1
-xpdi3[3] pdb2[3] VGND VNB VPB VPWR pdb3[3] sky130_fd_sc_hd__clkinv_1
-xpdi3[2] pdb2[2] VGND VNB VPB VPWR pdb3[2] sky130_fd_sc_hd__clkinv_1
-xpdi3[1] pdb2[1] VGND VNB VPB VPWR pdb3[1] sky130_fd_sc_hd__clkinv_1
-xpdi3[0] pdb2[0] VGND VNB VPB VPWR pdb3[0] sky130_fd_sc_hd__clkinv_1
-xpdi4[6] pdb3[6] VGND VNB VPB VPWR pdb4[6] sky130_fd_sc_hd__clkinv_1
-xpdi4[5] pdb3[5] VGND VNB VPB VPWR pdb4[5] sky130_fd_sc_hd__clkinv_1
-xpdi4[4] pdb3[4] VGND VNB VPB VPWR pdb4[4] sky130_fd_sc_hd__clkinv_1
-xpdi4[3] pdb3[3] VGND VNB VPB VPWR pdb4[3] sky130_fd_sc_hd__clkinv_1
-xpdi4[2] pdb3[2] VGND VNB VPB VPWR pdb4[2] sky130_fd_sc_hd__clkinv_1
-xpdi4[1] pdb3[1] VGND VNB VPB VPWR pdb4[1] sky130_fd_sc_hd__clkinv_1
-xpdi4[0] pdb3[0] VGND VNB VPB VPWR pdb4[0] sky130_fd_sc_hd__clkinv_1
-V1 VDD VPWR 0
-V2 VGND GND 0
-V3 VDD VPB 0
-V4 VNB GND 0
 Vtest9 pu_in_test_4 pub4[0] 0
 Vtest10 pd_in_test_4 pdb4[0] 0
+xpui2[6] pub1[6] GND GND VDD VDD pub2[6] sky130_fd_sc_hd__clkinv_1
+xpui2[5] pub1[5] GND GND VDD VDD pub2[5] sky130_fd_sc_hd__clkinv_1
+xpui2[4] pub1[4] GND GND VDD VDD pub2[4] sky130_fd_sc_hd__clkinv_1
+xpui2[3] pub1[3] GND GND VDD VDD pub2[3] sky130_fd_sc_hd__clkinv_1
+xpui2[2] pub1[2] GND GND VDD VDD pub2[2] sky130_fd_sc_hd__clkinv_1
+xpui2[1] pub1[1] GND GND VDD VDD pub2[1] sky130_fd_sc_hd__clkinv_1
+xpui2[0] pub1[0] GND GND VDD VDD pub2[0] sky130_fd_sc_hd__clkinv_1
+xpui3[6] pub2[6] GND GND VDD VDD pub3[6] sky130_fd_sc_hd__clkinv_1
+xpui3[5] pub2[5] GND GND VDD VDD pub3[5] sky130_fd_sc_hd__clkinv_1
+xpui3[4] pub2[4] GND GND VDD VDD pub3[4] sky130_fd_sc_hd__clkinv_1
+xpui3[3] pub2[3] GND GND VDD VDD pub3[3] sky130_fd_sc_hd__clkinv_1
+xpui3[2] pub2[2] GND GND VDD VDD pub3[2] sky130_fd_sc_hd__clkinv_1
+xpui3[1] pub2[1] GND GND VDD VDD pub3[1] sky130_fd_sc_hd__clkinv_1
+xpui3[0] pub2[0] GND GND VDD VDD pub3[0] sky130_fd_sc_hd__clkinv_1
+xpui4[6] pub3[6] GND GND VDD VDD pub4[6] sky130_fd_sc_hd__clkinv_1
+xpui4[5] pub3[5] GND GND VDD VDD pub4[5] sky130_fd_sc_hd__clkinv_1
+xpui4[4] pub3[4] GND GND VDD VDD pub4[4] sky130_fd_sc_hd__clkinv_1
+xpui4[3] pub3[3] GND GND VDD VDD pub4[3] sky130_fd_sc_hd__clkinv_1
+xpui4[2] pub3[2] GND GND VDD VDD pub4[2] sky130_fd_sc_hd__clkinv_1
+xpui4[1] pub3[1] GND GND VDD VDD pub4[1] sky130_fd_sc_hd__clkinv_1
+xpui4[0] pub3[0] GND GND VDD VDD pub4[0] sky130_fd_sc_hd__clkinv_1
+xpui5[6] pdb1[6] GND GND VDD VDD pdb2[6] sky130_fd_sc_hd__clkinv_1
+xpui5[5] pdb1[5] GND GND VDD VDD pdb2[5] sky130_fd_sc_hd__clkinv_1
+xpui5[4] pdb1[4] GND GND VDD VDD pdb2[4] sky130_fd_sc_hd__clkinv_1
+xpui5[3] pdb1[3] GND GND VDD VDD pdb2[3] sky130_fd_sc_hd__clkinv_1
+xpui5[2] pdb1[2] GND GND VDD VDD pdb2[2] sky130_fd_sc_hd__clkinv_1
+xpui5[1] pdb1[1] GND GND VDD VDD pdb2[1] sky130_fd_sc_hd__clkinv_1
+xpui5[0] pdb1[0] GND GND VDD VDD pdb2[0] sky130_fd_sc_hd__clkinv_1
+xpui6[6] pdb2[6] GND GND VDD VDD pdb3[6] sky130_fd_sc_hd__clkinv_1
+xpui6[5] pdb2[5] GND GND VDD VDD pdb3[5] sky130_fd_sc_hd__clkinv_1
+xpui6[4] pdb2[4] GND GND VDD VDD pdb3[4] sky130_fd_sc_hd__clkinv_1
+xpui6[3] pdb2[3] GND GND VDD VDD pdb3[3] sky130_fd_sc_hd__clkinv_1
+xpui6[2] pdb2[2] GND GND VDD VDD pdb3[2] sky130_fd_sc_hd__clkinv_1
+xpui6[1] pdb2[1] GND GND VDD VDD pdb3[1] sky130_fd_sc_hd__clkinv_1
+xpui6[0] pdb2[0] GND GND VDD VDD pdb3[0] sky130_fd_sc_hd__clkinv_1
+xpui7[6] pdb3[6] GND GND VDD VDD pdb4[6] sky130_fd_sc_hd__clkinv_1
+xpui7[5] pdb3[5] GND GND VDD VDD pdb4[5] sky130_fd_sc_hd__clkinv_1
+xpui7[4] pdb3[4] GND GND VDD VDD pdb4[4] sky130_fd_sc_hd__clkinv_1
+xpui7[3] pdb3[3] GND GND VDD VDD pdb4[3] sky130_fd_sc_hd__clkinv_1
+xpui7[2] pdb3[2] GND GND VDD VDD pdb4[2] sky130_fd_sc_hd__clkinv_1
+xpui7[1] pdb3[1] GND GND VDD VDD pdb4[1] sky130_fd_sc_hd__clkinv_1
+xpui7[0] pdb3[0] GND GND VDD VDD pdb4[0] sky130_fd_sc_hd__clkinv_1
 **** begin user architecture code
  ** Local library links to pdk
 .lib ./sky130/libs/SED_process_SED_lib.spice SED_process_SED
@@ -100,65 +96,59 @@ X11 DQ n_pu_ctrl[1] n_pu_cal_ctrl[3] n_pu_cal_ctrl[2] n_pu_cal_ctrl[1] n_pu_cal_
 X12 DQ pd_ctrl_buff[1] pd_cal_ctrl[3] pd_cal_ctrl[2] pd_cal_ctrl[1] pd_cal_ctrl[0] n-leg
 X13 DQ n_pu_ctrl[0] n_pu_cal_ctrl[3] n_pu_cal_ctrl[2] n_pu_cal_ctrl[1] n_pu_cal_ctrl[0] p-leg
 X14 DQ pd_ctrl_buff[0] pd_cal_ctrl[3] pd_cal_ctrl[2] pd_cal_ctrl[1] pd_cal_ctrl[0] n-leg
-xpd_buff_4[6] pdc2[6] VGND VNB VPB VPWR pdc4[6] sky130_fd_sc_hd__clkinv_4
-xpd_buff_4[5] pdc2[5] VGND VNB VPB VPWR pdc4[5] sky130_fd_sc_hd__clkinv_4
-xpd_buff_4[4] pdc2[4] VGND VNB VPB VPWR pdc4[4] sky130_fd_sc_hd__clkinv_4
-xpd_buff_4[3] pdc2[3] VGND VNB VPB VPWR pdc4[3] sky130_fd_sc_hd__clkinv_4
-xpd_buff_4[2] pdc2[2] VGND VNB VPB VPWR pdc4[2] sky130_fd_sc_hd__clkinv_4
-xpd_buff_4[1] pdc2[1] VGND VNB VPB VPWR pdc4[1] sky130_fd_sc_hd__clkinv_4
-xpd_buff_4[0] pdc2[0] VGND VNB VPB VPWR pdc4[0] sky130_fd_sc_hd__clkinv_4
-xpd_buff_6[6] pdc4[6] VGND VNB VPB VPWR pd_ctrl_buff[6] sky130_fd_sc_hd__clkbuf_8
-xpd_buff_6[5] pdc4[5] VGND VNB VPB VPWR pd_ctrl_buff[5] sky130_fd_sc_hd__clkbuf_8
-xpd_buff_6[4] pdc4[4] VGND VNB VPB VPWR pd_ctrl_buff[4] sky130_fd_sc_hd__clkbuf_8
-xpd_buff_6[3] pdc4[3] VGND VNB VPB VPWR pd_ctrl_buff[3] sky130_fd_sc_hd__clkbuf_8
-xpd_buff_6[2] pdc4[2] VGND VNB VPB VPWR pd_ctrl_buff[2] sky130_fd_sc_hd__clkbuf_8
-xpd_buff_6[1] pdc4[1] VGND VNB VPB VPWR pd_ctrl_buff[1] sky130_fd_sc_hd__clkbuf_8
-xpd_buff_6[0] pdc4[0] VGND VNB VPB VPWR pd_ctrl_buff[0] sky130_fd_sc_hd__clkbuf_8
-xpu_buff_4[6] pu_ctrl[6] VGND VNB VPB VPWR puc4[6] sky130_fd_sc_hd__clkbuf_16
-xpu_buff_4[5] pu_ctrl[5] VGND VNB VPB VPWR puc4[5] sky130_fd_sc_hd__clkbuf_16
-xpu_buff_4[4] pu_ctrl[4] VGND VNB VPB VPWR puc4[4] sky130_fd_sc_hd__clkbuf_16
-xpu_buff_4[3] pu_ctrl[3] VGND VNB VPB VPWR puc4[3] sky130_fd_sc_hd__clkbuf_16
-xpu_buff_4[2] pu_ctrl[2] VGND VNB VPB VPWR puc4[2] sky130_fd_sc_hd__clkbuf_16
-xpu_buff_4[1] pu_ctrl[1] VGND VNB VPB VPWR puc4[1] sky130_fd_sc_hd__clkbuf_16
-xpu_buff_4[0] pu_ctrl[0] VGND VNB VPB VPWR puc4[0] sky130_fd_sc_hd__clkbuf_16
-xpu_buff_6[6] puc4[6] VGND VNB VPB VPWR n_pu_ctrl[6] sky130_fd_sc_hd__clkinv_16
-xpu_buff_6[5] puc4[5] VGND VNB VPB VPWR n_pu_ctrl[5] sky130_fd_sc_hd__clkinv_16
-xpu_buff_6[4] puc4[4] VGND VNB VPB VPWR n_pu_ctrl[4] sky130_fd_sc_hd__clkinv_16
-xpu_buff_6[3] puc4[3] VGND VNB VPB VPWR n_pu_ctrl[3] sky130_fd_sc_hd__clkinv_16
-xpu_buff_6[2] puc4[2] VGND VNB VPB VPWR n_pu_ctrl[2] sky130_fd_sc_hd__clkinv_16
-xpu_buff_6[1] puc4[1] VGND VNB VPB VPWR n_pu_ctrl[1] sky130_fd_sc_hd__clkinv_16
-xpu_buff_6[0] puc4[0] VGND VNB VPB VPWR n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
-xpu_cal_inv[3] pu_cal_ctrl[3] VGND VNB VPB VPWR n_pu_cal_ctrl[3] sky130_fd_sc_hd__inv_1
-xpu_cal_inv[2] pu_cal_ctrl[2] VGND VNB VPB VPWR n_pu_cal_ctrl[2] sky130_fd_sc_hd__inv_1
-xpu_cal_inv[1] pu_cal_ctrl[1] VGND VNB VPB VPWR n_pu_cal_ctrl[1] sky130_fd_sc_hd__inv_1
-xpu_cal_inv[0] pu_cal_ctrl[0] VGND VNB VPB VPWR n_pu_cal_ctrl[0] sky130_fd_sc_hd__inv_1
-V1 VDD VPWR 0
-V2 VGND GND 0
-V3 VDD VPB 0
-V4 VNB GND 0
-Vpd_ctrl_0 v_pd_ctrl_0 pd_ctrl_buff[6] 0
-Vpd_ctrl_1 v_pu_ctrl_0 n_pu_ctrl[6] 0
-xpu_buff_2[6] puc4[6] VGND VNB VPB VPWR n_pu_ctrl[6] sky130_fd_sc_hd__clkinv_16
-xpu_buff_2[5] puc4[5] VGND VNB VPB VPWR n_pu_ctrl[5] sky130_fd_sc_hd__clkinv_16
-xpu_buff_2[4] puc4[4] VGND VNB VPB VPWR n_pu_ctrl[4] sky130_fd_sc_hd__clkinv_16
-xpu_buff_2[3] puc4[3] VGND VNB VPB VPWR n_pu_ctrl[3] sky130_fd_sc_hd__clkinv_16
-xpu_buff_2[2] puc4[2] VGND VNB VPB VPWR n_pu_ctrl[2] sky130_fd_sc_hd__clkinv_16
-xpu_buff_2[1] puc4[1] VGND VNB VPB VPWR n_pu_ctrl[1] sky130_fd_sc_hd__clkinv_16
-xpu_buff_2[0] puc4[0] VGND VNB VPB VPWR n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
-xpd_buff_1[6] pd_ctrl[6] VGND VNB VPB VPWR pdc2[6] sky130_fd_sc_hd__clkinv_4
-xpd_buff_1[5] pd_ctrl[5] VGND VNB VPB VPWR pdc2[5] sky130_fd_sc_hd__clkinv_4
-xpd_buff_1[4] pd_ctrl[4] VGND VNB VPB VPWR pdc2[4] sky130_fd_sc_hd__clkinv_4
-xpd_buff_1[3] pd_ctrl[3] VGND VNB VPB VPWR pdc2[3] sky130_fd_sc_hd__clkinv_4
-xpd_buff_1[2] pd_ctrl[2] VGND VNB VPB VPWR pdc2[2] sky130_fd_sc_hd__clkinv_4
-xpd_buff_1[1] pd_ctrl[1] VGND VNB VPB VPWR pdc2[1] sky130_fd_sc_hd__clkinv_4
-xpd_buff_1[0] pd_ctrl[0] VGND VNB VPB VPWR pdc2[0] sky130_fd_sc_hd__clkinv_4
-xpu_buff_1[6] puc4[6] VGND VNB VPB VPWR n_pu_ctrl[6] sky130_fd_sc_hd__clkinv_16
-xpu_buff_1[5] puc4[5] VGND VNB VPB VPWR n_pu_ctrl[5] sky130_fd_sc_hd__clkinv_16
-xpu_buff_1[4] puc4[4] VGND VNB VPB VPWR n_pu_ctrl[4] sky130_fd_sc_hd__clkinv_16
-xpu_buff_1[3] puc4[3] VGND VNB VPB VPWR n_pu_ctrl[3] sky130_fd_sc_hd__clkinv_16
-xpu_buff_1[2] puc4[2] VGND VNB VPB VPWR n_pu_ctrl[2] sky130_fd_sc_hd__clkinv_16
-xpu_buff_1[1] puc4[1] VGND VNB VPB VPWR n_pu_ctrl[1] sky130_fd_sc_hd__clkinv_16
-xpu_buff_1[0] puc4[0] VGND VNB VPB VPWR n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
+xpd_buff_4[6] pdc2[6] GND GND VDD VDD pdc4[6] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[5] pdc2[5] GND GND VDD VDD pdc4[5] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[4] pdc2[4] GND GND VDD VDD pdc4[4] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[3] pdc2[3] GND GND VDD VDD pdc4[3] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[2] pdc2[2] GND GND VDD VDD pdc4[2] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[1] pdc2[1] GND GND VDD VDD pdc4[1] sky130_fd_sc_hd__clkinv_4
+xpd_buff_4[0] pdc2[0] GND GND VDD VDD pdc4[0] sky130_fd_sc_hd__clkinv_4
+xpd_buff_6[6] pdc4[6] GND GND VDD VDD pd_ctrl_buff[6] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[5] pdc4[5] GND GND VDD VDD pd_ctrl_buff[5] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[4] pdc4[4] GND GND VDD VDD pd_ctrl_buff[4] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[3] pdc4[3] GND GND VDD VDD pd_ctrl_buff[3] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[2] pdc4[2] GND GND VDD VDD pd_ctrl_buff[2] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[1] pdc4[1] GND GND VDD VDD pd_ctrl_buff[1] sky130_fd_sc_hd__clkbuf_8
+xpd_buff_6[0] pdc4[0] GND GND VDD VDD pd_ctrl_buff[0] sky130_fd_sc_hd__clkbuf_8
+xpu_buff_4[6] pu_ctrl[6] GND GND VDD VDD puc4[6] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[5] pu_ctrl[5] GND GND VDD VDD puc4[5] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[4] pu_ctrl[4] GND GND VDD VDD puc4[4] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[3] pu_ctrl[3] GND GND VDD VDD puc4[3] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[2] pu_ctrl[2] GND GND VDD VDD puc4[2] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[1] pu_ctrl[1] GND GND VDD VDD puc4[1] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_4[0] pu_ctrl[0] GND GND VDD VDD puc4[0] sky130_fd_sc_hd__clkbuf_16
+xpu_buff_6[6] puc4[6] GND GND VDD VDD n_pu_ctrl[6] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[5] puc4[5] GND GND VDD VDD n_pu_ctrl[5] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[4] puc4[4] GND GND VDD VDD n_pu_ctrl[4] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[3] puc4[3] GND GND VDD VDD n_pu_ctrl[3] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[2] puc4[2] GND GND VDD VDD n_pu_ctrl[2] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[1] puc4[1] GND GND VDD VDD n_pu_ctrl[1] sky130_fd_sc_hd__clkinv_16
+xpu_buff_6[0] puc4[0] GND GND VDD VDD n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
+xpu_cal_inv[3] pu_cal_ctrl[3] GND GND VDD VDD n_pu_cal_ctrl[3] sky130_fd_sc_hd__inv_1
+xpu_cal_inv[2] pu_cal_ctrl[2] GND GND VDD VDD n_pu_cal_ctrl[2] sky130_fd_sc_hd__inv_1
+xpu_cal_inv[1] pu_cal_ctrl[1] GND GND VDD VDD n_pu_cal_ctrl[1] sky130_fd_sc_hd__inv_1
+xpu_cal_inv[0] pu_cal_ctrl[0] GND GND VDD VDD n_pu_cal_ctrl[0] sky130_fd_sc_hd__inv_1
+xpu_buff_2[6] puc4[6] GND GND VDD VDD n_pu_ctrl[6] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[5] puc4[5] GND GND VDD VDD n_pu_ctrl[5] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[4] puc4[4] GND GND VDD VDD n_pu_ctrl[4] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[3] puc4[3] GND GND VDD VDD n_pu_ctrl[3] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[2] puc4[2] GND GND VDD VDD n_pu_ctrl[2] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[1] puc4[1] GND GND VDD VDD n_pu_ctrl[1] sky130_fd_sc_hd__clkinv_16
+xpu_buff_2[0] puc4[0] GND GND VDD VDD n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
+xpd_buff_1[6] pd_ctrl[6] GND GND VDD VDD pdc2[6] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[5] pd_ctrl[5] GND GND VDD VDD pdc2[5] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[4] pd_ctrl[4] GND GND VDD VDD pdc2[4] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[3] pd_ctrl[3] GND GND VDD VDD pdc2[3] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[2] pd_ctrl[2] GND GND VDD VDD pdc2[2] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[1] pd_ctrl[1] GND GND VDD VDD pdc2[1] sky130_fd_sc_hd__clkinv_4
+xpd_buff_1[0] pd_ctrl[0] GND GND VDD VDD pdc2[0] sky130_fd_sc_hd__clkinv_4
+xpu_buff_1[6] puc4[6] GND GND VDD VDD n_pu_ctrl[6] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[5] puc4[5] GND GND VDD VDD n_pu_ctrl[5] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[4] puc4[4] GND GND VDD VDD n_pu_ctrl[4] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[3] puc4[3] GND GND VDD VDD n_pu_ctrl[3] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[2] puc4[2] GND GND VDD VDD n_pu_ctrl[2] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[1] puc4[1] GND GND VDD VDD n_pu_ctrl[1] sky130_fd_sc_hd__clkinv_16
+xpu_buff_1[0] puc4[0] GND GND VDD VDD n_pu_ctrl[0] sky130_fd_sc_hd__clkinv_16
 .ends
 
 
