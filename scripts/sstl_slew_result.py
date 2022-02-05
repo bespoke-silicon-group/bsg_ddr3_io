@@ -5,6 +5,19 @@ import json
 import os, re
 
 def main():
+  parser = argparse.ArgumentParser(
+    description='Collect output from SSTL slew simulation')
+  parser.add_argument('--post-layout', action='store_true',
+    help='Run post-layout simulation instead.')
+  args = parser.parse_args()
+
+  # Set names based on simulation type
+  reTmp = '^sstl_{t}_slew_*' # Original spice script regex string
+  foutNameTmp = 'out/results/sstl_{t}_slew.json'
+  if args.post_layout:
+    reTmp = '^post_layout_sstl_{t}_slew_*' # Post-layout spice script regex string
+    foutNameTmp = 'out/results/post_layout_sstl_{t}_slew.json'
+
   out_dirs = os.listdir('./out/')
 
   # NOTE: the spec only specifies a slew requirement for the 7-leg configuraiton
@@ -12,7 +25,7 @@ def main():
 
   for ot in output_templates:
     # Filter output directories
-    r = re.compile('^sstl_{t}_slew_*'.format(t=ot))
+    r = re.compile(reTmp.format(t=ot))    
     dirs = list(filter(r.search, out_dirs))
 
     # Combine into single JSON
@@ -24,7 +37,7 @@ def main():
     # Write output
     try: os.mkdir('./out/results')
     except: pass
-    fout_name = 'out/results/sstl_{t}_slew.json'.format(t=ot)
+    fout_name = foutNameTmp.format(t=ot)
     with open(fout_name, 'w') as f: f.write(json.dumps(all_data, indent=2))
 
     # Print summary

@@ -69,16 +69,19 @@ def main():
     help='process string for the sim')
   parser.add_argument('--num-leg-en', default=7, type=int,
     help='Number of enabled legs. (Sets the target resistance to "240/num_leg_en ohms")')
+  parser.add_argument('--post-layout', action='store_true',
+    help='Run post-layout simulation instead.')
   args = parser.parse_args()
 
-  tmp = 'spice/sstl_res_tb.spice' # Spice script template
-  # tmp = 'spice/post_layout_sstl_res_tb.spice' # Spice script template
+  # Set names based on simulation type
+  tmp = 'spice/sstl_res_tb.spice' # Original spice script template
+  outNameTmp = 'sstl_{d}_{n}_cal_sim_{t}_{v}_{p}'
+  if args.post_layout:
+    tmp = 'spice/post_layout_sstl_res_tb.spice' # Post-layout spice script template
+    outNameTmp = 'post_layout_sstl_{d}_{n}_cal_sim_{t}_{v}_{p}'
 
-  outName = 'sstl_{d}_{n}_cal_sim_{t}_{v}_{p}'.format(
+  outName = outNameTmp.format(
     d=args.dir, n=args.num_leg_en, t=args.temp, v=args.voltage, p=args.process)
-
-  # default_ctrl_dict = {'pu':{'en':[0,0,0,0,0,0,0], 'cal':[0,0,0,0]},
-  #                      'pd':{'en':[0,0,0,0,0,0,0], 'cal':[0,0,0,0]}}
 
   # Set enables
   ctrl_dict = DEFAULT_CTRL_DICT.copy()

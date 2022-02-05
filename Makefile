@@ -1,6 +1,6 @@
 
 # PDK Path
-PDKSPATH=/gro/cad/pdk
+PDKSPATH=/home/derekhm/cad/share/pdk
 PDKNAME=sky130A
 
 # Python version
@@ -124,6 +124,69 @@ out/sstl_6_slew_%/out.json: spice/sstl_slew_tb.spice out/results/sstl_pu_6_resis
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_slew.py --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
+
+
+# POST LAYOUT SSTL RESISTANCE SIMULATIONS
+LAYOUT_SSTL_PD_7_TARGETS:=$(addprefix out/post_layout_sstl_pd_7_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
+LAYOUT_SSTL_PU_7_TARGETS:=$(addprefix out/post_layout_sstl_pu_7_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
+LAYOUT_SSTL_PD_6_TARGETS:=$(addprefix out/post_layout_sstl_pd_6_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
+LAYOUT_SSTL_PU_6_TARGETS:=$(addprefix out/post_layout_sstl_pu_6_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
+
+.PHONY: post-layout-sstl-res-sim
+post-layout-sstl-res-sim: $(LAYOUT_SSTL_PD_7_TARGETS) $(LAYOUT_SSTL_PU_7_TARGETS) $(LAYOUT_SSTL_PD_6_TARGETS) $(LAYOUT_SSTL_PU_6_TARGETS)
+	$(PYTHON) scripts/sstl_res_result.py --post-layout
+
+out/results/post_layout_sstl_%_resistance.json: $(LAYOUT_SSTL_PD_7_TARGETS) $(LAYOUT_SSTL_PU_7_TARGETS) $(LAYOUT_SSTL_PD_6_TARGETS) $(LAYOUT_SSTL_PU_6_TARGETS)
+	$(PYTHON) scripts/sstl_res_result.py --post-layout
+
+out/post_layout_sstl_pd_7_cal_sim_%/out.json: spice/post_layout_sstl_res_tb.spice | out
+	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
+	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
+	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
+	$(PYTHON) scripts/sim_sstl_res.py --post-layout --dir pd --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
+
+out/post_layout_sstl_pu_7_cal_sim_%/out.json: spice/post_layout_sstl_res_tb.spice | out
+	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
+	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
+	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
+	$(PYTHON) scripts/sim_sstl_res.py --post-layout --dir pu --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
+
+out/post_layout_sstl_pd_6_cal_sim_%/out.json: spice/post_layout_sstl_res_tb.spice | out
+	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
+	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
+	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
+	$(PYTHON) scripts/sim_sstl_res.py --post-layout --dir pd --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
+
+out/post_layout_sstl_pu_6_cal_sim_%/out.json: spice/post_layout_sstl_res_tb.spice | out
+	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
+	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
+	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
+	$(PYTHON) scripts/sim_sstl_res.py --post-layout --dir pu --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
+
+# POST LAYOUT SSTL SLEW SIMULATIONS
+LAYOUT_SSTL_SLEW_7_TARGETS:=$(addprefix out/post_layout_sstl_7_slew_, $(addsuffix /out.json,$(CORNS) ))
+LAYOUT_SSTL_SLEW_6_TARGETS:=$(addprefix out/post_layout_sstl_6_slew_, $(addsuffix /out.json,$(CORNS) ))
+
+.PHONY: post-layout-sstl-slew-sim
+post-layout-sstl-slew-sim: $(LAYOUT_SSTL_SLEW_7_TARGETS)
+	# NOTE: the the spec only specifies a slew requirement for the 7-leg configuraiton, 
+	# so the 6-leg configuration slew tests are not run by default.
+	$(PYTHON) scripts/sstl_slew_result.py --post-layout
+
+out/post_layout_sstl_7_slew_%/out.json: spice/post_layout_sstl_slew_tb.spice out/results/post_layout_sstl_pu_7_resistance.json out/results/post_layout_sstl_pd_7_resistance.json | out
+	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
+	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
+	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
+	$(PYTHON) scripts/sim_sstl_slew.py --post-layout --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
+
+out/post_layout_sstl_6_slew_%/out.json: spice/post_layout_sstl_slew_tb.spice out/results/post_layout_sstl_pu_6_resistance.json out/results/post_layout_sstl_pd_6_resistance.json | out
+	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
+	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
+	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
+	$(PYTHON) scripts/sim_sstl_slew.py --post-layout --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
+
+
+
 
 .PHONY: list-corners
 list-corners: 

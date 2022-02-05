@@ -72,15 +72,25 @@ def main():
     help='process string for the sim')
   parser.add_argument('--num-leg-en', default=7, type=int,
     help='Number of enabled legs. (Sets the target resistance to "240/num_leg_en ohms")')
+  parser.add_argument('--post-layout', action='store_true',
+    help='Run post-layout simulation instead.')
   args = parser.parse_args()
 
-  tmp = 'spice/sstl_slew_tb.spice' # Spice script template
+  # Set names based on simulation type
+  tmp = 'spice/sstl_slew_tb.spice' # Original spice script template
+  outNameTmp = 'sstl_{n}_slew_{t}_{v}_{p}'
+  puCalTmp = './out/results/sstl_pu_{n}_resistance.json'
+  pdCalTmp = './out/results/sstl_pd_{n}_resistance.json'
+  if args.post_layout:
+    tmp = 'spice/post_layout_sstl_slew_tb.spice' # Post-layout spice script template
+    outNameTmp = 'post_layout_sstl_{n}_slew_{t}_{v}_{p}'
+    puCalTmp = './out/results/post_layout_sstl_pu_{n}_resistance.json'
+    pdCalTmp = './out/results/post_layout_sstl_pd_{n}_resistance.json'
 
-  outName = 'sstl_{n}_slew_{t}_{v}_{p}'.format(
-    n=args.num_leg_en, t=args.temp, v=args.voltage, p=args.process)
+  outName = outNameTmp.format(n=args.num_leg_en, t=args.temp, v=args.voltage, p=args.process)
 
-  pu_cal_file = './out/results/sstl_pu_{n}_resistance.json'.format(n=args.num_leg_en)
-  pd_cal_file = './out/results/sstl_pd_{n}_resistance.json'.format(n=args.num_leg_en)
+  pu_cal_file = puCalTmp.format(n=args.num_leg_en)
+  pd_cal_file = pdCalTmp.format(n=args.num_leg_en)
   pu_cal = get_valid_cal(pu_cal_file, args.temp, args.voltage, args.process)
   pd_cal = get_valid_cal(pd_cal_file, args.temp, args.voltage, args.process)
 
