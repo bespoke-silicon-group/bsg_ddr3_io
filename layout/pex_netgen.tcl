@@ -1,10 +1,22 @@
-extract all;
-ext2spice pex;
-# ext2spice hierarchy off;
-ext2spice cthresh 0.01
-ext2spice rthresh 1
-ext2spice subcircuit on;
+# Tim's Cap-Res extraction procedure
+
+set NAME [cellname list self];
 select top cell;
-ext2spice -o "pex_[cellname list self].spice";
-# Replace names with:
-# sed -i "s/sky130_fd_sc_hd__/extr_sky130_fd_sc_hd__/g" lvs_SSTL.spice
+# (Flattening improves resistance extraction)
+flatten "[list $NAME]_flat";
+load "[list $NAME]_flat";
+select top cell;
+
+extract do resistance;
+extract all;
+
+ext2sim labels on;
+ext2sim;
+
+extresist tolerance 10;
+extresist all;
+
+ext2spice lvs;
+ext2spice cthresh 0;
+ext2spice extresist on;
+ext2spice -o "pex_[list $NAME].spice";

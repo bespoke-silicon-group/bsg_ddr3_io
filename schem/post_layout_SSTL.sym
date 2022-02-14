@@ -1,7 +1,7 @@
 v {xschem version=3.0.0 file_version=1.2 }
 G {}
 K {type=primitive
-format="@name @@DQ @@GND @@pd_cal_ctrl[0:3] @@pd_ctrl[0:6] @@pu_cal_ctrl[0:3] @@pu_ctrl[0:6] @@VDD SSTL"
+format="@name @@pd_cal_ctrl[0:3] @@pd_ctrl[0:6] @@pu_cal_ctrl[0:3] @@pu_ctrl[0:6] @@DQ @@VDD @@GND SSTL_flat"
 template="name=X1"}
 V {}
 S {}

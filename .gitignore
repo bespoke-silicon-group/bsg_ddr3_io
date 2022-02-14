@@ -1,6 +1,8 @@
 lvs_result.txt
 layout/*.ext
 layout/*.spice
+layout/*.nodes
+layout/*.sim
 spice
 out
 tools

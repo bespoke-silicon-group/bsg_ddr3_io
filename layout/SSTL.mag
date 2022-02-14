@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1643991894
+timestamp 1644809562
 << checkpaint >>
 rect -3500 2392 7928 5552
 rect -1292 2288 7928 2392
@@ -1711,4 +1711,64 @@ flabel locali s -641 -15671 -615 -15626 7 FreeSerif 480 0 0 0 pd_ctrl[5]
 port 11 w
 flabel locali s -641 -18935 -615 -18890 7 FreeSerif 480 0 0 0 pd_ctrl[6]
 port 12 w
+flabel metal1 s 6604 3691 6633 3725 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s 6604 4235 6633 4269 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s 6572 -19163 6601 -19129 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s 6572 -18619 6601 -18585 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s -2266 -19167 -2237 -19133 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s -2266 -18623 -2237 -18589 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s -2266 -15903 -2237 -15869 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s -2266 -15359 -2237 -15325 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s 6572 -15899 6601 -15865 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s 6572 -15355 6601 -15321 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s -2266 -12639 -2237 -12605 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s -2266 -12095 -2237 -12061 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s 6572 -12635 6601 -12601 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s 6572 -12091 6601 -12057 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s -2266 -9375 -2237 -9341 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s -2266 -8831 -2237 -8797 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s 6572 -9371 6601 -9337 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s 6572 -8827 6601 -8793 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s -2266 -6111 -2237 -6077 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s -2266 -5567 -2237 -5533 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s 6572 -6107 6601 -6073 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s 6572 -5563 6601 -5529 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s -2266 -2847 -2237 -2813 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s -2266 -2303 -2237 -2269 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s 6572 -2843 6601 -2809 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s 6572 -2299 6601 -2265 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s -2266 417 -2237 451 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s -2266 961 -2237 995 7 FreeSerif 800 0 0 0 VDD
+port 24 n
+flabel metal1 s 6572 421 6601 455 7 FreeSerif 800 0 0 0 GND
+port 1 n
+flabel metal1 s 6572 965 6601 999 7 FreeSerif 800 0 0 0 VDD
+port 24 n
 << end >>
