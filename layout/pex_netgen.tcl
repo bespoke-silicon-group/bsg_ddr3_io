@@ -17,6 +17,7 @@ extresist tolerance 10;
 extresist all;
 
 ext2spice lvs;
-ext2spice cthresh 0;
+ext2spice cthresh 0.1;
+ext2spice rthresh 10
 ext2spice extresist on;
 ext2spice -o "pex_[list $NAME].spice";
