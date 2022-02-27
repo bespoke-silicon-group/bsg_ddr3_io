@@ -210,7 +210,7 @@ XSCHEMREV=290fc3c
 MAGICREPO=https://github.com/RTimothyEdwards/magic.git
 MAGICREV=8.3.261
 NETGENREPO=https://github.com/RTimothyEdwards/netgen.git
-NETGENREV=20f6d76
+NETGENREV=bfb01e0
 
 NGSPICE=./tools/ngspice-install/bin/ngspice
 $(NGSPICE):

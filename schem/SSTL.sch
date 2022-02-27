@@ -224,3 +224,11 @@ C {sky130_stdcells/clkinv_16.sym} 320 -1360 0 0 {name=xpu_buff_2[6:0] VGND=GND V
 C {sky130_stdcells/clkinv_4.sym} 90 -580 0 0 {name=xpd_buff_1[6:0] VGND=GND VNB=GND VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
 C {devices/lab_wire.sym} 160 -580 0 0 {name=l47 sig_type=std_logic lab=pdc2[6:0]}
 C {sky130_stdcells/clkinv_16.sym} 320 -1420 0 0 {name=xpu_buff_1[6:0] VGND=GND VNB=GND VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
+C {devices/code_shown.sym} 500 -1350 0 0 {name=MODELS
+only_toplevel=true
+place=header
+format="tcleval( @value )"
+value="** Local library links to pdk
+.include \\\\$::SKYWATER_STDCELLS\\\\/sky130_fd_sc_hd.spice
+"
+spice_ignore=false}
