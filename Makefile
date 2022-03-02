@@ -220,7 +220,7 @@ $(NGSPICE):
 		git checkout ${NGSPICEREV} &&\
 		source /opt/rh/devtoolset-8/enable &&\
 		./autogen.sh &&\
-		./configure --prefix=`pwd`/../ngspice-install --enable-openmp &&\
+		./configure --prefix=`pwd`/../ngspice-install --enable-openmp --enable-xspice &&\
 		make &&\
 		make install
 .PHONY: install-ngspice
