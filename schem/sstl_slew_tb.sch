@@ -105,7 +105,6 @@ value="** Local library links to pdk
 .include \\\\$::SKYWATER_STDCELLS\\\\/sky130_fd_sc_hd.spice
 "
 spice_ignore=false}
-C {SSTL.sym} 360 -210 0 0 {name=X1}
 C {devices/lab_wire.sym} 860 -330 2 0 {name=l9 sig_type=std_logic lab=DQ}
 C {devices/lab_wire.sym} 1050 -330 0 1 {name=l11 sig_type=std_logic lab=VDDQ}
 C {devices/lab_pin.sym} -120 -390 0 0 {name=l3 sig_type=std_logic lab=pu_ctrl[6:0]}
@@ -150,3 +149,4 @@ C {sky130/sky130_stdcells/clkinv_1.sym} 220 -390 0 0 {name=xpui4[6:0] VGND=GND V
 C {sky130/sky130_stdcells/clkinv_1.sym} 20 -270 0 0 {name=xpui5[6:0] VGND=GND VNB=GND VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
 C {sky130/sky130_stdcells/clkinv_1.sym} 120 -270 0 0 {name=xpui6[6:0] VGND=GND VNB=GND VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
 C {sky130/sky130_stdcells/clkinv_1.sym} 220 -270 0 0 {name=xpui7[6:0] VGND=GND VNB=GND VPB=VDD VPWR=VDD prefix=sky130_fd_sc_hd__ }
+C {schem/SSTL.sym} 360 -210 0 0 {name=X1 VDD=VDD GND=GND}

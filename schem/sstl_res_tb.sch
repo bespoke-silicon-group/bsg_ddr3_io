@@ -89,10 +89,10 @@ value="** Local library links to pdk
 "
 spice_ignore=false}
 C {devices/ammeter.sym} 910 -330 3 0 {name=vtest}
-C {SSTL.sym} 360 -210 0 0 {name=X1}
 C {devices/lab_wire.sym} 860 -330 2 0 {name=l9 sig_type=std_logic lab=DQ}
 C {devices/lab_wire.sym} 940 -330 2 0 {name=l11 sig_type=std_logic lab=VDDQ}
 C {devices/lab_pin.sym} 350 -390 0 0 {name=l3 sig_type=std_logic lab=pu_ctrl[6:0]}
 C {devices/lab_pin.sym} 350 -270 0 0 {name=l10 sig_type=std_logic lab=pd_ctrl[6:0]}
 C {devices/lab_pin.sym} 350 -360 0 0 {name=l13 sig_type=std_logic lab=pu_cal[3:0]}
 C {devices/lab_pin.sym} 350 -300 0 0 {name=l14 sig_type=std_logic lab=pd_cal[3:0]}
+C {schem/SSTL.sym} 360 -210 0 0 {name=X1 VDD=VDD GND=GND}

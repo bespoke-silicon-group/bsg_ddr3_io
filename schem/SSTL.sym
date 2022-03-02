@@ -1,8 +1,9 @@
 v {xschem version=3.0.0 file_version=1.2 }
 G {}
 K {type=subcircuit
-format="@name @@DQ @@pd_ctrl[6:0] @@pu_ctrl[6:0] @@pd_cal_ctrl[3:0] @@pu_cal_ctrl[3:0] @symname"
-template="name=X1"}
+format="@name @@DQ @@pd_ctrl[6:0] @@pu_ctrl[6:0] @@pd_cal_ctrl[3:0] @@pu_cal_ctrl[3:0] @VDD @GND @symname"
+template="name=X1 VDD=VDD GND=GND"
+extra="VDD GND"}
 V {}
 S {}
 E {}
