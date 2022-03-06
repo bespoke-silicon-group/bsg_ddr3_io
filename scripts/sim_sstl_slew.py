@@ -5,11 +5,14 @@ from math import floor
 from numpy import arange
 from random import randrange
 import json
+from warnings import warn
 
 def get_valid_cal(json_fname, temp, vdd, proc):  
   with open(json_fname, 'r') as f: j = json.loads(f.read())
   arr = [val for i,val in enumerate(j) if val['temperature']==temp and val['vdd']==vdd and val['process']==proc]
-  assert (len(arr)>0), 'No calibration found for this corner!'
+  if len(arr)>0:
+    # return None
+    return 7 # Return default cal enum so simulation runs anyway
   assert (len(arr)<2), 'Multiple calibrations found for this corner!'
   assert (arr[0]['calibration_success']==True), 'Calibration failed for this corner!'
   return arr[0]['valid_cal_enum']
@@ -93,6 +96,9 @@ def main():
   pd_cal_file = pdCalTmp.format(n=args.num_leg_en)
   pu_cal = get_valid_cal(pu_cal_file, args.temp, args.voltage, args.process)
   pd_cal = get_valid_cal(pd_cal_file, args.temp, args.voltage, args.process)
+  if pu_cal == None or pd_cal == None:
+    warn('No calibration for this corner! Skipping Slew sim')
+    return
 
   result = sim_slew(tmp, outName, args.num_leg_en, pu_cal, pd_cal, float(args.temp), float(args.voltage), args.process)
 

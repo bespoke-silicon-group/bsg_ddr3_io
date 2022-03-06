@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1643392248
+timestamp 1646531211
 << pwell >>
 rect 1883 1071 1917 1105
 rect 3355 1071 3389 1105
@@ -1564,7 +1564,6 @@ flabel metal1 1900 733 1900 733 7 FreeSerif 320 0 0 0 cal_ctrl[2]
 port 7 w
 flabel metal1 1900 651 1900 651 7 FreeSerif 320 0 0 0 cal_ctrl[3]
 port 8 w
-flabel metal1 4508 314 4508 314 7 FreeSerif 320 0 0 0 vpulldown
 flabel polycont 1913 232 1913 232 7 FreeSerif 320 0 0 0 pd_ctrl
 port 1 w
 flabel viali 1900 -1 1900 -1 7 FreeSerif 320 0 0 0 GND

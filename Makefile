@@ -66,6 +66,25 @@ out/pu_leg_%/out.json: spice/p-leg_tb.spice | out
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_leg.py --dir pu --voltage $(V) --temp $(T) --process $(P)
 
+# POST LAYOUT FULL LEG SIMULATIONS
+POST_LAYOUT_N_LEG_TARGETS:=$(addprefix out/post_layout_pd_leg_, $(addsuffix /out.json,$(CORNS) ))
+POST_LAYOUT_P_LEG_TARGETS:=$(addprefix out/post_layout_pu_leg_, $(addsuffix /out.json,$(CORNS) ))
+.PHONY: post-layout-leg-sim
+post-layout-leg-sim: $(POST_LAYOUT_N_LEG_TARGETS) $(POST_LAYOUT_P_LEG_TARGETS)
+	$(PYTHON) scripts/leg_result.py --post-layout
+
+out/post_layout_pd_leg_%/out.json: spice/post_layout_n-leg_tb.spice | out
+	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
+	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
+	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )	
+	$(PYTHON) scripts/sim_leg.py --post-layout --dir pd --voltage ${V} --temp ${T} --process ${P}
+
+out/post_layout_pu_leg_%/out.json: spice/post_layout_p-leg_tb.spice | out
+	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
+	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
+	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
+	$(PYTHON) scripts/sim_leg.py --post-layout --dir pu --voltage $(V) --temp $(T) --process $(P)
+
 # SSTL RESISTANCE AND CALIBRATION SIMULATIONS
 SSTL_PD_7_TARGETS:=$(addprefix out/sstl_pd_7_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
 SSTL_PU_7_TARGETS:=$(addprefix out/sstl_pu_7_cal_sim_, $(addsuffix /out.json,$(CORNS) ))
@@ -272,9 +291,9 @@ install-magic: $(MAGIC)
 launch-magic: $(MAGIC)
 ifndef args
 	# TO ADD ARGS, use "make launch-magic args=<ARGS_TO_PASS_IN>"
-	${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc 
+	export PDK_ROOT=${PDKSPATH}/${PDKNAME} && ${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc 
 else
-	${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc ${args}
+	export PDK_ROOT=${PDKSPATH}/${PDKNAME} && ${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc ${args}
 endif
 
 NETGEN=./tools/netgen-install/bin/netgen

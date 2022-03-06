@@ -5,9 +5,26 @@ import json
 import os, re
 
 def main():
+
+  parser = argparse.ArgumentParser(
+    description='Collect output from SSTL resistance simulation')
+  parser.add_argument('--post-layout', action='store_true',
+    help='Run post-layout simulation instead.')
+  args = parser.parse_args()
+
+  rePuTmp = '^pu_leg_*'
+  rePdTmp = '^pd_leg_*'
+  pd_fout_name = 'out/results/pd_resistance.json'
+  pu_fout_name = 'out/results/pu_resistance.json'
+  if args.post_layout:
+    rePuTmp = '^post_layout_pu_leg_*'
+    rePdTmp = '^post_layout_pd_leg_*'
+    pd_fout_name = 'out/results/post_layout_pd_resistance.json'
+    pu_fout_name = 'out/results/post_layout_pu_resistance.json'
+
   out_dirs = os.listdir('./out/')
-  r_pu = re.compile('^pu_leg_*')
-  r_pd = re.compile('^pd_leg_*')
+  r_pu = re.compile(rePuTmp)
+  r_pd = re.compile(rePdTmp)
   pu_dirs = list(filter(r_pu.search, out_dirs))
   pd_dirs = list(filter(r_pd.search, out_dirs))
 
@@ -23,11 +40,9 @@ def main():
 
   # generate output json and place in 'out/results/'
   try: os.mkdir('./out/results')
-  except: pass
-  fout_name = 'out/results/simplified_pd_resistance.json'
-  with open(fout_name, 'w') as f: f.write(json.dumps(pd_all_data, indent=2))
-  fout_name = 'out/results/simplified_pu_resistance.json'
-  with open(fout_name, 'w') as f: f.write(json.dumps(pu_all_data, indent=2))
+  except: pass  
+  with open(pd_fout_name, 'w') as f: f.write(json.dumps(pd_all_data, indent=2))
+  with open(pu_fout_name, 'w') as f: f.write(json.dumps(pu_all_data, indent=2))
 
   # Print summary output
   print()

@@ -16,15 +16,20 @@ def main():
     help='process string for the sim')
   parser.add_argument('--ctrl-sig', default='1,1,1,1',
     help='Control signal string: 4 comma seperated "0" or "1" such as 0,1,0,1')
+  parser.add_argument('--post-layout', action='store_true',
+    help='Run post-layout simulation instead.')
   args = parser.parse_args()
   
-  outname = '{d}_leg_{t}_{v}_{p}'.format(d=args.dir, v=args.voltage, t=args.temp, p=args.process)
-
   # Select template spice script
   d = 'n'
   if args.dir == 'pu':
-    d = 'p'
+    d = 'p'  
   tmp = 'spice/{d}-leg_tb.spice'.format(d=d)
+  outname = '{d}_leg_{t}_{v}_{p}'.format(d=args.dir, v=args.voltage, t=args.temp, p=args.process)
+  if args.post_layout:
+    tmp = 'spice/post_layout_{d}-leg_tb.spice'.format(d=d)
+    outname = 'post_layout_{d}_leg_{t}_{v}_{p}'.format(d=args.dir, v=args.voltage, t=args.temp, p=args.process)
+
   # Generate control signal list
   ctrl_sig = [int(c) for c in args.ctrl_sig.split(',')]
   # Run simulation

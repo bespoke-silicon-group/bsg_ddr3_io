@@ -4,4 +4,4 @@ ext2spice lvs;
 select top cell;
 ext2spice -o "lvs_[cellname list self].spice";
 # Replace names with:
-exec sed -i "s/sky130_fd_sc_hd__/extr_sky130_fd_sc_hd__/g" lvs_SSTL.spice
+exec sed -i "s/sky130_fd_sc_hd__/extr_sky130_fd_sc_hd__/g" lvs_[cellname list self].spice
