@@ -1,7 +1,9 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1646531211
+timestamp 1646792692
+<< checkpaint >>
+rect 76 -3567 8426 4363
 << pwell >>
 rect 1883 1071 1917 1105
 rect 3355 1071 3389 1105
@@ -441,9 +443,12 @@ rect 6106 59 6140 93
 rect 6190 127 6224 161
 rect 6190 59 6224 93
 << psubdiff >>
+rect 1975 1071 2009 1105
+rect 2067 1071 2101 1105
 rect 6286 156 6519 180
 rect 6286 21 6519 45
 << psubdiffcont >>
+rect 2009 1071 2067 1105
 rect 6286 45 6519 156
 << poly >>
 rect 1854 249 6270 265
@@ -603,7 +608,6 @@ rect 6187 215 6221 249
 << locali >>
 rect 1854 1071 1883 1105
 rect 1917 1071 1975 1105
-rect 2009 1071 2067 1105
 rect 2101 1071 2159 1105
 rect 2193 1071 2251 1105
 rect 2285 1071 2343 1105
@@ -1539,22 +1543,22 @@ rect 4426 412 4522 806
 rect 4426 360 4438 412
 rect 4490 360 4522 412
 rect 4426 349 4522 360
-use n-leg_ctrl_fet_3  n-leg_ctrl_fet_3_0
-timestamp 1642734083
-transform 1 0 6404 0 1 727
-box -73 -107 73 107
-use n-leg_ctrl_fet_2  n-leg_ctrl_fet_2_0
-timestamp 1642733691
-transform 1 0 6104 0 1 847
-box -129 -153 221 91
-use n-leg_ctrl_fet_1  n-leg_ctrl_fet_1_0
-timestamp 1642732258
-transform 1 0 5164 0 -1 795
-box -129 -153 689 91
 use n-leg_ctrl_fet_0  n-leg_ctrl_fet_0_0
-timestamp 1642450972
+timestamp 1646792692
 transform 1 0 1991 0 -1 869
 box -129 -153 2945 91
+use n-leg_ctrl_fet_1  n-leg_ctrl_fet_1_0
+timestamp 1646792692
+transform 1 0 5164 0 -1 795
+box -129 -153 689 91
+use n-leg_ctrl_fet_2  n-leg_ctrl_fet_2_0
+timestamp 1646792692
+transform 1 0 6104 0 1 847
+box -129 -153 221 91
+use n-leg_ctrl_fet_3  n-leg_ctrl_fet_3_0
+timestamp 1646792692
+transform 1 0 6404 0 1 727
+box -73 -107 73 107
 use n-leg_polyres  n-leg_polyres_0
 timestamp 1642386543
 transform 0 1 4251 -1 0 398
