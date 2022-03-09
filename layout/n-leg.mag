@@ -1,14 +1,14 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1646792692
+timestamp 1646843053
 << checkpaint >>
 rect 76 -3567 8426 4363
 << pwell >>
 rect 1883 1071 1917 1105
 rect 3355 1071 3389 1105
 rect 4827 1071 4861 1105
-rect 1868 21 3314 203
+rect 1854 21 3314 203
 rect 3340 21 4786 203
 rect 4812 21 6258 203
 rect 1883 -17 1917 21
@@ -66,13 +66,13 @@ rect 6150 47 6180 177
 << ndiff >>
 rect 6325 808 6361 812
 rect 6325 782 6331 808
-rect 1894 161 1946 177
-rect 1894 127 1902 161
+rect 1864 161 1946 177
+rect 1864 127 1902 161
 rect 1936 127 1946 161
-rect 1894 93 1946 127
-rect 1894 59 1902 93
+rect 1864 93 1946 127
+rect 1864 59 1902 93
 rect 1936 59 1946 93
-rect 1894 47 1946 59
+rect 1864 47 1946 59
 rect 1976 161 2030 177
 rect 1976 127 1986 161
 rect 2020 127 2030 161
@@ -452,8 +452,8 @@ rect 2009 1071 2067 1105
 rect 6286 45 6519 156
 << poly >>
 rect 1854 249 6270 265
-rect 1854 215 1896 249
-rect 1930 215 2070 249
+rect 1854 215 1950 249
+rect 1984 215 2070 249
 rect 2104 215 2238 249
 rect 2272 215 2407 249
 rect 2441 215 2574 249
@@ -578,7 +578,7 @@ rect 5982 21 6012 47
 rect 6066 21 6096 47
 rect 6150 21 6180 47
 << polycont >>
-rect 1896 215 1930 249
+rect 1950 215 1984 249
 rect 2070 215 2104 249
 rect 2238 215 2272 249
 rect 2407 215 2441 249
@@ -725,8 +725,8 @@ rect 6333 527 6391 561
 rect 6425 527 6483 561
 rect 6517 527 6546 561
 rect 1854 249 6270 263
-rect 1854 215 1896 249
-rect 1930 215 2070 249
+rect 1854 215 1950 249
+rect 1984 215 2070 249
 rect 2104 215 2238 249
 rect 2272 215 2407 249
 rect 2441 215 2574 249
@@ -1544,19 +1544,19 @@ rect 4426 360 4438 412
 rect 4490 360 4522 412
 rect 4426 349 4522 360
 use n-leg_ctrl_fet_0  n-leg_ctrl_fet_0_0
-timestamp 1646792692
+timestamp 1646843053
 transform 1 0 1991 0 -1 869
 box -129 -153 2945 91
 use n-leg_ctrl_fet_1  n-leg_ctrl_fet_1_0
-timestamp 1646792692
+timestamp 1646843053
 transform 1 0 5164 0 -1 795
 box -129 -153 689 91
 use n-leg_ctrl_fet_2  n-leg_ctrl_fet_2_0
-timestamp 1646792692
+timestamp 1646843053
 transform 1 0 6104 0 1 847
 box -129 -153 221 91
 use n-leg_ctrl_fet_3  n-leg_ctrl_fet_3_0
-timestamp 1646792692
+timestamp 1646843053
 transform 1 0 6404 0 1 727
 box -73 -107 73 107
 use n-leg_polyres  n-leg_polyres_0
@@ -1568,8 +1568,6 @@ flabel metal1 1900 733 1900 733 7 FreeSerif 320 0 0 0 cal_ctrl[2]
 port 7 w
 flabel metal1 1900 651 1900 651 7 FreeSerif 320 0 0 0 cal_ctrl[3]
 port 8 w
-flabel polycont 1913 232 1913 232 7 FreeSerif 320 0 0 0 pd_ctrl
-port 1 w
 flabel viali 1900 -1 1900 -1 7 FreeSerif 320 0 0 0 GND
 port 2 w
 flabel viali 1900 1089 1900 1089 7 FreeSerif 320 0 0 0 GND
@@ -1580,4 +1578,6 @@ flabel metal2 4033 370 4033 370 7 FreeSerif 320 0 0 0 DQ
 port 3 w
 flabel metal1 s 1900 909 1900 909 7 FreeSerif 320 0 0 0 cal_ctrl[1]
 port 6 w
+flabel polycont 1967 232 1967 232 7 FreeSerif 320 0 0 0 pd_ctrl
+port 1 w
 << end >>
