@@ -1,9 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1646843053
-<< checkpaint >>
-rect 76 -3567 8426 4363
+timestamp 1646875043
 << pwell >>
 rect 1883 1071 1917 1105
 rect 3355 1071 3389 1105
@@ -1544,19 +1542,19 @@ rect 4426 360 4438 412
 rect 4490 360 4522 412
 rect 4426 349 4522 360
 use n-leg_ctrl_fet_0  n-leg_ctrl_fet_0_0
-timestamp 1646843053
+timestamp 1646874728
 transform 1 0 1991 0 -1 869
 box -129 -153 2945 91
 use n-leg_ctrl_fet_1  n-leg_ctrl_fet_1_0
-timestamp 1646843053
+timestamp 1646874728
 transform 1 0 5164 0 -1 795
 box -129 -153 689 91
 use n-leg_ctrl_fet_2  n-leg_ctrl_fet_2_0
-timestamp 1646843053
+timestamp 1646874728
 transform 1 0 6104 0 1 847
 box -129 -153 221 91
 use n-leg_ctrl_fet_3  n-leg_ctrl_fet_3_0
-timestamp 1646843053
+timestamp 1646874728
 transform 1 0 6404 0 1 727
 box -73 -107 73 107
 use n-leg_polyres  n-leg_polyres_0
