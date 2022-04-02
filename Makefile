@@ -54,13 +54,13 @@ P_LEG_TARGETS:=$(addprefix out/pu_leg_, $(addsuffix /out.json,$(CORNS) ))
 leg-sim: $(N_LEG_TARGETS) $(P_LEG_TARGETS)
 	$(PYTHON) scripts/leg_result.py
 
-out/pd_leg_%/out.json: spice/n-leg_tb.spice | out
+out/pd_leg_%/out.json: spice/n-leg_tb.spice schem/n-leg.sch | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )	
 	$(PYTHON) scripts/sim_leg.py --dir pd --voltage ${V} --temp ${T} --process ${P}
 
-out/pu_leg_%/out.json: spice/p-leg_tb.spice | out
+out/pu_leg_%/out.json: spice/p-leg_tb.spice schem/p-leg.sch | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
@@ -98,25 +98,25 @@ sstl-res-sim: $(SSTL_PD_7_TARGETS) $(SSTL_PU_7_TARGETS) $(SSTL_PD_6_TARGETS) $(S
 out/results/sstl_%_resistance.json: $(SSTL_PD_7_TARGETS) $(SSTL_PU_7_TARGETS) $(SSTL_PD_6_TARGETS) $(SSTL_PU_6_TARGETS)
 	$(PYTHON) scripts/sstl_res_result.py
 
-out/sstl_pd_7_cal_sim_%/out.json: spice/sstl_res_tb.spice | out
+out/sstl_pd_7_cal_sim_%/out.json: spice/sstl_res_tb.spice schem/SSTL.sch schem/n-leg.sch schem/p-leg.sch | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_res.py --dir pd --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
 
-out/sstl_pu_7_cal_sim_%/out.json: spice/sstl_res_tb.spice | out
+out/sstl_pu_7_cal_sim_%/out.json: spice/sstl_res_tb.spice schem/SSTL.sch schem/n-leg.sch schem/p-leg.sch | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_res.py --dir pu --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
 
-out/sstl_pd_6_cal_sim_%/out.json: spice/sstl_res_tb.spice | out
+out/sstl_pd_6_cal_sim_%/out.json: spice/sstl_res_tb.spice schem/SSTL.sch schem/n-leg.sch schem/p-leg.sch | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_res.py --dir pd --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
 
-out/sstl_pu_6_cal_sim_%/out.json: spice/sstl_res_tb.spice | out
+out/sstl_pu_6_cal_sim_%/out.json: spice/sstl_res_tb.spice schem/SSTL.sch schem/n-leg.sch schem/p-leg.sch | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
@@ -132,13 +132,13 @@ sstl-slew-sim: $(SSTL_SLEW_7_TARGETS)
 	# so the 6-leg configuration slew tests are not run by default.
 	$(PYTHON) scripts/sstl_slew_result.py
 
-out/sstl_7_slew_%/out.json: spice/sstl_slew_tb.spice out/results/sstl_pu_7_resistance.json out/results/sstl_pd_7_resistance.json | out
+out/sstl_7_slew_%/out.json: spice/sstl_slew_tb.spice schem/SSTL.sch schem/n-leg.sch schem/p-leg.sch out/results/sstl_pu_7_resistance.json out/results/sstl_pd_7_resistance.json | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_slew.py --num-leg-en 7 --voltage $(V) --temp $(T) --process $(P)
 
-out/sstl_6_slew_%/out.json: spice/sstl_slew_tb.spice out/results/sstl_pu_6_resistance.json out/results/sstl_pd_6_resistance.json | out
+out/sstl_6_slew_%/out.json: spice/sstl_slew_tb.spice schem/SSTL.sch schem/n-leg.sch schem/p-leg.sch out/results/sstl_pu_6_resistance.json out/results/sstl_pd_6_resistance.json | out
 	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
 	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
@@ -227,7 +227,7 @@ NGSPICEREV=87b9df668
 XSCHEMREPO=https://github.com/StefanSchippers/xschem.git
 XSCHEMREV=290fc3c 
 MAGICREPO=https://github.com/RTimothyEdwards/magic.git
-MAGICREV=8.3.261
+MAGICREV=8.3.277
 NETGENREPO=https://github.com/RTimothyEdwards/netgen.git
 NETGENREV=bfb01e0
 
@@ -291,9 +291,9 @@ install-magic: $(MAGIC)
 launch-magic: $(MAGIC)
 ifndef args
 	# TO ADD ARGS, use "make launch-magic args=<ARGS_TO_PASS_IN>"
-	export PDK_ROOT=${PDKSPATH}/${PDKNAME} && ${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc 
+	export PDK_ROOT=${PDKSPATH} && ${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc 
 else
-	export PDK_ROOT=${PDKSPATH}/${PDKNAME} && ${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc ${args}
+	export PDK_ROOT=${PDKSPATH} && ${MAGIC} -d XR -rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/magic/${PDKNAME}.magicrc ${args}
 endif
 
 NETGEN=./tools/netgen-install/bin/netgen
