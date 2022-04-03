@@ -43,7 +43,10 @@ Example: `make launch-magic args="-noconsole"`
 
 ## Simulation Summary
 
-Defining corners in the Makefile: *TODO*
+Adding or changing PVT corners can be done by editing the variables near the top of the Makefile.   
+`TEMPS` is the list of temperatures to be simulated (unit degrees Celsius).   
+`VOLTAGES` is the list of power voltages to be simulated (unit Volts).   
+`PROCS` is the list of process corners to be simulated. You can't come up with any new ones, but some can be removed to reduce simulation time.
 
 1. **Simplified leg simulations**      
    Make target: `simple-leg-sim`    
@@ -62,7 +65,7 @@ Defining corners in the Makefile: *TODO*
 3. **SSTL Resistance/Calibration Simulation**   
    Make target: `sstl-res-sim`   
    Dependant files (input designs): `schem/sstl_res_tb.sch`, `schem/SSTL.sch`, `schem/n-leg.sch`, `schem/p-leg.sch`    
-   Main output: `out/sstl_pd_6_resistance.json`, `out/sstl_pu_6_resistance.json`, `out/sstl_pd_7_resistance.json`, `out/sstl_pu_7_resistance.json` 
+   Main output: `out/results/sstl_pd_6_resistance.json`, `out/results/sstl_pu_6_resistance.json`, `out/results/sstl_pd_7_resistance.json`, `out/results/sstl_pu_7_resistance.json` 
 
    This simulation tests all of the resistance requirements for each of the PVT corners. At every PVT corner, the calibration process is simulated. So long as the resistance requirements are not met, the simulation repeats with different calibration configuration until the resistance requirements are met (or it is shown they can never be met.)
    This covers steps 4 and 5 in the design process document.    
@@ -74,18 +77,38 @@ Defining corners in the Makefile: *TODO*
 
 4. **SSTL Slew Simulation**   
    Make target: `sstl-slew-sim`   
-   Dependant files (input designs): *TODO*   
-   Main output: *TODO* 
+   Dependant files (input designs): `schem/sstl_slew_tb.sch`, `schem/SSTL.sch`, `schem/n-leg.sch`, `schem/p-leg.sch`    
+   Main output: `out/results/sstl_7_slew.json`
+
+   This simulation measure the slew rate at all PVT corners. At every corner, the calibration setting calculated in the previous simulation is used. A summary is also printed showing the fastest and slowest slew rates. This will be helpful in sizing the drivers for the leg control signals. 
 
 5. **Post-layout SSTL Resistance/Calibration Simulation**    
    Make target: `post-layout-sstl-res-sim`    
-   Dependant files (input designs): *TODO*   
-   Main output: *TODO* 
+   Dependant files (input designs): `schem/post_layout_sstl_res_tb.sch`, `layout/pex_SSTL.spice`    
+   Main output: `out/results/post_layout_sstl_pd_6_resistance.json`, `out/results/post_layout_sstl_pu_6_resistance.json`, `out/results/post_layout_sstl_pd_7_resistance.json`, `out/results/post_layout_sstl_pu_7_resistance.json` 
+
+   Same simulation as `sstl-res-sim`, except using the SSTL netlist extracted from the layout.
 
 6. **Post-layout SSTL Slew Simulation**    
    Make target: `post-layout-sstl-slew-sim`    
-   Dependant files (input designs): *TODO*   
-   Main output: *TODO* 
+   Dependant files (input designs): `schem/post_layout_sstl_slew_tb.sch`, `layout/pex_SSTL.spice`    
+   Main output: `out/results/post_layout_sstl_7_slew.json`
 
-## Netlist Generation from Layout
-*TODO*
+   Same simulation as `sstl-slew-sim`, except using the SSTL netlist extracted from the layout.
+   *This simulation is still a work in progress.*
+
+## LVS and Netlist Generation from Layout
+
+To perform LVS for a cell, first we need to create an extracted netlist from the current layout of the cell. With the cell open in magic, execute this command: `source lvs_netgen.tcl`.    
+If the cell `MYCELL` for example is open, this will generate the spice netlist `lvs_MYCELL.spice` in the same directory.
+
+Next, we can perform the actual LVS with the program netgen. A make target is provided to simplify the command.   
+In this example, `spice/SSTL.spice` is compared to `layout/lvs_SSTL.spice`:
+```
+make netgen-lvs-compare  cell1="./spice/SSTL.spice"  cell2="layout/lvs_SSTL.spice SSTL"
+```
+"cell1" is the schematic netlist in this case, and "cell2" is the layout netlist we generated above. Note the final "SSTL" in the cell2 variable. This refers to the top level subcircuit in the netlist. the schematic netlist does not have a top level, so we don't need to specify the name.   
+
+When the results are printed, the cells match if you see "Netlists match uniquely. Circuit match correctly." The message "Result: Cells failed matching, or top level cell failed pin matching." is not an error in this case. The schematic netlist does not have explicit pins, so it can't find matching pins in the layout netlist.    
+
+If there is some lvs errors, [this page](http://opencircuitdesign.com/netgen/tutorial/tutorial.html#Results) is a good place to start when trying to interpret the results.

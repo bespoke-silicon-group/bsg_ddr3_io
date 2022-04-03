@@ -270,9 +270,9 @@ install-xschem: $(XSCHEM)
 launch-xschem: $(XSCHEM)
 ifndef args
 	# TO ADD ARGS, use "make launch-xschem args=<ARGS_TO_PASS_IN>"
-	${XSCHEM} --rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/xschem/xschemrc
+	export PDK_ROOT=${PDKSPATH} && ${XSCHEM} --rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/xschem/xschemrc
 else
-	${XSCHEM} --rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/xschem/xschemrc ${args}
+	export PDK_ROOT=${PDKSPATH} && ${XSCHEM} --rcfile ${PDKSPATH}/${PDKNAME}/libs.tech/xschem/xschemrc ${args}
 endif
 
 MAGIC=./tools/magic-install/bin/magic
