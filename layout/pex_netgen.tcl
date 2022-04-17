@@ -3,6 +3,7 @@
 set NAME [cellname list self];
 select top cell;
 # (Flattening improves resistance extraction)
+#flatten -nolabels -dotoplabels "[list $NAME]_flat";
 flatten "[list $NAME]_flat";
 load "[list $NAME]_flat";
 select top cell;

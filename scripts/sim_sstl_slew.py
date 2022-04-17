@@ -12,12 +12,12 @@ def get_valid_cal(json_fname, temp, vdd, proc):
   arr = [val for i,val in enumerate(j) if val['temperature']==temp and val['vdd']==vdd and val['process']==proc]
   if len(arr)<=0:
     # return None
-    print('No calibration fround for this corner, using default cal enum: 7')
+    warn('No calibration fround for this corner, using default cal enum: 7')
     return 7 # Return default cal enum so simulation runs anyway
   assert (len(arr)<2), 'Multiple calibrations found for this corner!'
   if (arr[0]['calibration_success']==False):
-    print( 'Calibration failed for this corner!')
-    return None
+    warn('Calibration failed for this corner! using MAX cal enum: 15')
+    return 15
   return arr[0]['valid_cal_enum']
 
 def sim_slew(template, name, num_leg_en, pu_cal, pd_cal, temp, vdd, proc):
