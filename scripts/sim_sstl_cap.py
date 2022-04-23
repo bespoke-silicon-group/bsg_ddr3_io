@@ -35,6 +35,9 @@ def sim_slew(template, name, pu_cal, pd_cal, temp, vdd, proc):
     if cal2ctrl(pd_cal)[j]: s = str(vdd)
     replace_dict['pdcal{}'.format(j)] = s
 
+  replace_dict['vih'] = 0.95*vdd
+  replace_dict['vil'] = 0.05*vdd
+  
   gen_spice_script(template, name, replace_dict)
 
   # Launch NGspice
@@ -54,11 +57,9 @@ def sim_slew(template, name, pu_cal, pd_cal, temp, vdd, proc):
   data = {}
   with open('out/{name}/{name}.txt'.format(name=name), 'r') as d_file:
     l = d_file.readline()
-    #data['slew_up']   = round(0.2*vdd / float(l.split()[1]) / 1e9, 2) # V/ns
-    #data['slew_down'] = round(0.2*vdd / float(l.split()[3]) / 1e9, 2) # V/ns
     # charge_time = 3*25ohms*C
-    data['cap_charge']    = float(l.split()[1])/(3*25) / 1e12 # pF
-    data['cap_discharge'] = float(l.split()[1])/(3*25) / 1e12 # pF
+    data['cap_charge']    = round(float(l.split()[1])/(3*25) * 1e12, 3) # pF
+    data['cap_discharge'] = round(float(l.split()[1])/(3*25) * 1e12, 3) # pF
   return data
 
 

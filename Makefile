@@ -204,6 +204,18 @@ out/post_layout_sstl_6_slew_%/out.json: spice/post_layout_sstl_slew_tb.spice out
 	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
 	$(PYTHON) scripts/sim_sstl_slew.py --post-layout --num-leg-en 6 --voltage $(V) --temp $(T) --process $(P)
 
+# POST LAYOUT CAPACITANCE SIMULATIONS
+LAYOUT_SSTL_CAP_TARGETS:=$(addprefix out/post_layout_sstl_cap_, $(addsuffix /out.json,$(CORNS) ))
+
+.PHONY: post-layout-sstl-cap-sim
+post-layout-sstl-cap-sim: $(LAYOUT_SSTL_CAP_TARGETS)
+	$(PYTHON) scripts/sstl_cap_result.py --post-layout
+
+out/post_layout_sstl_cap_%/out.json: spice/post_layout_sstl_cap_tb.spice out/results/post_layout_sstl_pu_7_resistance.json out/results/post_layout_sstl_pd_7_resistance.json | out
+	$(eval T= `$(PYTHON) scripts/decode_corn_string.py $* t` )
+	$(eval V= `$(PYTHON) scripts/decode_corn_string.py $* v` )
+	$(eval P= `$(PYTHON) scripts/decode_corn_string.py $* p` )
+	$(PYTHON) scripts/sim_sstl_cap.py --post-layout --voltage $(V) --temp $(T) --process $(P)
 
 
 

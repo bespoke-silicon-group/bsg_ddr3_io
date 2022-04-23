@@ -58,9 +58,9 @@ set num_threads=6
 * RUN SIMULATION
 tran 1p 8n
 * Measure rise time
-meas tran tdiff_charge trig dq val=0.1 rise=1 targ dq val=SED_vdd_SED*0.95 rise=1
+meas tran tdiff_charge trig at=1n targ dq val=SED_vih_SED cross=1
 * Measure fall time
-meas tran tdiff_discharge trig dq val=SED_vdd_SED-0.1 fall=1 targ dq val=SED_vdd_SED*0.05 fall=1
+meas tran tdiff_discharge trig at=6n targ dq val=SED_vil_SED cross=1
 
 * OUTPUT
 wrdata ./out/SED_plotName_SED/SED_plotName_SED.txt tdiff_charge tdiff_discharge
