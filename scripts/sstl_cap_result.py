@@ -42,20 +42,24 @@ def main():
   # Print minimum capacitance
   min_cap_up   = min([x['cap_charge']    for x in all_data])
   min_cap_down = min([x['cap_discharge'] for x in all_data])
-  if min_cap_up != min_cap_down:
-    print('ERROR: charge and discharge capacitances did not match! Something went wrong in the sim...')  
-  idx = [x['cap_charge'] for x in all_data].index(min_cap_up)
+  min_cap = min([min_cap_up, min_cap_down])
+  if min_cap == min_cap_up:
+    idx = [x['cap_charge'] for x in all_data].index(min_cap_up)
+  else:
+    idx = [x['cap_discharge'] for x in all_data].index(min_cap_down)
   print('Minimum capacitance = {s} pF ({t}*C, {v}V, "{p}" process)'.format(
-    s=min_cap_up, t=all_data[idx]['temperature'], v=all_data[idx]['vdd'], p=all_data[idx]['process'])) 
+    s=min_cap, t=all_data[idx]['temperature'], v=all_data[idx]['vdd'], p=all_data[idx]['process'])) 
 
   # Print maximum capacitance
   max_cap_up   = max([x['cap_charge']    for x in all_data])
   max_cap_down = max([x['cap_discharge'] for x in all_data])
-  if max_cap_up != max_cap_down:
-    print('ERROR: charge and discharge capacitances did not match! Something went wrong in the sim...')  
-  idx = [x['cap_charge'] for x in all_data].index(max_cap_up)
+  max_cap = max([max_cap_up, max_cap_down])
+  if max_cap == max_cap_up:
+    idx = [x['cap_charge'] for x in all_data].index(max_cap_up)
+  else:
+    idx = [x['cap_discharge'] for x in all_data].index(max_cap_down)
   print('Maximum capacitance = {s} pF ({t}*C, {v}V, "{p}" process)'.format(
-    s=max_cap_up, t=all_data[idx]['temperature'], v=all_data[idx]['vdd'], p=all_data[idx]['process']))
+    s=max_cap, t=all_data[idx]['temperature'], v=all_data[idx]['vdd'], p=all_data[idx]['process']))
     
   print()
 

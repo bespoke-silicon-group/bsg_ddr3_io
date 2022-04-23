@@ -47,8 +47,8 @@ vpd_cal2 pd_cal[2] 0 SED_pdcal2_SED
 vpd_cal3 pd_cal[3] 0 SED_pdcal3_SED
 
 * INPUT SIGNAL
-*          vlow, vhigh, delay, risetime, falltime, pulsewidth, period, phase
-vvddq vddq 0 0 PULSE 0   SED_vdd_SED 1n 10p 10p 5n 10n 0
+*                vlow,       vhigh, delay, risetime, falltime, pulsewidth, period, phase
+vvddq vddq 0 0 PULSE 0 SED_vdd_SED  0.25n  10p       10p       2n          4n      0
 
 .control
 save all
@@ -56,11 +56,11 @@ set temp=SED_temp_SED
 set num_threads=6
 
 * RUN SIMULATION
-tran 1p 8n
+tran 1p 4.25n
 * Measure rise time
-meas tran tdiff_charge trig at=1n targ dq val=SED_vih_SED cross=1
+meas tran tdiff_charge    trig at=0.25n targ dq val=SED_vih_SED rise=1
 * Measure fall time
-meas tran tdiff_discharge trig at=6n targ dq val=SED_vil_SED cross=1
+meas tran tdiff_discharge trig at=2.25n targ dq val=SED_vil_SED fall=1
 
 * OUTPUT
 wrdata ./out/SED_plotName_SED/SED_plotName_SED.txt tdiff_charge tdiff_discharge

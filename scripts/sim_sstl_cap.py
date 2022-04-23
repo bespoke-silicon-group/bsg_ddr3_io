@@ -59,7 +59,7 @@ def sim_slew(template, name, pu_cal, pd_cal, temp, vdd, proc):
     l = d_file.readline()
     # charge_time = 3*25ohms*C
     data['cap_charge']    = round(float(l.split()[1])/(3*25) * 1e12, 3) # pF
-    data['cap_discharge'] = round(float(l.split()[1])/(3*25) * 1e12, 3) # pF
+    data['cap_discharge'] = round(float(l.split()[3])/(3*25) * 1e12, 3) # pF
   return data
 
 
