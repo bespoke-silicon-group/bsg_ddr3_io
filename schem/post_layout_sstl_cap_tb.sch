@@ -22,10 +22,10 @@ S {}
 E {}
 N 350 -360 380 -360 { lab=pu_cal[0:3]}
 N 350 -300 380 -300 { lab=pd_cal[0:3]}
-N 240 -270 380 -270 { lab=GND}
-N 240 -390 380 -390 { lab=GND}
 N 860 -330 920 -330 { lab=DQ}
 N 980 -330 1000 -330 { lab=VDDQ}
+N 320 -390 380 -390 { lab=pu_ctrl[0:6]}
+N 320 -270 380 -270 { lab=pd_ctrl[0:6]}
 C {devices/title.sym} 160 -30 0 0 {name=l1 author="Derek H-M"}
 C {devices/code.sym} 790 -200 0 0 {name=STIMULI 
 only_toplevel=true
@@ -33,6 +33,23 @@ place=end
 value="
 * power voltage
 vvdd VDD 0 SED_vdd_SED
+
+** LEG CONTROL **
+vpu_ctrl0 pu_ctrl[0] 0 SED_puctrl0_SED
+vpu_ctrl1 pu_ctrl[1] 0 SED_puctrl1_SED 
+vpu_ctrl2 pu_ctrl[2] 0 SED_puctrl2_SED 
+vpu_ctrl3 pu_ctrl[3] 0 SED_puctrl3_SED 
+vpu_ctrl4 pu_ctrl[4] 0 SED_puctrl4_SED 
+vpu_ctrl5 pu_ctrl[5] 0 SED_puctrl5_SED 
+vpu_ctrl6 pu_ctrl[6] 0 SED_puctrl6_SED 
+* PULLDOWN
+vpd_ctrl0 pd_ctrl[0] 0 SED_pdctrl0_SED
+vpd_ctrl1 pd_ctrl[1] 0 SED_pdctrl1_SED 
+vpd_ctrl2 pd_ctrl[2] 0 SED_pdctrl2_SED 
+vpd_ctrl3 pd_ctrl[3] 0 SED_pdctrl3_SED 
+vpd_ctrl4 pd_ctrl[4] 0 SED_pdctrl4_SED 
+vpd_ctrl5 pd_ctrl[5] 0 SED_pdctrl5_SED 
+vpd_ctrl6 pd_ctrl[6] 0 SED_pdctrl6_SED 
 
 ** CALIBRATION CONTROL **
 * PULLUP
@@ -90,5 +107,5 @@ m=1}
 C {schem/post_layout_SSTL.sym} 360 -210 0 0 {name=X1}
 C {devices/gnd.sym} 460 -210 0 0 {name=l19 lab=GND}
 C {devices/vdd.sym} 460 -450 0 0 {name=l20 lab=VDD}
-C {devices/gnd.sym} 240 -390 0 0 {name=l3 lab=GND}
-C {devices/gnd.sym} 240 -270 0 0 {name=l6 lab=GND}
+C {devices/lab_pin.sym} 320 -390 0 0 {name=l2 sig_type=std_logic lab=pu_ctrl[0:6]}
+C {devices/lab_pin.sym} 320 -270 0 0 {name=l3 sig_type=std_logic lab=pd_ctrl[0:6]}

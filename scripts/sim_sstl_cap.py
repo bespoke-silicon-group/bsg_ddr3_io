@@ -27,6 +27,16 @@ def sim_slew(template, name, pu_cal, pd_cal, temp, vdd, proc):
   replace_dict['temp']     = temp
   replace_dict['process']  = proc
 
+  num_leg_en = 0
+
+  # Total estimated resistance in RC circuit
+  #r_total = 1/( 1/(2*120*num_leg_en) * 1/(25.0))
+
+  for i in range(7): # 7 total pullup and pulldown legs
+    s = '0'
+    if i < num_leg_en: s = str(vdd)
+    replace_dict['puctrl{}'.format(i)] = s
+    replace_dict['pdctrl{}'.format(i)] = s
   for j in range(4): # 4 calibration fets for each leg
     s = '0'
     if cal2ctrl(pu_cal)[j]: s = str(vdd)
