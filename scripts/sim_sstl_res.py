@@ -9,10 +9,10 @@ import json
 def simCal(template, name, ctrl_dict, temp, vdd, proc):
   num_pd_en = 0
   for i in range(7): 
-    if ctrl_dict['pd'][i]['en'] == 1: num_pd_en += 1
+    if ctrl_dict['pd']['en'][i] == 1: num_pd_en += 1
   num_pu_en = 0
   for i in range(7): 
-    if ctrl_dict['pu'][i]['en'] == 1: num_pu_en += 1
+    if ctrl_dict['pu']['en'][i] == 1: num_pu_en += 1
   if (num_pd_en == 0) == (num_pu_en == 0):
     print('Only ONE of pullup or pulldown legs must be enabled for this sim!')
     exit()
@@ -30,8 +30,8 @@ def simCal(template, name, ctrl_dict, temp, vdd, proc):
     
     cal = floor((search_max+search_min)/2)
     ctrl_sig = cal2ctrl(cal)
-    for i in range(7): ctrl_dict['pu'][i]['cal'] = ctrl_sig
-    for i in range(7): ctrl_dict['pd'][i]['cal'] = ctrl_sig
+    ctrl_dict['pu']['cal'] = ctrl_sig
+    ctrl_dict['pd']['cal'] = ctrl_sig
     print('Trying cal = {c}: {a}'.format(c=cal, a=ctrl_sig))
     
     result = sstl_res_sim(template, outName=name, is_pulldown=is_pulldown, 
@@ -69,19 +69,23 @@ def main():
     help='process string for the sim')
   parser.add_argument('--num-leg-en', default=7, type=int,
     help='Number of enabled legs. (Sets the target resistance to "240/num_leg_en ohms")')
+  parser.add_argument('--post-layout', action='store_true',
+    help='Run post-layout simulation instead.')
   args = parser.parse_args()
 
-  tmp = 'schem/sstl_res_tb.spice' # Spice script template
+  # Set names based on simulation type
+  tmp = 'spice/sstl_res_tb.spice' # Original spice script template
+  outNameTmp = 'sstl_{d}_{n}_cal_sim_{t}_{v}_{p}'
+  if args.post_layout:
+    tmp = 'spice/post_layout_sstl_res_tb.spice' # Post-layout spice script template
+    outNameTmp = 'post_layout_sstl_{d}_{n}_cal_sim_{t}_{v}_{p}'
 
-  outName = 'sstl_{d}_{n}_cal_sim_{t}_{v}_{p}'.format(
+  outName = outNameTmp.format(
     d=args.dir, n=args.num_leg_en, t=args.temp, v=args.voltage, p=args.process)
 
-  ctrl_dict_default = {'pu':[ {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}],
-                       'pd':[ {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}, {'en':0, 'cal':[0,1,1,1]}]}
-
   # Set enables
-  ctrl_dict = ctrl_dict_default.copy()
-  for i in range(args.num_leg_en): ctrl_dict[args.dir][i]['en'] = 1
+  ctrl_dict = DEFAULT_CTRL_DICT.copy()
+  for i in range(args.num_leg_en): ctrl_dict[args.dir]['en'][i] = 1
   cal_result = simCal(tmp, outName, ctrl_dict, args.temp, args.voltage, args.process)
 
   # Save output

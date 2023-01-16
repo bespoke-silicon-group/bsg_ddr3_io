@@ -89,8 +89,8 @@ def sim_leg_res(template_script, outName, temp, gateVoltage, process, vdd=1.5, p
     return data
 
 
-default_ctrl_dict = {'pu':7*[{'en':0, 'cal':[0,0,0,0]}],
-                     'pd':7*[{'en':0, 'cal':[0,0,0,0]}]}
+DEFAULT_CTRL_DICT = {'pu':{'en':[0,0,0,0,0,0,0], 'cal':[0,0,0,0]},
+                     'pd':{'en':[0,0,0,0,0,0,0], 'cal':[0,0,0,0]}}
 
 def sstl_res_sim(template_script, outName, is_pulldown, temp, vddVoltage, process, ctrl_dict, plotName=''):
   if plotName == '':
@@ -103,18 +103,18 @@ def sstl_res_sim(template_script, outName, is_pulldown, temp, vddVoltage, proces
   replace_dict['process']  = process
   for i in range(7): # 7 pullup and pulldown legs
     s = '0'
-    if ctrl_dict['pu'][i]['en']: s = str(vddVoltage)
+    if ctrl_dict['pu']['en'][i]: s = str(vddVoltage)
     replace_dict['puctrl{}'.format(i)] = s    
     s = '0'
-    if ctrl_dict['pd'][i]['en']: s = str(vddVoltage)
+    if ctrl_dict['pd']['en'][i]: s = str(vddVoltage)
     replace_dict['pdctrl{}'.format(i)] = s
-    for j in range(4): # 4 calibration fets for each leg
-      s = '0'
-      if ctrl_dict['pu'][i]['cal'][j]: s = str(vddVoltage)
-      replace_dict['pucal{l}{n}'.format(l=i, n=j)] = s
-      s = '0'
-      if ctrl_dict['pd'][i]['cal'][j]: s = str(vddVoltage)
-      replace_dict['pdcal{l}{n}'.format(l=i, n=j)] = s
+  for j in range(4): # 4 calibration fets for every leg
+    s = '0'
+    if ctrl_dict['pu']['cal'][j]: s = str(vddVoltage)
+    replace_dict['pucal{}'.format(j)] = s
+    s = '0'
+    if ctrl_dict['pd']['cal'][j]: s = str(vddVoltage)
+    replace_dict['pdcal{}'.format(j)] = s
 
   gen_spice_script(template_script, outName, replace_dict)
 

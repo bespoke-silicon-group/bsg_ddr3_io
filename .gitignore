@@ -1,5 +1,10 @@
-cal_log.txt
-sstl_cal_log.txt
+lvs_result.txt
+layout/*.ext
+layout/*.spice
+layout/*.nodes
+layout/*.sim
+spice
 out
 tools
+pdk
 __pycache__

@@ -1,0 +1,26 @@
+v {xschem version=3.0.0 file_version=1.2 }
+G {}
+K {type=primitive
+format="@name @@DQ @VDD @@n_cal_ctrl[0:3] @@n_pu_ctrl p-leg_flat"
+template="name=X1 VDD=VDD"
+extra="VDD"}
+V {}
+S {}
+E {}
+L 4 460 -60 500 -60 {}
+L 4 20 -60 60 -60 {}
+L 4 20 -180 60 -180 {}
+B 5 497.5 -62.5 502.5 -57.5 {name=DQ
+dir=inout}
+B 5 17.5 -62.5 22.5 -57.5 {name=n_pu_ctrl
+dir=in}
+B 5 17.5 -182.5 22.5 -177.5 {name=n_cal_ctrl[0:3]
+dir=in}
+P 4 5 60 -200 460 -200 460 -40 60 -40 60 -200 {}
+T {Post-Layout
+240 Ohm 
+Pullup} 180 -190 0 0 0.8 0.8 {}
+T {DQ} 430 -70 0 0 0.3 0.3 {}
+T {n_pu_ctrl} 70 -70 0 0 0.3 0.3 {}
+T {n_cal_ctrl[0:3]} 70 -190 0 0 0.3 0.3 {}
+T {@name} 230 -230 0 0 0.3 0.3 {}
