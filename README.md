@@ -17,3 +17,6 @@ Directory structure:
 * `out`     Output directory for simulation results.
 * `tools`   Instillation directory for the open source DEA tools used for design and simulation.
 
+## Implementation
+
+This circuit was implemented in a Efabless MPW-5 project which can be found in ([this repo](https://github.com/derekcom17/caravel_user_project_ddr3_sstl)).
