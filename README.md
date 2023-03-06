@@ -2,7 +2,7 @@
 
 This repo contains a DDR3 SSTL driver circuit designed for the Skywater 130nm PDK.
 
-Introduction and design overview found [here](docs/DDR3_SSTL_Design.pdf).
+Introduction and design overview found [here](docs/).
 
 Installation simulation script instructions [here](docs/simulation_scripts.md).   
 PDK installation instructions found [here](docs/pdk_installation.md).
